@@ -2,7 +2,7 @@
 //let routes = express.Router();
 
 const index = {
-    usuarios = [
+    usuarios : [
         { nombre: 'Sam',
         raza: 'Border Collie',
         edad: 3,
@@ -29,7 +29,7 @@ const index = {
         cumpleanios: 10-02-2013,
         descripcion: 'Muy simpatica y cariñosa' }
     ],
-    posteos = [
+    posteos : [
         {
             nombreDeUsuario: 'sammito15',
             foto: '',
@@ -38,3 +38,4 @@ const index = {
     ]
     
 }
+module.exports= index;
