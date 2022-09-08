@@ -20,7 +20,9 @@ const userController={
     },
 
     detalleUsuario: function (req, res) {
-        res.render('detalleUsuario')
+        res.render('detalleUsuario', {
+            detalle: registro.usuarios
+        })
     }
 
     
