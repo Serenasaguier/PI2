@@ -9,146 +9,45 @@
 
     <main>
         <section class="center main-content" class="textoRegular" >
-            <article class="post"  >
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="/detalleUsuario.ejs"  class="textoRegular" >Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4 class="textoRegular" >Comentarios</h4>
-                    <ul>
+            <% for( let i = 0; i < mascotas.length; i++ ) { %>
+                <article class="post"  >
+                    <div class="info-usuario ">
+                        <img src="https://via.placeholder.com/40" alt="">
+                        <h4>
+                            <a href="/detalleUsuario.ejs"  class="textoRegular" ><%= mascotas[i].nombre %></a>
+                        </h4>
+                    </div>
+                    <div class="post-body">
+                        <a href="detallePost.html">
+                            <img src="https://via.placeholder.com/500x600" alt="">
+                        </a>
+                    </div>
+                    <ul class="post-reacciones">
                         <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
+                            <i class="fa-regular fa-heart"></i>
                         </li>
                         <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span  class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
+                            <i class="fa-regular fa-comment"></i>
                         </li>
-                        <a href="detallePost.html" class="textoRegular" >Ver más...</a>
                     </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4 class="textoRegular" >Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="detalleUsuario.html"  class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="detallePost.html" class="textoRegular" >Ver más...</a>
-                    </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4 class="textoRegular" >Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="detallePost.html" class="textoRegular" >Ver más...</a>
-                    </ul>
-                </div>
-            </article>
-            <article class="post">
-                <div class="info-usuario ">
-                    <img src="https://via.placeholder.com/40" alt="">
-                    <h4>
-                        <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                    </h4>
-                </div>
-                <div class="post-body">
-                    <a href="detallePost.html">
-                        <img src="https://via.placeholder.com/500x600" alt="">
-                    </a>
-                </div>
-                <ul class="post-reacciones">
-                    <li>
-                        <i class="fa-regular fa-heart"></i>
-                    </li>
-                    <li>
-                        <i class="fa-regular fa-comment"></i>
-                    </li>
-                </ul>
-                <div class="post-comentarios">
-                    <h4 class="textoRegular" >Comentarios</h4>
-                    <ul>
-                        <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <li>
-                            <a href="detalleUsuario.html" class="textoRegular" >Usuario</a>
-                            <span class="textoRegular" >Lorem, ipsum dolor sit amet consectetur adipisicing elit. Commodi</span>
-                        </li>
-                        <a href="detallePost.html" class="textoRegular" >Ver más...</a>
-                    </ul>
-                </div>
-            </article>
+                    <div class="post-comentarios">
+                        <h4 class="textoRegular" >Comentarios</h4>
+                        <ul>
+                            <li>
+                                <a href="detalleUsuario.html" class="textoRegular" ><%= mascotas[i].nombre %> :</a>
+                                <span class="textoRegular" ><%= mascotas[i].comentario %></span>
+                            </li>
+                            <li>
+                                <a href="detalleUsuario.html" class="textoRegular" ><%= mascotas[i].nombre %>: </a>
+                                <span  class="textoRegular" ><%= mascotas[i].comentario %></span>
+                            </li>
+                            <a href="detallePost.html" class="textoRegular" >Ver más...</a>
+                        </ul>
+                    </div>
+                </article>
+            <% } %> 
+            
+            
         </section>    
     </main>
 

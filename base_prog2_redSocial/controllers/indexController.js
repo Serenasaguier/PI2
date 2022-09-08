@@ -2,7 +2,9 @@ const mascotas = require("../db/mascotas");
 
 const controlador = {
     index: function (req, res) {
-       res.render('index')
+       res.render('index', {
+            mascotas: mascotas
+       })
     }, // para mostrar o listar recursos
     
     show: function (req, res) {
