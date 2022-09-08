@@ -15,6 +15,10 @@ const userController={
 
     editarPerfil: function (req, res) {
        res.render('editarPerfil')
+    },
+
+    detalleUsuario: function (req, res) {
+        res.render('detalleUsuario')
     }
 
     
