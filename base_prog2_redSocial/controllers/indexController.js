@@ -1,4 +1,4 @@
-const mascotas = require("../db/mascotas");
+const mascotas = require("../db/index");
 
 const controlador = {
     index: function (req, res) {
