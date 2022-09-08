@@ -1,8 +1,8 @@
-const mascotas = require("../db/mascotas");
+ const mascotas = require('../db/mascotas');
 
 const controlador = {
     index: function (req, res) {
-       
+      // return res.render('mascotas', {miLista: mascotas.usuarios})
     }, // para mostrar o listar recursos
     show: function (req, res) {
         
@@ -13,4 +13,4 @@ const controlador = {
 
 };
 
-module.exports = controlador;
+module.exports = controlador; 
