@@ -13,6 +13,7 @@
 
 .navBar{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    color: rgba(255, 255, 255, 0.844);
 }
 
 
@@ -27,6 +28,7 @@
 /*titulo*/
 .petSociety{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(255, 255, 255);
 }
 
 *{
@@ -57,7 +59,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(207, 0, 21, 0.811);
+    background-color: rgba(169, 0, 17, 0.811);
 }
 .main-nav {
     display: flex;
@@ -96,6 +98,9 @@ header {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+   
+    border-radius: 5%;
+    padding: 0,5%;
 }
 .menu li {
     margin: 0 8px;
@@ -133,7 +138,7 @@ main {
 .info-usuario,
 .post-reacciones,
 .post-comentarios {
-    padding: 10px 15px
+    padding: 10px 15px;
 }
 .info-usuario {
     display: flex;
@@ -162,7 +167,7 @@ main {
 }
 
 .post-comentarios{
-    background-color: rgba(255, 166, 0, 0.584);
+    background-color: rgba(136, 0, 0, 0.584);
 }
 .post-comentarios li {
     margin-bottom: 10px;
@@ -193,7 +198,7 @@ main {
     bottom: 0;
     left: 0;
     right: 0;
-    background-color: rgba(207, 0, 21, 0.811);
+    background-color: rgba(169, 0, 17, 0.811);
     border-top: 1px solid #ddd;
     padding: 20px 10px;
 }
