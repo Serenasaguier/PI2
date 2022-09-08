@@ -10,7 +10,9 @@ const userController={
     },
 
     miPerfil: function (req, res) {
-        res.render('miPerfil')
+        res.render('miPerfil', {
+            detalle : registro.usuarios
+        })
     },
 
     editarPerfil: function (req, res) {

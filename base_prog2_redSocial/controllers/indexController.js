@@ -1,9 +1,9 @@
-const mascotas = require("../db/index");
+const dataBase = require("../db/index");
 
 const controlador = {
     index: function (req, res) {
        res.render('index', {
-            mascotas: mascotas
+            mascotas: dataBase.usuarios
        })
     }, // para mostrar o listar recursos
     

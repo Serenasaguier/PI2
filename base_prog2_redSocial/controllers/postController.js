@@ -7,7 +7,9 @@ const postController={
  },
  
  detallePost: function (req, res) {
-    res.render('detallePost')
+    res.render('detallePost', {
+       posteos: posteos.usuarios
+    })
  }
 
 };
