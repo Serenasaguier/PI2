@@ -1,15 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The UdesSA Network</title>
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" 
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="/stylesheets/index.css"></head>
+    <%- include('../partials/head.ejs') %> 
 
 <body>
     <%- include('../partials/header.ejs') %> 
@@ -19,12 +11,12 @@
             <section class="top main-content">
                 <img class="profile" src="https://via.placeholder.com/100x100" alt="">
                 <div class="info-usuario">
-                    <p>Nombre de usuario</p> 
+                    <p class="textoRegular" >Nombre de usuario</p> 
                     <a class="follow" href="editarPerfil.html"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
-                        <li>100 post</li>
-                        <li>200 seguidores</li>
-                        <li>300 seguidos</li>
+                        <li class="textoRegular" >100 post</li>
+                        <li class="textoRegular" >200 seguidores</li>
+                        <li class="textoRegular" >300 seguidos</li>
                     </ul>
                 </div>
             </section>
