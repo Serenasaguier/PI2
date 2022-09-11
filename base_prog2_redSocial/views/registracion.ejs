@@ -9,15 +9,26 @@
     <main>
         <section class="center main-content">
         <h1 class="titles" >Regsitrate</h1>
-        <p class="textoRegular" >Crear el formulario para registrar un nuevo usuario.</p>
+        <form action="" method="get">
+           <div> <label class="registro"> Nombre: </label> <input type="text" name="user" value=""> </div>
+
+           <div> <label class="registro"> Raza: </label> <input type="text" name="breed" value=""></div>
+
+           <div> <label class="registro">Fecha de nacimiento: </label>  <input type="date" name="birthday" value=""></div>
+
+           <div> <label class="registro" for="user">Nombre de usuario: </label>  <input type="text" name="username" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
+
+            <div> <label class="registro" for="password">Contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su nueva contraseña"> </div>
+
+            <div><label class="registro" for="password">Repetir contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su contraseña nuevamente"> </div>
+
+        </form>
         </section>
     </main>
 
     <%- include('../partials/footer.ejs') %>
 
-    <form action="" method="get">
-        <input type="text" name="user" value="">
-    </form>
+    
 
 </body>
 

@@ -1,6 +1,7 @@
 const express= require('express');
 const router= express.Router();
 const userController=  require('../controllers/userControler');
+const registro = require('../db/index')
 
 router.get('/register', userController.registro);
 router.get('/login', userController.login);
@@ -9,3 +10,5 @@ router.get('/edit', userController.editarPerfil);
 router.get('/detailUser', userController.detalleUsuario);
 
 module.exports= router;
+
+// userController.detalleUsuario

@@ -1,4 +1,5 @@
 const registro= require('../db/index');
+const routes = require('../routes/user')
 
 const userController={
     registro: function (req, res) {
@@ -21,10 +22,10 @@ const userController={
 
     detalleUsuario: function (req, res) {
         res.render('detalleUsuario', {
-            detalle: registro.usuarios
-        })
-    }
-
+                    detalle: registro.usuarios
+                })
+            }
+            
+        }
     
-};
 module.exports= userController;

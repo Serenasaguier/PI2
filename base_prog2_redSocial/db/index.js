@@ -1,5 +1,5 @@
-//let express = require('express');
-//let routes = express.Router();
+let express = require('express');
+let routes = express.Router();
 
 // me parece que hay que poner los  posteos de cada usuario
 const index = {
