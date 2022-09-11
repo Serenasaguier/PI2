@@ -342,20 +342,8 @@ main {
     width: 100%;
 }
 
-/*FORMULARIOS*/
-
-.formulario{
-    display: flex;
-    flex-direction: column;   
-    max-width: 55%;
-    align-items: flex-start;
-}
-
 .registro{
-    margin-bottom: 10%;
-}
-.contenedor-form{
-    display: flex;
-    align-content:  flex-start;
-    margin-left: 10%;
+    color: black;
+    background-color: rgba(155, 128, 131, 0.126);
+    margin: 5%;
 }
