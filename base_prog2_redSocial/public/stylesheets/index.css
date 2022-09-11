@@ -340,3 +340,9 @@ main {
     justify-content: space-between;
     width: 100%;
 }
+
+.registro{
+    color: black;
+    background-color: rgba(155, 128, 131, 0.126);
+    margin: 5%;
+}
