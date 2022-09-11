@@ -314,6 +314,7 @@ main {
     margin-bottom: 30px;
     border-bottom: 1px solid #ddd;
     max-width: 500px;
+    color: #000;
 }
 .follow {
     padding: 3px 20px 7px;

@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('../partials/head.ejs') %> 
+    <%- include('./partials/head') %>  
 
 <body>
-    <%- include('../partials/header.ejs') %> 
+    <%- include('./partials/header') %> 
 
     <main>
         <div class="user-detail container">
             <section class="top main-content" class="textoRegular" >
-                <img class="profile" src="https://via.placeholder.com/100x100" alt="">
+                <img class="profile" src="<%= detalle[4].img %>" alt="" height="100px" width="100px">
                 <div class="info-usuario">
-                    <p> <%detalle[4].nombre%> </p> 
+                    <p > <%= detalle[4].nombre %> </p> 
                     <a class="follow" href="">seguir</a>
                     <ul class="meta">
                         <li>100 post</li>
@@ -35,7 +35,7 @@
         </div>
     </main>
 
-    <%- include('../partials/footer.ejs') %>
+    <%- include('./partials/footer') %> 
 </body>
 
 </html>
