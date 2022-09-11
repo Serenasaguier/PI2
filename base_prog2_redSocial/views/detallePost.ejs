@@ -10,10 +10,10 @@
         <div class="post-detail container">
             <section class="center main-content post" class="textoRegular" >
                 <div class="info-usuario">
-                    <img src="https://via.placeholder.com/40" alt="">
+                    <img src="<%= posteos[3].img %>" alt="" height="40px" width="40px">
                     <p><a href="/user/detailuser" ><%= posteos[3].nombre %></a></p>
                 </div>
-                <img class="photo" src="https://via.placeholder.com/500x600" alt="">
+                <img class="photo" src="<%= posteos[3].img %>" alt="" width="500px" height="600px">
             </section>
             <section class="right" class="textoRegular">
                 <h4  >Comentarios</h4>
@@ -27,7 +27,7 @@
                     <% for( let i = 0; i < posteos.length; i++ ) { %>
 
                         <article class="comment">
-                            <img src="https://via.placeholder.com/40" alt="">
+                            <img src="<%= posteos[i].img %>" alt="" height="40px" width="40px">
                             <section class="content">
                                 <a class="user" href="/user/detailuser"> <%= posteos[i].nombre %> </a>
                                 <span class="text"> <%= posteos[i].comentario %></span>
