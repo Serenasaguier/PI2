@@ -2,57 +2,64 @@
 <html lang="en">
 
 
-    <%- include('./partials/head') %>  
+<%- include('./partials/head') %>
 
-<body>
-    <%- include('./partials/header') %> 
+    <body>
+        <%- include('./partials/header') %>
 
-    <main>
-        <section class="center main-content" class="textoRegular" >
-            <% for( let i = 0; i < mascotas.length; i++ ) { %>
-                <article class="post"  >
-                    <div class="info-usuario ">
-                        <img src="<%= mascotas[i].fotoPerfil%>" alt="" height="50px" width="50px">
-                        <h4>
-                            <a href="/user/detailuser/<%= mascotas[i].id %>"  class="textoRegular" ><%= mascotas[i].nombreUsuario %></a>
-                        </h4>
-                    </div>
-                    <div class="post-body">
-                        <a href="/posteos/postdetail">
-                            <img src="" alt="">
-                        </a>
-                    </div>
-                    <ul class="post-reacciones">
-                        <li>
-                            <i class="fa-regular fa-heart"></i>
-                        </li>
-                        <li>
-                            <i class="fa-regular fa-comment"></i>
-                        </li>
-                    </ul>
-                    <div class="post-comentarios">
-                        <h4 class="textoRegular" >Comentarios</h4>
-                        <ul>
-                            <li>
-                                <a href="/user/detailuser" class="textoRegular" ></a>
-                                <span class="textoRegular" ></span>
-                            </li>
-                            <li>
-                                <a href="/user/detailuser" class="textoRegular" > </a>
-                                <span  class="textoRegular" ></span>
-                            </li>
-                            <a href="/posteos/postdetail" class="textoRegular" >Ver más...</a>
-                        </ul>
-                    </div>
-                </article>
-            <% } %> 
-            
-            
-        </section>    
-    </main>
+            <main>
+                <section class="center main-content" class="textoRegular">
+                    <% for( let i=0; i < mascotasPost.length; i++ ) { %>
+                        <article class="post">
+                            <div class="info-usuario ">
+                                <img src="<%= mascotasPost[i].fotoPerfil%>" alt="" height="50px" width="50px">
+                                <h4>
+                                    <a href="/user/detailuser/ <%  %> " class="textoRegular">
+                                        <%= mascotasPost[i].nombreUsuario %>
+                                    </a>
+                                </h4>
+                            </div>
+                            <div class="post-body">
+                                <a href="/posteos/postdetail">
+                                    <img src="<%=mascotasPost[i].imagen%>" alt="">
+                                </a>
+                            </div>
+                            <ul class="post-reacciones">
+                                <li>
+                                    <i class="fa-regular fa-heart"></i>
+                                </li>
+                                <li>
+                                    <i class="fa-regular fa-comment"></i>
+                                </li>
+                            </ul>
+                            <div class="post-comentarios">
+                                <h4 class="textoRegular">Comentarios</h4>
+                                <ul>
 
-    <%- include('./partials/footer') %> 
 
-</body>
+                                    <% for( let j=0; j < mascotasPost[i].comentarios.length; j++ ) { %>
+                                        <li>
+                                            <a href="/user/detailuser" class="textoRegular">
+                                                <%= mascotasPost[i].comentarios[j].autor %> :
+                                            </a>
+                                            <span class="textoRegular">
+                                                <%= mascotasPost[i].comentarios[j].comentario %>
+                                            </span>
+                                        </li>
+                                        <% } %>
+
+                                            <a href="/posteos/postdetail" class="textoRegular">Ver más...</a>
+                                </ul>
+                            </div>
+                        </article>
+                        <% } %>
+
+
+                </section>
+            </main>
+
+            <%- include('./partials/footer') %>
+
+    </body>
 
 </html>
