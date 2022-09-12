@@ -5,7 +5,7 @@ const controlador = {
        res.render('index', {
             mascotas: dataBase.usuarios,
             mascotasComent: dataBase.comentarios,
-            mascotasPost: dataBase.posteos,
+            mascotasPost: dataBase.posteos
        })
     }
 
