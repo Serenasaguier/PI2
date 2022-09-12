@@ -6,63 +6,63 @@ const index = {
     usuarios: [
 
         {
-            nombre: 'Sam',
-            raza: 'Border Collie',
-            edad: 3,
-            cumpleanios: 15 - 05 - 2019,
-            comentario: 'Que lindo!.',
+            id: 1,
+            nombreUsuario: 'toroloco',
+            img: '../images/canicheone.jpeg',
             seguidores: 100,
             seguidos: 90,
-            img: '../images/canicheone.jpeg'
+            idPosteos: []
         },
 
         {
-            nombre: 'Popi',
-            raza: 'Caniche Toy',
-            edad: 5,
-            cumpleanios: 04 - 04 - 2017,
-            comentario: 'Guapo!',
+            id: 2,
+            nombreUsuario: 'tamakito',
+            img: '../images/gatoone.jpeg',
             seguidores: 19,
             seguidos: 80,
-            img: '../images/gatoone.jpeg'
+            idPosteos: []
         },
         {
-            nombre: 'Capitán',
-            raza: 'Pastor Alemán',
-            edad: 4,
-            cumpleanios: 02 - 07 - 2018,
-            comentario: 'Me encanta esta foto',
+            id: 3,
+            nombreUsuario: 'mayo.nesa',
+            img: '../images/mayoone.jpeg',
             seguidores: 1020,
             seguidos: 10,
-            img: '../images/mayoone.jpeg'
+            idPosteos: []
         },
         {
-            nombre: 'Diana',
-            raza: 'Galgo',
-            edad: 6,
-            cumpleanios: 29 - 07 - 2016,
-            comentario: 'Capo',
+            id: 4,
+            nombreUsuario: 'pepita_jr',
+            img: '../images/pepaone.jpeg',
             seguidores: 190,
             seguidos: 320,
-            img: '../images/pepaone.jpeg'
+            idPosteos: []
         },
         {
-            nombre: 'Pepa',
-            raza: 'Jack Russel',
-            edad: 9,
-            cumpleanios: 10 - 02 - 2013,
-            comentario: 'Crack amigo',
+            id: 5,
+            nombreUsuario: 'quinto5',
+            img: '../images/pugone.jpeg',
             seguidores: 121,
             seguidos: 82,
-            img: '../images/pugone.jpeg'
+            idPosteos: []
         }
     ],
     posteos: [
         {
-            nombreDeUsuario: 'sammito15',
+            nombreDeUsuario: 'mayo.nesa',
             foto: '',
-            comentarios: 'Que lindo!'
+            
         }
+    ],
+    comentarios: [
+        {comentario: 'Me encanta esta foto',
+         autor: ''   
+        },
+        {comentario: 'Crack amigo',
+            autor: '',
+        }    ,
+        {comentarios: 'Que lindo!'},
+        {comentario: 'Capo'},
     ]
 
 }
