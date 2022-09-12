@@ -19,7 +19,7 @@
                     </div>
                     <div class="post-body">
                         <a href="/posteos/postdetail">
-                            <img src="<%= mascotas[i].img %>" alt="">
+                            <img src="<%= mascotasPost[i].img %>" alt="">
                         </a>
                     </div>
                     <ul class="post-reacciones">
@@ -34,12 +34,12 @@
                         <h4 class="textoRegular" >Comentarios</h4>
                         <ul>
                             <li>
-                                <a href="/user/detailuser" class="textoRegular" ><%= mascotas[i].nombre %> :</a>
-                                <span class="textoRegular" ><%= mascotas[i].comentario %></span>
+                                <a href="/user/detailuser" class="textoRegular" ><%= mascotasComent[i].autor %> :</a>
+                                <span class="textoRegular" ><%= mascotasComent[i].comentario1 %></span>
                             </li>
                             <li>
-                                <a href="/user/detailuser" class="textoRegular" ><%= mascotas[i].nombre %>: </a>
-                                <span  class="textoRegular" ><%= mascotas[i].comentario %></span>
+                                <a href="/user/detailuser" class="textoRegular" ><%= mascotasComent[i].autor %>: </a>
+                                <span  class="textoRegular" ><%= mascotasComent[i].comentario2 %></span>
                             </li>
                             <a href="/posteos/postdetail" class="textoRegular" >Ver más...</a>
                         </ul>
