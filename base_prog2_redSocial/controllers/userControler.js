@@ -34,7 +34,7 @@ const userController={
             
 
             obtenerUserId: function (req, res) {
-                let id= req.params.genero;
+                let id = req.params.id;
                 let resultados= router.obtenerUserId(id)
                 return res.render ('id',{
                     id: resultados

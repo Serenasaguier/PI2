@@ -3,18 +3,49 @@
 
 /* INDEX TRAIDO DEL PROYECTO BASE */
 
+.center{
+    margin-top: 50px;
+}
+
+.top{
+    border: 20px solid rgba(136, 0, 0, 0.584);
+}
+
+.button{
+    margin-left: 15px;
+}
+
+.login {
+    background-color: rgba(169, 0, 17, 0.811);
+    height: 250px;
+    border-radius: 20px;
+}
+
+.inputLogin{
+    width: 100px;
+    margin-top: 10px;
+}
+
+.registrar{
+    background-color: rgba(169, 0, 17, 0.811);
+    height: 300px;
+    width: 400px;
+    border-radius: 20px;
+}
+
 /* Tipografia para todos los titulos  */
 
 .titles {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
-    margin-left: -10%;
+    margin-left: 20px;
+    color: #000;
 }
 
 /* Tipografia para la barra de navegacion y el footer*/
 
 .navBar{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-    color: rgba(255, 255, 255, 0.844);
+    color: black;
 }
 
 
@@ -29,7 +60,7 @@
 /*titulo*/
 .petSociety{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(255, 255, 255);
+    color: black;
     
 }
 
@@ -129,11 +160,12 @@ main {
 /* post */
 .post{
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 10px;
+    border: 20px solid rgba(136, 0, 0, 0.584);
+    border-radius: 50px;
     color: #777;
     margin-bottom: 20px;
 }
+
 .post-body img {
     width: 100%;
 }
@@ -148,7 +180,6 @@ main {
     flex-direction: row;
     justify-content:flex-start;
     align-items: center;
-    background-color: rgba(169, 0, 0, 0.584);
 }
 .info-usuario img {
     margin-right: 10px;
@@ -161,16 +192,12 @@ main {
     flex-direction: row;
     flex-wrap: wrap;
     align-items: center;
-    background-color: rgba(136, 0, 0, 0.584);
 }
 .post-reacciones li{
     margin-right: 10px;
     font-size: 25px;
 }
 
-.post-comentarios{
-    background-color: rgba(136, 0, 0, 0.584);
-}
 .post-comentarios li {
     margin-bottom: 10px;
 }
@@ -228,6 +255,7 @@ main {
 }
 .post-detail .right {
     width: 34%;
+    margin-top: 100px;
 }
 .comments div {
     margin-top: 20px;
@@ -298,11 +326,11 @@ main {
     justify-content: space-between;
     padding: 0 40px;
     width: 70%;
+    
 }
 .user-detail .post{
     width: 200px;
-    padding: 5px 5px 20px 5px;
-    border-radius: 0;
+    border-radius: 20px ;
 }
 .user-detail .post img{
     width: 100%;
@@ -314,9 +342,9 @@ main {
     align-items: center;
     padding-bottom: 20px;
     margin-bottom: 30px;
-    border-bottom: 1px solid #ddd;
     max-width: 500px;
     color: #000;
+    border-radius: 20px ;
 }
 .follow {
     padding: 3px 20px 7px;
