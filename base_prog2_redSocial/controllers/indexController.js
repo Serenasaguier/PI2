@@ -3,7 +3,9 @@ const dataBase = require("../db/index");
 const controlador = {
     index: function (req, res) {
        res.render('index', {
-            mascotas: dataBase.usuarios
+            mascotas: dataBase.usuarios,
+            mascotasComent: dataBase.comentarios,
+            mascotasPost: dataBase.posteos
        })
     }, // para mostrar o listar recursos
     
