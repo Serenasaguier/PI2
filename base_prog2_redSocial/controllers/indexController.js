@@ -5,17 +5,9 @@ const controlador = {
        res.render('index', {
             mascotas: dataBase.usuarios,
             mascotasComent: dataBase.comentarios,
-            mascotasPost: dataBase.posteos
+            mascotasPost: dataBase.posteos,
        })
-    }, // para mostrar o listar recursos
-    
-    show: function (req, res) {
-        
-    }, // para mostrar el detalle de un recurso
-    
-    create: function (req, res) {
-        
-    }, // para mostrar el formulario de creacion de un recurso
+    }
 
 };
 

@@ -12,14 +12,14 @@
             <% for( let i = 0; i < mascotas.length; i++ ) { %>
                 <article class="post"  >
                     <div class="info-usuario ">
-                        <img src="<%= mascotas[i].img%>" alt="" height="50px" width="50px">
+                        <img src="<%= mascotas[i].fotoPerfil%>" alt="" height="50px" width="50px">
                         <h4>
                             <a href="/user/detailuser/<%= mascotas[i].id %>"  class="textoRegular" ><%= mascotas[i].nombre %></a>
                         </h4>
                     </div>
                     <div class="post-body">
                         <a href="/posteos/postdetail">
-                            <img src="<%= mascotasPost[i].img %>" alt="">
+                            <img src="<%= mascotasPost[i].imagen %>" alt="">
                         </a>
                     </div>
                     <ul class="post-reacciones">

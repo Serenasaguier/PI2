@@ -11,6 +11,7 @@ const postController={
     res.render('detallePost', {
        posteos: posteos.usuarios,
        comentarios: posteos.comentarios,
+       posteosFoto: posteos.posteos
     })
  }
 
