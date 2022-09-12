@@ -63,7 +63,7 @@ const index = {
         },{
             id: 4,
             id_usuario: 4,
-            img: '../images/pepa3.jpeg',
+            imagen: '../images/pepa3.jpeg',
             caption: 'mirenme de bebé!!!'
         },{
             id: 5,
