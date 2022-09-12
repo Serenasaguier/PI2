@@ -41,7 +41,7 @@ const index = {
         {
             id: 5,
             nombreUsuario: 'quinto5',
-            img: '../images/pugone.jpeg',
+            img: '../images/quinto1.jpeg',
             seguidores: 121,
             seguidos: 82,
             idPosteos: []
@@ -50,19 +50,52 @@ const index = {
     posteos: [
         {
             nombreDeUsuario: 'mayo.nesa',
-            foto: '',
+            img1: '../images/mayo2.jpeg',
+            img2: '../images/mayo3.jpeg'
             
+        },{
+            nombreDeUsuario: 'pepita_jr',
+            img1: '../images/pepatwo.jpeg',
+            img2: '../images/pepa3.jpeg'
+        },
+        {
+            nombreDeUsuario: 'tamakito',
+            img1: '../images/tamakito2.jpeg',
+            img2: '../images/tamakitothree.jpeg'
+        },
+        {
+            nombreDeUsuario: 'quinto5',
+            img1: '../images/quinto2.jpeg',
+            img2: '../images/quinto3.jpeg'
+        },
+        {
+            nombreDeUsuario: 'toro',
+            img1: '../images/toro2.jpeg',
+            img2: '../images/toro3.jpeg'
         }
     ],
     comentarios: [
-        {comentario: 'Me encanta esta foto',
-         autor: ''   
+        {comentario1: 'Me encanta esta foto',
+        comentario2: 'Deslumbrante loco',
+         autor: 'pepita_jr'   
         },
-        {comentario: 'Crack amigo',
-            autor: '',
+        {comentario1: 'Crack amigo',
+        comentario2: 'que lindo!',
+            autor: 'toroloco',
         }    ,
-        {comentarios: 'Que lindo!'},
-        {comentario: 'Capo'},
+        {comentario1: 'Que lindo!',
+        comentario2: 'Faaaaaa',
+        autor:' tamakito'},
+
+        {comentario1: 'Capo',
+        comentario2: ' que locura',
+        autor: 'mayo.nesa'},
+        {
+            comentario1:' Waw! ',
+            comentario2: 'esoooo',
+            autor: 'quinto5 '
+        }
+
     ]
 
 }
