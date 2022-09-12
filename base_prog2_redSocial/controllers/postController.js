@@ -7,8 +7,10 @@ const postController={
  },
  
  detallePost: function (req, res) {
+  
     res.render('detallePost', {
-       posteos: posteos.usuarios
+       posteos: posteos.usuarios,
+       comentarios: posteos.comentarios,
     })
  }
 
