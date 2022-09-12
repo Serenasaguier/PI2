@@ -8,70 +8,94 @@ const index = {
         {
             id: 1,
             nombreUsuario: 'toroloco',
-            img: '../images/canicheone.jpeg',
-            seguidores: 100,
-            seguidos: 90,
-            idPosteos: []
-        },
-
-        {
+            email: 'toroloco@gmail.com',
+            contrasenia: 'Toro2012',
+            fotoPerfil: '../images/canicheone.jpeg',
+            cumpleanios: 12-12-2012
+        },{
             id: 2,
             nombreUsuario: 'tamakito',
-            img: '../images/gatoone.jpeg',
-            seguidores: 19,
-            seguidos: 80,
-            idPosteos: []
-        },
-        {
+            email: 'tamak@gmail.com',
+            contrasenia: 'Tamak2022',
+            fotoPerfil: '../images/gatoone.jpeg',
+            cumpleanios: 15-02-2022
+        },{
             id: 3,
             nombreUsuario: 'mayo.nesa',
-            img: '../images/mayoone.jpeg',
-            seguidores: 1020,
-            seguidos: 10,
-            idPosteos: []
+            email: 'mayo@gmail.com',
+            contrasenia: 'Mayo2022',
+            fotoPerfil: '../images/mayoone.jpeg',
+            cumpleanios: 22-04-2022
         },
         {
             id: 4,
             nombreUsuario: 'pepita_jr',
-            img: '../images/pepaone.jpeg',
-            seguidores: 190,
-            seguidos: 320,
-            idPosteos: []
-        },
-        {
+            email: 'pepa@gmail.com',
+            contrasenia: 'Pepa2013',
+            fotoPerfil: '../images/pepaone.jpeg',
+            cumpleanios: 30-07-2013
+        },{
             id: 5,
             nombreUsuario: 'quinto5',
-            img: '../images/quinto1.jpeg',
-            seguidores: 121,
-            seguidos: 82,
-            idPosteos: []
+            email: 'quinto@gmail.com',
+            contrasenia: 'Quinto2017',
+            fotoPerfil: '../images/quinto1.jpeg',
+            cumpleanios: 12-05-2017
         }
     ],
     posteos: [
         {
-            nombreDeUsuario: 'mayo.nesa',
-            img1: '../images/mayo2.jpeg',
-            img2: '../images/mayo3.jpeg'
+            id: 1,
+            id_usuario: 3,
+            imagen: '../images/mayo2.jpeg',
+            caption: 'Jugando con mamá',
+        },{   
+            id: 2,
+            id_usuario: 3,
+            imagen: '../images/mayo3.jpeg',
+            caption: 'primer plano'
             
         },{
-            nombreDeUsuario: 'pepita_jr',
-            img1: '../images/pepatwo.jpeg',
-            img2: '../images/pepa3.jpeg'
+            id: 3,
+            id_usuario: 4,
+            imagen: '../images/pepatwo.jpeg',
+            caption: 'jajaja rockstar'
+        },{
+            id: 4,
+            id_usuario: 4,
+            img: '../images/pepa3.jpeg',
+            caption: 'mirenme de bebé!!!'
+        },{
+            id: 5,
+            id_usuario: 2,
+            imagen: '../images/tamakito2.jpeg',
+            caption: 'foto desde arriba por Joaco'
+        },{
+            id: 6,
+            id_usuario: 2,
+            imagen: '../images/tamakitothree.jpeg',
+            caption: 'Una foto que me sacó un fotografo el otro dia.'
         },
         {
-            nombreDeUsuario: 'tamakito',
-            img1: '../images/tamakito2.jpeg',
-            img2: '../images/tamakitothree.jpeg'
-        },
-        {
-            nombreDeUsuario: 'quinto5',
-            img1: '../images/quinto2.jpeg',
-            img2: '../images/quinto3.jpeg'
-        },
-        {
-            nombreDeUsuario: 'toro',
-            img1: '../images/toro2.jpeg',
-            img2: '../images/toro3.jpeg'
+            id: 7,
+            id_usuario: 5,
+            imagen: '../images/quinto2.jpeg',
+            caption: 'mamá me saco esta foto cuando le pedía un pedazo de torta.'
+        },{
+            id: 8,
+            id_usuario: 5,
+            imagen: '../images/quinto3.jpeg',
+            caption: 'DALE BOCA CAMPEON'
+        },{
+            id: 9,
+            id_usuario: 1,
+            imagen: '../images/toro2.jpeg',
+            caption: 'mojado :('
+        },{
+            id: 10,
+            id_usuario: 1,
+            imagen: '../images/toro3.jpeg',
+            caption: 'aahhh cuando me pelaron jajaa'
         }
     ],
     comentarios: [
