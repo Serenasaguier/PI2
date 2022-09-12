@@ -50,7 +50,7 @@ const index = {
     posteos: [
         {
             nombreDeUsuario: 'mayo.nesa',
-            foto: '',
+            img: '',
             
         }
     ],
