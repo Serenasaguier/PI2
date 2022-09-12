@@ -15,7 +15,7 @@
                     <img src="<%= posteos[3].fotoPerfil%>" alt="" height="40px" width="40px">
                     <p><a href="/user/detailuser" ><%= posteos[3].nombreUsuario %></a></p>
                 </div>
-                
+
                 <img class="photo" src="<%= posteosFoto[3].imagen %>" alt="" width="500px" height="600px">
             </section>
             <section class="right" class="textoRegular">
@@ -30,12 +30,16 @@
                     <% for( let i = 0; i < posteos.length; i++ ) { %>
 
                         <article class="comment">
+
                             <img src="<%= posteos[i].fotoPerfil %>" alt="" height="40px" width="40px">
+
                             <section class="content">
-                                <a class="user" href="/user/detailuser"> <%= posteos[i].nombreUsuario %> </a>
+
+                                <p><a class="user" href="/user/detailuser"> <%= posteos[i].nombreUsuario %> </a> :</p>
                                
                                 <span class="text"> <%= comentarios[i].comentario1 %></span>
                             </section>
+                            
                         </article>
                 
                         <% } %>

@@ -1,5 +1,7 @@
 const registro= require('../db/index');
-const routes = require('../routes/user')
+const router = require('../routes/user');
+const routes = require('../routes/user');
+
 
 const userController={
     registro: function (req, res) {
@@ -22,12 +24,23 @@ const userController={
     },
 
     detalleUsuario: function (req, res) {
+        
         res.render('detalleUsuario', {
                     detalle: registro.usuarios,
                     detalleImagen : registro.posteos
                 })
-            }
+            },
+        
             
-        }
+
+            obtenerUserId: function (req, res) {
+                let id= req.params.genero;
+                let resultados= router.obtenerUserId(id)
+                return res.render ('id',{
+                    id: resultados
+                });
+            }
+}
+   
     
 module.exports= userController;
