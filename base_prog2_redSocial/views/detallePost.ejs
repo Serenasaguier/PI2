@@ -24,18 +24,20 @@
                         <button type="submit"  >Comentar</button>
                     </form>
                     <div>
-                    <% for( let i = 0; i < posteos.length; i++ ) { %>
+                    
 
                         <article class="comment">
-                            <img src="<%= posteos[i].img %>" alt="" height="40px" width="40px">
+                            <img src="<%= posteo.img %>" alt="" height="40px" width="40px">
                             <section class="content">
                                 <a class="user" href="/user/detailuser"> <%= posteos[i].nombre %> </a>
                                
-                                <span class="text"> <%= posteos[i].comentario %></span>
+                                <% for( let i = 0; i < comentarios.length; i++ ) { %>
+                                    <span class="text"> <%= comentarios[i].comentario %></span>
+                                <% } %>
                             </section>
                         </article>
                 
-                        <% } %>
+                        
                        
                     </div>
                 </section>

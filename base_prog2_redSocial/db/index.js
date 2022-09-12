@@ -49,6 +49,7 @@ const index = {
     ],
     posteos: [
         {
+
             nombreDeUsuario: 'mayo.nesa',
             img1: '../images/mayo2.jpeg',
             img2: '../images/mayo3.jpeg'
@@ -75,26 +76,18 @@ const index = {
         }
     ],
     comentarios: [
-        {comentario1: 'Me encanta esta foto',
-        comentario2: 'Deslumbrante loco',
-         autor: 'pepita_jr'   
-        },
-        {comentario1: 'Crack amigo',
-        comentario2: 'que lindo!',
-            autor: 'toroloco',
-        }    ,
-        {comentario1: 'Que lindo!',
-        comentario2: 'Faaaaaa',
-        autor:' tamakito'},
-
-        {comentario1: 'Capo',
-        comentario2: ' que locura',
-        autor: 'mayo.nesa'},
         {
-            comentario1:' Waw! ',
-            comentario2: 'esoooo',
-            autor: 'quinto5 '
-        }
+            id_posteo : 1,
+            comentario: 'Me encanta esta foto',
+            autor: 'pepita_jr',
+            foto: '../images/mayoone.jpeg' 
+        },
+        {
+            id_posteo : 1,
+            comentario: 'Me encanta esta fotaasdasdasdo',
+            autor: 'pepita_asdasdasd',
+            foto: '../images/mayoone.jpeg' 
+        },
 
     ]
 
