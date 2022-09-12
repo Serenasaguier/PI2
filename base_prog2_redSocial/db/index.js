@@ -47,7 +47,7 @@ const index = {
         {
             id: 1,
             id_usuario: 3,
-            imagen: '/images/mayo2.png',
+            imagen: '/images/quinto2.jpeg',
             caption: 'Jugando con mamá',
             nombreUsuario: 'quinto5',
             fotoPerfil: '/images/quinto1.jpeg',
@@ -56,32 +56,32 @@ const index = {
                 id_posteo: 1,
                 comentario: 'Me encanta esta foto',
                 autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                fotoPerfil: '/images/pepatwo.jpeg'
             },{
                 id_posteo: 2,
-                comentario: 'Me encanta esta foto nada mas',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: 'Que copado',
+                autor: 'mayo.nesa',
+                fotoPerfil: '/images/mayoone.jpeg'
             },
         ]
         }, {
             id: 2,
             id_usuario: 3,
-            imagen: '/images/mayo3.png',
+            imagen: '/images/mayo2.png',
             caption: 'primer plano', 
-            nombreUsuario: 'quinto5',
-            fotoPerfil: '/images/quinto1.jpeg',
+            nombreUsuario: 'mayo.nesa',
+            fotoPerfil: '/images/mayoone.jpeg',
             comentarios : [ 
                 {
                 id_posteo: 1,
-                comentario: 'Me encanta esta foto',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: 'Divino!',
+                autor: 'quinto5',
+                fotoPerfil: '/images/quinto1.jpeg'
             },{
                 id_posteo: 2,
-                comentario: 'Me encanta esta foto nada mas',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: 'Donde estas?',
+                autor: 'tamakito',
+                fotoPerfil: '/images/gatoone.jpeg'
             },
         ]
 
@@ -90,57 +90,59 @@ const index = {
             id_usuario: 4,
             imagen: '/images/pepatwo.jpeg',
             caption: 'jajaja rockstar',
-            nombreUsuario: 'quinto5',
-            fotoPerfil: '/images/quinto1.jpeg',
+            nombreUsuario: 'pepita_jr',
+            fotoPerfil: '/images/pepaone.jpeg',
             comentarios : [ 
                 {
                 id_posteo: 1,
-                comentario: 'Me encanta esta foto',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: 'Wachi :)',
+                autor: 'toroloco',
+                fotoPerfil: '/images/canicheone.jpeg'
             },{
                 id_posteo: 2,
-                comentario: 'Me encanta esta foto nada mas',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: 'Que locura!',
+                autor: 'mayo.nesa',
+                fotoPerfil: '/images/mayoone.jpeg'
             },
         ]
         }, {
             id: 4,
             id_usuario: 4,
-            imagen: '/images/pepa3.jpeg',
-            caption: 'mirenme de bebé!!!', nombreUsuario: 'quinto5',
-            fotoPerfil: '/images/quinto1.jpeg',
+            imagen: '/images/tamakitothree.png',
+            caption: 'mirenme !!!', 
+            nombreUsuario: 'tamakito',
+            fotoPerfil: '/images/gatoone.jpeg',
             comentarios : [ 
                 {
                 id_posteo: 1,
-                comentario: 'Me encanta esta foto',
+                comentario: 'Me encanta esta !!',
                 autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                fotoPerfil: '/images/pepaone.jpeg'
             },{
                 id_posteo: 2,
-                comentario: 'Me encanta esta foto nada mas',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: ' nada mas lindo',
+                autor: 'quinto5',
+                fotoPerfil: '/images/quinto1.jpeg'
             },
         ]
         }, {
             id: 5,
             id_usuario: 2,
-            imagen: '/images/tamakito2.jpeg',
-            caption: 'foto desde arriba por Joaco', nombreUsuario: 'quinto5',
-            fotoPerfil: '/images/quinto1.jpeg',
+            imagen: '/images/toro2.jpeg',
+            caption: 'fotooooo', 
+            nombreUsuario: 'toroloco',
+            fotoPerfil: '/images/canicheone.jpeg',
             comentarios : [ 
                 {
                 id_posteo: 1,
-                comentario: 'Me encanta esta foto',
+                comentario: 'Lovely <3',
                 autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                fotoPerfil: '/images/pepaone.jpeg'
             },{
                 id_posteo: 2,
-                comentario: 'Me encanta esta foto nada mas',
-                autor: 'pepita_jr',
-                foto: '/images/mayoone.jpeg'
+                comentario: 'Faaa',
+                autor: 'quinto5',
+                fotoPerfil: '/images/quinto1.jpeg'
             },
         ]
         }
@@ -150,14 +152,60 @@ const index = {
             id_posteo: 1,
             comentario: 'Me encanta esta foto',
             autor: 'pepita_jr',
-            foto: '/images/mayoone.jpeg'
+            fotoPerfil: '/images/pepatwo.jpeg'
+        },
+        {
+            id_posteo: 2,
+            comentario: 'Que copado',
+            autor: 'mayo.nesa',
+            fotoPerfil: '/images/mayoone.jpeg'
         },
         {
             id_posteo: 1,
-            comentario: 'Me encanta esta fotaasdasdasdo',
-            autor: 'pepita_asdasdasd',
-            foto: '/images/mayoone.jpeg'
+            comentario: 'Lovely <3',
+            autor: 'pepita_jr',
+            fotoPerfil: '/images/pepaone.jpeg'
         },
+        {
+            id_posteo: 2,
+            comentario: 'Faaa',
+            autor: 'quinto5',
+            fotoPerfil: '/images/quinto1.jpeg'
+        },
+        {
+            id_posteo: 1,
+            comentario: 'Wachi :)',
+            autor: 'toroloco',
+            fotoPerfil: '/images/canicheone.jpeg'
+        },{
+            id_posteo: 2,
+            comentario: 'Que locura!',
+            autor: 'mayo.nesa',
+            fotoPerfil: '/images/mayoone.jpeg'
+        },
+        {
+            id_posteo: 1,
+            comentario: 'Divino!',
+            autor: 'quinto5',
+            fotoPerfil: '/images/quinto1.jpeg'
+        },{
+            id_posteo: 2,
+            comentario: 'Donde estas?',
+            autor: 'tamakito',
+            fotoPerfil: '/images/gatoone.jpeg'
+        },
+        {
+            id_posteo: 1,
+            comentario: 'Me encanta esta foto',
+            autor: 'pepita_jr',
+            fotoPerfil: '/images/pepatwo.jpeg'
+        },{
+            id_posteo: 2,
+            comentario: 'Que copado',
+            autor: 'mayo.nesa',
+            fotoPerfil: '/images/mayoone.jpeg'
+        }
+        
 
     ]
 

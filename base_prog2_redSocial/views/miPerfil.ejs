@@ -9,9 +9,9 @@
     <main>
         <div class="user-detail container">
             <section class="top main-content">
-                <img class="profile" src="<%= detalle[2].img %>" alt="" height="100px" width="100px" >
+                <img class="profile" src="<%= detalle[2].fotoPerfil %>" alt="" height="100px" width="100px" >
                 <div class="info-usuario">
-                    <p class="textoRegular" ><%= detalle[2].nombre %></p> 
+                    <p class="textoRegular" ><%= detalle[2].nombreUsuario %></p> 
                     <a class="follow" href="/user/edit"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
                         <li class="textoRegular" >100 post</li>
@@ -21,10 +21,10 @@
                 </div>
             </section>
             <section class="bottom">
-                <% for( let i = 0; i < detalle.length; i++ ) { %>
+                <% for( let i = 0; i < detalleImagen.length; i++ ) { %>
                     <article class="post">
                         <a href="/posteos/postdetail">
-                            <img src="<%= detalle[i].img %>" alt="">
+                            <img src="<%= detalleImagen[i].imagen %>" alt="">
                         </a>
                     </article>
                 <% } %> 

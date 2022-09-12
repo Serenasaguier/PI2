@@ -12,7 +12,8 @@ const userController={
 
     miPerfil: function (req, res) {
         res.render('miPerfil', {
-            detalle : registro.usuarios
+            detalle : registro.usuarios,
+            detalleImagen : registro.posteos
         })
     },
 
@@ -22,7 +23,8 @@ const userController={
 
     detalleUsuario: function (req, res) {
         res.render('detalleUsuario', {
-                    detalle: registro.usuarios
+                    detalle: registro.usuarios,
+                    detalleImagen : registro.posteos
                 })
             }
             
