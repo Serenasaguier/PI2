@@ -35,9 +35,16 @@ const userController={
 
             obtenerUserId: function (req, res) {
                 let id = req.params.id;
-                let resultados= router.obtenerUserId(id)
-                return res.render ('id',{
-                    id: resultados
+                let resultados = [];
+                for (let i = 0; i < registro.usuarios.length; i++) {
+                    if(registro.usuarios[i].id == id) {
+                        resultados.push(registro.usuarios[i])
+                    }     
+                }
+               
+                return res.render ('detalleUsuario',{
+                    detalle: resultados,
+                    detalleImagen: registro.posteos
                 });
             }
 }

@@ -5,6 +5,7 @@ const controlador = {
       //  let id = req.params.id
        res.render('index',  {
             mascotasPost: dataBase.posteos
+            
        })
     }
 

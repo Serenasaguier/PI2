@@ -46,7 +46,7 @@ const index = {
     posteos: [
         {
             id: 1,
-            id_usuario: 3,
+            id_usuario: 5,
             imagen: '/images/quinto2.jpeg',
             caption: 'Jugando con mamá',
             nombreUsuario: 'quinto5',
@@ -107,7 +107,7 @@ const index = {
         ]
         }, {
             id: 4,
-            id_usuario: 4,
+            id_usuario: 2,
             imagen: '/images/tamakitothree.png',
             caption: 'mirenme !!!', 
             nombreUsuario: 'tamakito',
@@ -127,7 +127,7 @@ const index = {
         ]
         }, {
             id: 5,
-            id_usuario: 2,
+            id_usuario: 1,
             imagen: '/images/toro2.jpeg',
             caption: 'fotooooo', 
             nombreUsuario: 'toroloco',

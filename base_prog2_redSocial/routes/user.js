@@ -10,7 +10,7 @@ router.get('/edit', userController.editarPerfil);
 router.get('/detailUser', userController.detalleUsuario);
 
 //ruta param
-router.get('detailUser/id/:id', userController.obtenerUserId)
+router.get('/detailUser/id/:id', userController.obtenerUserId)
 
 module.exports= router;
 
