@@ -7,20 +7,23 @@
     <%- include('./partials/header') %> 
 
     <main>
+        
         <div class="post-detail container">
 
             <section class="center main-content post" class="textoRegular" >
 
                 <div class="info-usuario">
-                    <img src="<%= posteos[3].fotoPerfil%>" alt="" height="40px" width="40px">
-                    <p><a href="/user/detailuser" ><%= posteos[3].nombreUsuario %></a></p>
+                    <img src="<%= detalle[0].fotoPerfil%>" alt="" height="40px" width="40px">
+                    <p><a href="/user/detailuser/id/<%=detalle[0].id_usuario%>" ><%= detalle[0].nombreUsuario %></a></p>
                 </div>
 
-                <img class="photo" src="<%= posteosFoto[3].imagen %>" alt="" width="500px" height="600px">
+                <img class="photo" src="<%= detalle[0].imagen %>" alt="" width="500px" height="600px">
             </section>
+            
+            
             <section class="right" class="textoRegular">
                 <h4  >Comentarios</h4>
-               
+                
                 <section class="comments"  >
                     <form action="" class="comment-form">
                         <input type="text" class="input" placeholder="Agregar comentario">

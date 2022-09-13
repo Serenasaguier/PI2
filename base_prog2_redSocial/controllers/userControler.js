@@ -37,14 +37,15 @@ const userController={
                 let id = req.params.id;
                 let resultados = [];
                 for (let i = 0; i < registro.usuarios.length; i++) {
-                    if(registro.usuarios[i].id == id) {
+                    if (registro.usuarios[i].id == id) {
                         resultados.push(registro.usuarios[i])
                     }     
                 }
                
                 return res.render ('detalleUsuario',{
                     detalle: resultados,
-                    detalleImagen: registro.posteos
+                    detalleImagen: registro.posteos,
+                    
                 });
             }
 }
