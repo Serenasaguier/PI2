@@ -7,10 +7,18 @@
     <%- include('./partials/header') %>  
 
     <main>
-        <section class="center main-content">
-        <h1 class="titles" >Editar perfil</h1>
-        <p class="textoRegular" >Crear el formulario para modificar los datos de perfil de un usuario.</p>
-        </section>
+        <section class="center main-content registrar editar">
+        <h1 class="titles" >Editar mi perfil</h1><form action="" method="get">
+            <div class="registro"> <label for="name"> Nuevo nombre: </label> <input type="text" name="user" value=""> </div>
+ 
+            <div class="registro"> <label for="user">Nuevo nombre de usuario: </label>  <input type="text" name="username" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
+ 
+             <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su nueva contraseña"> </div>
+ 
+             <div class="registro"><label for="password">Repetir contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su contraseña nuevamente"> </div>
+             <button type="submit" class="button"> <a href="/user/profile"> Enviar datos editados </a></button> 
+ 
+         </form> </section>
     </main>
 
     <%- include('./partials/footer') %> 
