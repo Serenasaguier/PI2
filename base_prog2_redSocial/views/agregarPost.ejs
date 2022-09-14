@@ -7,10 +7,16 @@
     <%- include('./partials/header') %> 
 
     <main>
-        <section class="center main-content">
-        <h1 class="titles" >Nuevo Post</h1>
-        <p class="textoRegular">Crear el formulario para cargar un nuevo posteo.</p>
-        </section>
+        <section class="center main-content registrar editar">
+            <h1 class="titles" >Nuevo post</h1><form action="" method="get">
+                <div class="registro"> <label for="name"> ID : </label> <input type="text" name="user" value=""> </div>
+     
+                <div class="registro"> <label for="user">Nombre de la imagen : </label>  <input type="text" name="username" value="" placeholder="Ingrese el nombre de la imagen"> </div>
+     
+                 <div class="registro"> <label for="password">Pie del post : </label>  <input type="text" name="password" value="" placeholder="Ingrese el pie del post"> </div>
+                 <button type="submit" class="button"> <a href="/user/profile"> Subir post </a></button> 
+     
+             </form> </section>
     </main>
 
     <%- include('./partials/footer') %>  

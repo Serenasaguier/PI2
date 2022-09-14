@@ -35,19 +35,15 @@
                         <article class="comment">
                             <a class="user" href="/user/detailuser/id/<%= posteos[i].id %> ">
                             <img src="<%= posteos[i].fotoPerfil %>" alt="" height="40px" width="40px">
-                            
-                          
-                            
-                            
+
                             <section class="content">
-
-                                <p> hola:</p>
-                               
-                                <span class="text"> <%=  %></span>
+                                <a href="/user/detailuser/id/ <%= posteos[i].id  %> "> <%= posteos[i].nombreUsuario  %> : </a>
+                                <span class="text">
+                                    <%= comentarios[i].comentario  %>
+                                </span>
                             </section>
-                        </a>
-
-                        </article>
+                            </a>
+                         </article>
                 
                         <% } %>
                        
