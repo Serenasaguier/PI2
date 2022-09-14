@@ -33,19 +33,19 @@
                     <% for( let i = 0; i < posteos.length; i++ ) { %>
 
                         <article class="comment">
-
+                            <a class="user" href="/user/detailuser/id/<%= posteos[i].id %> ">
                             <img src="<%= posteos[i].fotoPerfil %>" alt="" height="40px" width="40px">
                             
-                            <% for( let j = 0; j < posteos[i].length; j++ ) { %>
+                          
                             
                             
                             <section class="content">
 
-                                <p><a class="user" href="/user/detailuser/id/ <%=posteos[i].comentarios[j].id_posteo %>"> <%= posteos[i].comentarios[j].autor %> </a> :</p>
+                                <p> hola:</p>
                                
-                                <span class="text"> <%= posteos[i].comentarios[j].comentario %></span>
+                                <span class="text"> <%=  %></span>
                             </section>
-                            <% } %>
+                        </a>
 
                         </article>
                 
