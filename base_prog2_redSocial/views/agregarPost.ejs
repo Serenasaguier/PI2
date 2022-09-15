@@ -10,9 +10,17 @@
         <section class="center main-content registrar editar">
             <h1 class="titles" >Nuevo post</h1><form action="" method="get">
                 <div class="registro"> <label for="name"> ID : </label> <input type="text" name="user" value=""> </div>
-     
-                <div class="registro"> <label for="user">Nombre de la imagen : </label>  <input type="text" name="username" value="" placeholder="Ingrese el nombre de la imagen"> </div>
-     
+                
+                <div class="registro">
+                <form  action="/user/buscador" method="post"  target="_blank">
+                    <p>
+                      Subir achivo : 
+                      <input type="file" name="archivosubido">
+                      <input type="submit" value="Enviar datos">
+                    </p>
+                  </form> 
+                </div>
+
                  <div class="registro"> <label for="password">Pie del post : </label>  <input type="text" name="password" value="" placeholder="Ingrese el pie del post"> </div>
                  <button type="submit" class="button"> <a href="/user/profile"> Subir post </a></button> 
      
