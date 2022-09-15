@@ -22,14 +22,14 @@
             </section>
             <section class="bottom">
 
-    
+    <% for(i=0, i< detallePost.length, i++){ %> 
         <article class="post">
-                    <a href="/posteos/postdetail/id/ <%=detallePost[0].id  %> ">
-                        <img src= "<%= detallePost[0].imagen %>" alt="">
+                    <a href="/posteos/postdetail/id/ <%=detallePost[i].id  %> ">
+                        <img src= "<%= detallePost[i].imagen %>" alt="">
                     </a>
                     
                 </article>
-    
+    <% } %> 
     
 
                 
