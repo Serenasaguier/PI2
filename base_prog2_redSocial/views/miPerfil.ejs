@@ -21,12 +21,13 @@
                 </div>
             </section>
             <section class="bottom">
-                
+                <% for( let i = 0; i < 2; i++ ) { %>
                     <article class="post">
-                        <a href="/posteos/postdetail/id/ <%=detalleImagen[2].id  %> ">
+                        <a href="/posteos/postdetail/id/ <%=detalleImagen[2].id_usuario  %> ">
                             <img src= "<%= detalleImagen[2].imagen %>" alt="">
                         </a>
                     </article>
+                <% } %>
               
             </section>
         </div>
@@ -34,5 +35,4 @@
 
     <%- include('./partials/footer') %> 
 </body>
-
 </html>

@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 
-    <%- include('./partials/head') %>  
+<%- include('./partials/head') %>
 
-<body>
-    <%- include('./partials/header') %> 
+    <body>
+        <%- include('./partials/header') %>
 
-    <main>
-        <div class="user-detail container">
-            <section class="top main-content" class="textoRegular" >
-                <img class="profile" src="<%= detalle[0].fotoPerfil %>" alt="" height="100px" width="150px">
-                <div class="info-usuario">
-                    <p > <%= detalle[0].nombreUsuario %> </p> 
-                    <a class="follow" href="">seguir</a>
-                    <ul class="meta">
-                        <li>100 post</li>
-                        <li> 88 seguidores</li>
-                        <li> 101 seguidos</li>
-                    </ul>
+            <main>
+                <div class="user-detail container">
+                    <section class="top main-content" class="textoRegular">
+                        <img class="profile" src="<%= detalle[0].fotoPerfil %>" alt="" height="100px" width="150px">
+                        <div class="info-usuario">
+                            <p>
+                                <%= detalle[0].nombreUsuario %>
+                            </p>
+                            <a class="follow" href="">seguir</a>
+                            <ul class="meta">
+                                <li>100 post</li>
+                                <li> 88 seguidores</li>
+                                <li> 101 seguidos</li>
+                            </ul>
+                        </div>
+                    </section>
+                    <section class="bottom">
+                        <% for( let i=0; i < detallePost.length; i++ ) { %>
+                            <article class="post">
+                                <a href="/posteos/postdetail/id/ <%=detallePost[i].id  %> ">
+                                    <img src="<%= detallePost[i].imagen %>" alt="">
+                                </a>
+
+                            </article>
+                            <% } %>
+
+                    </section>
                 </div>
-            </section>
-            <section class="bottom">
+            </main>
 
-    <% for(i=0, i< detallePost.length, i++){ %> 
-        <article class="post">
-                    <a href="/posteos/postdetail/id/ <%=detallePost[i].id  %> ">
-                        <img src= "<%= detallePost[i].imagen %>" alt="">
-                    </a>
-                    
-                </article>
-    <% } %> 
-    
-
-                
-            </section>
-        </div>
-    </main>
-
-    <%- include('./partials/footer') %> 
-</body>
+            <%- include('./partials/footer') %>
+    </body>
 
 </html>
-
