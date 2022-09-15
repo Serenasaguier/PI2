@@ -54,11 +54,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 1,
+                id_autor: 4,
                 comentario: 'Me encanta esta foto',
                 autor: 'pepita_jr',
                 fotoPerfil: '/images/pepatwo.jpeg'
             },{
                 id_posteo: 1,
+                id_autor: 3,
                 comentario: 'Que copado',
                 autor: 'mayo.nesa',
                 fotoPerfil: '/images/mayoone.jpeg'
@@ -75,11 +77,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 6,
+                id_autor: 4,
                 comentario: 'Me encanta esta foto',
                 autor: 'pepita_jr',
                 fotoPerfil: '/images/pepatwo.jpeg'
             },{
                 id_posteo: 6,
+                id_autor: 3,
                 comentario: 'Que copado',
                 autor: 'mayo.nesa',
                 fotoPerfil: '/images/mayoone.jpeg'
@@ -95,11 +99,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 2,
+                id_autor: 5,
                 comentario: 'Divino!',
                 autor: 'quinto5',
                 fotoPerfil: '/images/quinto1.jpeg'
             },{
                 id_posteo: 2,
+                id_autor: 2,
                 comentario: 'Donde estas?',
                 autor: 'tamakito',
                 fotoPerfil: '/images/gatoone.jpeg'
@@ -117,11 +123,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 7,
+                id_autor: 5,
                 comentario: 'Divino!',
                 autor: 'quinto5',
                 fotoPerfil: '/images/quinto1.jpeg'
             },{
                 id_posteo: 7,
+                id_autor: 2,
                 comentario: 'Donde estas?',
                 autor: 'tamakito',
                 fotoPerfil: '/images/gatoone.jpeg'
@@ -138,11 +146,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 3,
+                id_autor: 1,
                 comentario: 'Wachi :)',
                 autor: 'toroloco',
                 fotoPerfil: '/images/canicheone.jpeg'
             },{
                 id_posteo: 3,
+                id_autor: 3,
                 comentario: 'Que locura!',
                 autor: 'mayo.nesa',
                 fotoPerfil: '/images/mayoone.jpeg'
@@ -158,11 +168,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 8,
+                id_autor: 1,
                 comentario: 'Wachi :)',
                 autor: 'toroloco',
                 fotoPerfil: '/images/canicheone.jpeg'
             },{
                 id_posteo: 8,
+                id_autor: 3,
                 comentario: 'Que locura!',
                 autor: 'mayo.nesa',
                 fotoPerfil: '/images/mayoone.jpeg'
@@ -178,11 +190,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 4,
+                id_autor: 4,
                 comentario: 'Me encanta esta !!',
                 autor: 'pepita_jr',
                 fotoPerfil: '/images/pepaone.jpeg'
             },{
                 id_posteo: 4,
+                id_autor: 5,
                 comentario: ' nada mas lindo',
                 autor: 'quinto5',
                 fotoPerfil: '/images/quinto1.jpeg'
@@ -198,11 +212,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 9,
+                id_autor: 4,
                 comentario: 'Me encanta esta !!',
                 autor: 'pepita_jr',
                 fotoPerfil: '/images/pepaone.jpeg'
             },{
                 id_posteo: 9,
+                id_autor: 5,
                 comentario: ' nada mas lindo',
                 autor: 'quinto5',
                 fotoPerfil: '/images/quinto1.jpeg'
@@ -218,11 +234,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 5,
+                id_autor: 4,
                 comentario: 'Lovely <3',
                 autor: 'pepita_jr',
                 fotoPerfil: '/images/pepaone.jpeg'
             },{
                 id_posteo: 5,
+                id_autor: 5,
                 comentario: 'Faaa',
                 autor: 'quinto5',
                 fotoPerfil: '/images/quinto1.jpeg'
@@ -239,11 +257,13 @@ const index = {
             comentarios : [ 
                 {
                 id_posteo: 10,
+                id_autor: 4,
                 comentario: 'Lovely <3',
                 autor: 'pepita_jr',
                 fotoPerfil: '/images/pepaone.jpeg'
             },{
                 id_posteo: 10,
+                id_autor: 5,
                 comentario: 'Faaa',
                 autor: 'quinto5',
                 fotoPerfil: '/images/quinto1.jpeg'
