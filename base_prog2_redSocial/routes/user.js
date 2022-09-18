@@ -1,5 +1,6 @@
 const express= require('express');
 const router= express.Router();
+
 const userController=  require('../controllers/userControler');
 const registro = require('../db/index')
 
