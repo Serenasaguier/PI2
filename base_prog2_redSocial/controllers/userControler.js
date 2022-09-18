@@ -1,6 +1,5 @@
 const registro= require('../db/index');
-const router = require('../routes/user');
-const routes = require('../routes/user');
+
 
 
 const userController={
@@ -60,18 +59,3 @@ const userController={
     
 module.exports= userController;
 
-//                       
-
-/* obtenerPostsId: function (req, res) {
-        let id = req.params.id;
-        let resultadosPost = [];
-        for (let i = 0; i < registro.posteos.length; i++) {
-            if (registro.posteos[i].id_usuario == id) {
-                resultadosPost.push(registro.posteos)
-            }
-                
-        };
-        return res.render('detalleUsuario', {
-            detallePost: resultadosPost
-        });
-    } */
