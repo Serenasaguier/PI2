@@ -1,6 +1,26 @@
+
+const db =  require("../database/models");
+let Post = db.Post;
+
+ const indexController = {
+     index: (req, res) => {
+        Post.findAll().
+                        then((resultados) => {
+                            return res.render('index', {mascotas :resultados })
+                        }).catch((error)=> {
+                            console.log(error);
+                        })
+     }
+ }
+
+module.exports = indexController;
+
+
+ /* lo de la primera parte 
+
  const dataBase = require("../db/index");
 
-const controlador = {
+ const controlador = {
     index: function (req, res) {
        res.render('index',  {
             mascotasPost: dataBase.posteos
@@ -15,13 +35,13 @@ const controlador = {
 buscador : (req ,res) => {
     console.log(req.query.mascota)
 }
-*/
+
     }
 
 
-};
+};*/
 
-module.exports = controlador;
+
 
 
 /* SEGUNDA PARTE
@@ -42,16 +62,7 @@ db.models.findAll({
     ]
 }).then (resultados => {
     //el codigo
-})
-
-
-const indexController = {
-    index : function (req, res){
-        post.findAll().
-                then((resultados) => {
-                    return res.render("index", { mascotasPost : resultados} )
-                })
-    },
+}) 
 
     ESTE DE SHOW SOLO NO ESTOY MUY SEGURA NI SI LO HICE BIEN NI COMO SIRVE NI NADA
     show : (req, res) => {
@@ -89,9 +100,5 @@ const indexController = {
 
 module.exports = indexController;
 
-
-esto es para la busqueda
-
-sh
 
 */

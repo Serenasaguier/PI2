@@ -42,16 +42,17 @@ module.exports = function (sequelize, dataTypes) {
     //crear el metodo define con los tres parametros
     let Pet = sequelize.define( alias, cols, config);
 
-    //crar las relaciones
+    /*crear las relaciones
     Pet.associate = function (models) {
         Pet.hasMany(models.Post, { 
-            as:'Post'
+            as:'Post',
             // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus posteos
         }),
         Pet.hasMany(models.Comentario,{
             as:'Comentario'
+            // foreignKey
         })
-    }
+    } */
 
     //retornar el valor del modelo
     return Pet;

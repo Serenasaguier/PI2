@@ -8,7 +8,7 @@ module.exports = function (sequelize, dataTypes) {
 
     //creo la variable con la estructura de la tabla ( en este caso de usuario)
     let cols = {
-        id: {
+         id: {
             autoIncrement : true,
             primaryKey : true, 
             type: dataTypes.INTEGER
@@ -39,20 +39,22 @@ module.exports = function (sequelize, dataTypes) {
     }
 
     //crear el metodo define con los tres parametros
-    let Pet = sequelize.define( alias, cols, config);
+    let Comentario = sequelize.define( alias, cols, config);
 
-// para relacionar 
+/*  para relacionar 
 Comentario.associate = function (models) {
     Comentario.belongsTo(models.Usuario, { 
-        as:'Usuario'
-        // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus comentarios
-    }),
+        as:'Usuario',
+         // foreignKey:  
+        }),
     Comentario.belongsTo(models.Post, { 
-        as:'Post'
+        as:'Post',
+         // foreignKey: 
+
     })
 
- }    
+ }     */
 
     //retornar el valor del modelo
-    return Pet;
+    return Comentario;
 }

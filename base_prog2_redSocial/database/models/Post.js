@@ -3,7 +3,7 @@
 module.exports = function (sequelize, dataTypes) {
 
     //creo un alias para que sequelize sepa con que modelo debe conectarse
-    let alias = " Post "; //nosotros vamos a tener 3 alias : post, comentarios, usuarios
+    let alias = "Post"; //nosotros vamos a tener 3 alias : post, comentarios, usuarios
     // el alias es el nombre con que sequelize va   identificar este modelo, si yo le puse Post, el archivo tiene que estar escrito IGUAL 
     // IMPORTANTE : el alias tiene que ser llamado desde el controlador
 
@@ -29,24 +29,25 @@ module.exports = function (sequelize, dataTypes) {
 
     let config = {
         tableName : "posteos",
-        timestamps : true, 
+        timestamps : false, 
         underscored : true //para determinar si la tabla tiene en su nombre un guion bajo
     }
 
     //crear el metodo define con los tres parametros
-    let Pet = sequelize.define( alias, cols, config);
+    let Post = sequelize.define( alias, cols, config);
 
-    //crear las relaciones
+    /*crear las relaciones*/
     Post.associate = function (models) {
         Post.belongsTo(models.Usuario, { 
-            as:'Usuario'
-            // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus posteos
+            as:'usuarioPost',
+             foreignKey: 'id_usuario'
         })
         Post.hasMany(models.Comentario, {
-            as: 'Comentario'
+            as: 'Comentario',
+            foreignKey : 'id_posteo'
         } )
     }
 
     //retornar el valor del modelo
-    return Pet;
+    return Post;
 }
