@@ -1,4 +1,10 @@
 const registro= require('../db/index');
+/*SEGUNDA PARTE 
+
+const db = require ('../database/models')
+
+
+*/
 
 
 

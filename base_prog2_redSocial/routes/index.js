@@ -6,6 +6,9 @@ const controller = require('../controllers/indexController')
 /* GET home page. */
 router.get('/', controller.index);
 
+/* ruta del buscador SEGUNDA PARTE 
+router.get('/busqueda/:id', controller.showOne); */
+
 
 
 
