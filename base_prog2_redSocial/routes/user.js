@@ -13,6 +13,12 @@ router.get('/detailUser', userController.detalleUsuario);
 //ruta param
 router.get('/detailUser/id/:id', userController.obtenerUserId)
 
+/* Ruta por post que procesa la info del formulario
+
+router.post('/miPerfil', userController.login)
+
+*/
+
 module.exports= router;
 
 // userController.detalleUsuario

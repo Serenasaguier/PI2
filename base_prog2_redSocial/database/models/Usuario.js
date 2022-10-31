@@ -44,9 +44,12 @@ module.exports = function (sequelize, dataTypes) {
 
     //crar las relaciones
     Pet.associate = function (models) {
-        Pet.belongsTo(models.Post, { 
-            as:'posteos',
+        Pet.hasMany(models.Post, { 
+            as:'Post'
             // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus posteos
+        }),
+        Pet.hasMany(models.Comentario,{
+            as:'Comentario'
         })
     }
 

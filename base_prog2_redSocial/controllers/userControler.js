@@ -15,6 +15,14 @@ const userController={
 
     login: function (req, res) {
         res.render('login')
+        /* para capturar la info con post
+        
+        (req, res) => {
+            console.log(req.body)
+            res.redirect('/miPerfil')
+        }
+        
+        */
     },
 
     miPerfil: function (req, res) {

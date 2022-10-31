@@ -10,8 +10,14 @@ const controlador = {
     buscador: function (req, res) {
         res.render('resultadoBusqueda',{
             
-        })
+        })    
+/* Creo que esto es lo que hay que hacer para el buscador
+buscador : (req ,res) => {
+    console.log(req.query.mascota)
+}
+*/
     }
+
 
 };
 
@@ -24,6 +30,20 @@ module.exports = controlador;
  const db = require('../database/models');
  const post = db.Post; 
  const op = db.Sequelize.Op;
+
+
+para las relaciones 
+db.models.findAll({
+    include:[
+        {association : "Usuario" },
+        {association : "Post"},
+        {association : "Comentario",
+        include:[{association:'Usuario'}]}
+    ]
+}).then (resultados => {
+    //el codigo
+})
+
 
 const indexController = {
     index : function (req, res){

@@ -38,12 +38,15 @@ module.exports = function (sequelize, dataTypes) {
 
     //crear las relaciones
     Post.associate = function (models) {
-        Post.hasMany(models.Usuario, { 
-            as:'usuarios',
-            // foreignKey:  falta poner una ofreign key para que se relacione un usuario con sus posteos
+        Post.belongsTo(models.Usuario, { 
+            as:'Usuario'
+            // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus posteos
         })
+        Post.hasMany(models.Comentario, {
+            as: 'Comentario'
+        } )
     }
 
     //retornar el valor del modelo
-    return Post;
+    return Pet;
 }

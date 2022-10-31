@@ -41,6 +41,18 @@ module.exports = function (sequelize, dataTypes) {
     //crear el metodo define con los tres parametros
     let Pet = sequelize.define( alias, cols, config);
 
+// para relacionar 
+Comentario.associate = function (models) {
+    Comentario.belongsTo(models.Usuario, { 
+        as:'Usuario'
+        // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus comentarios
+    }),
+    Comentario.belongsTo(models.Post, { 
+        as:'Post'
+    })
+
+ }    
+
     //retornar el valor del modelo
     return Pet;
 }
