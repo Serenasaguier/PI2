@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-const controller = require('../controllers/indexController')
+const indexController = require('../controllers/indexController')
 
 
 /* GET home page. */
-router.get('/', controller.index);
+router.get('/', indexController.index);
+router.get('/resultados', indexController.buscador)
 
 /* ruta del buscador SEGUNDA PARTE 
 router.get('/busqueda/:id', controller.showOne); */

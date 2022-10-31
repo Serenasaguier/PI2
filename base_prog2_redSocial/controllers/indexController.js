@@ -6,6 +6,11 @@ const controlador = {
             mascotasPost: dataBase.posteos
             
        })
+    },
+    buscador: function (req, res) {
+        res.render('resultadoBusqueda',{
+            
+        })
     }
 
 };
