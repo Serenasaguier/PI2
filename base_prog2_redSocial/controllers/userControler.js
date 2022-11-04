@@ -10,20 +10,22 @@ const userController = {
     },
     store: (req, res)=> {
         let guardarUsuario = req.body
-        let imagenPerfil = req.file.filename;
+        let fotoPerfil = req.file.filename;
 
         /* para guardarlo en la base de datos */
         let user = {
             nombreUsuario: guardarUsuario.nombreUsuario,
             email: guardarUsuario.email,
             contrasenia: bycript.hashSync(guardarUsuario.contrasenia, 10),
-            fotoPerfil: guardarUsuario.fotoPerfil
+            fotoPerfil: fotoPerfil
         }
         user.create(user)
         .then((result)=>{
             return res.redirect('/user/login')
         })
-        .catch((error))
+        .catch((error)=>{
+            return console.log(error)
+        })
     }
 }
 

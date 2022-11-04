@@ -1,8 +1,10 @@
 
 const db =  require("../database/models");
 let Post = db.Post;
+const op = db.Sequelize.Op;
 
  const indexController = {
+     // mostrar todo el index
      index: (req, res) => {
         Post.findAll().
                         then((resultados) => {
@@ -10,8 +12,40 @@ let Post = db.Post;
                         }).catch((error)=> {
                             console.log(error);
                         })
-     }
- }
+     },
+
+     //id
+     show: (req, res)=>  {
+         let id = req.params.id;
+
+         Post.findByPk(id, relaciones)
+         .then((resultados)=> {
+             return res.render('detallePost',{ posteo: resultados})
+         })
+         .catch((error)=>{
+             return res.redirect('/')
+         });
+
+     },
+
+     //buscador
+     showOne : (req, res) => {
+        let busqueda = req.query.mascota;
+        
+        let criterios = {
+            where : [ { nombreUsuario : {[op.like]: "% + busqueda + %"} }]
+        }
+        post.findOne(criterios).
+            then((resultados) => {
+                return res.render("detalleUsuario", { detalle : resultados} ) // esto creo que esta mal
+            })
+                .catch((err)=> {
+                    return res.redirect("/")
+                });
+    }
+}
+
+ 
 
 module.exports = indexController;
 
@@ -46,10 +80,7 @@ buscador : (req ,res) => {
 
 /* SEGUNDA PARTE
 
- const op = db.Sequelize.Op;
-
-
-para las relaciones 
+para ????
 db.models.findAll({
     include:[
         {association : "Usuario" },
@@ -60,42 +91,6 @@ db.models.findAll({
 }).then (resultados => {
     //el codigo
 }) 
-
-    ESTE DE SHOW SOLO NO ESTOY MUY SEGURA NI SI LO HICE BIEN NI COMO SIRVE NI NADA
-    show : (req, res) => {
-        let id = req.params.id;
-        let relaciones = {
-            include: [
-                {all: true,
-                nested: true}
-            ]
-        };
-        post.findByPk(id, relaciones)
-            .then((resultados) => {
-                return res.render("detalleUsuario", { post : resultados})
-            })
-            .catch((err) => {
-                return res.redirect("/")
-            });
-    },
-
-    showOne : (req, res) => {
-        let busqueda = req.query.mascota;
-        
-        let criterios = {
-            where : [ { nombreUsuario : {[op.like]: "% + busqueda + %"} }]
-        }
-        post.findOne(criterios).
-            then((resultados) => {
-                return res.render("detalleUsuario", { detalle : resultados} ) // esto creo que esta mal
-            })
-                .catch((err)=> {
-                    return res.redirect("/")
-                });
-    }
-}
-
-module.exports = indexController;
 
 
 */
