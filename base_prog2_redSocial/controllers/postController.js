@@ -1,5 +1,6 @@
 const posteos= require('../db/index')
 
+
 const postController={
 
  agregarPost: function (req, res) {
@@ -30,6 +31,26 @@ const postController={
 
    })
  }
-
 };
+
+
 module.exports= postController;
+
+/* SEGUNDA PARTE
+
+const db =  require("../database/models");
+let Post = db.Post;
+
+ const postController = {
+     detallePost: (req, res) => {
+        Post.findAll().
+                        then((resultados) => {
+                            return res.render('detallePost', {posteo :resultados })
+                        }).catch((error)=> {
+                            console.log(error);
+                        })
+     }
+ }
+
+module.exports = postController;
+*/

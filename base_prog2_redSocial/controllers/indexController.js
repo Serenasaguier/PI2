@@ -45,10 +45,7 @@ buscador : (req ,res) => {
 
 
 /* SEGUNDA PARTE
- Me parece que hay que hacer esto para mostrar todos los posteos en el index
 
- const db = require('../database/models');
- const post = db.Post; 
  const op = db.Sequelize.Op;
 
 

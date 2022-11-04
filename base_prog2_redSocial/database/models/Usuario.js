@@ -14,6 +14,12 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey : true, 
             type: dataTypes.INTEGER
         },
+        id_comentarios:{
+            type: dataTypes.INTEGER
+        },
+        id_posteos :{
+            type: dataTypes.INTEGER
+        },
         nombreUsuario : { 
             type: dataTypes.STRING
         }, 
@@ -46,11 +52,11 @@ module.exports = function (sequelize, dataTypes) {
     Pet.associate = function (models) {
         Pet.hasMany(models.Post, { 
             as:'Post',
-            // foreignKey:  falta poner una foreign key para que se relacione un usuario con sus posteos
-        }),
+            foreignKey: 'id_posteos '
+           }),
         Pet.hasMany(models.Comentario,{
             as:'Comentario'
-            // foreignKey
+            foreignKey: 'id_comentarios'
         })
     } */
 

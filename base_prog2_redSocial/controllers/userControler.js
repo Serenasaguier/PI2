@@ -1,11 +1,35 @@
 const registro= require('../db/index');
-/*SEGUNDA PARTE 
+/*SEGUNDA PARTE */
 
-const db = require ('../database/models')
+const db = require ('../database/models');
+const bycipt = require('bycriptjs')
+
+const userController = {
+    create: (req, res) =>{
+        return res.render('registracion')
+    },
+    store: (req, res)=> {
+        let guardarUsuario = req.body
+        let imagenPerfil = req.file.filename;
+
+        /* para guardarlo en la base de datos */
+        let user = {
+            nombreUsuario: guardarUsuario.nombreUsuario,
+            email: guardarUsuario.email,
+            contrasenia: bycript.hashSync(guardarUsuario.contrasenia, 10),
+            fotoPerfil: guardarUsuario.fotoPerfil
+        }
+        user.create(user)
+        .then((result)=>{
+            return res.redirect('/user/login')
+        })
+        .catch((error))
+    }
+}
 
 
-*/
 
+/* PRIMERA PARTE
 
 
 const userController={
@@ -22,7 +46,7 @@ const userController={
             res.redirect('/miPerfil')
         }
         
-        */
+        
     },
 
     miPerfil: function (req, res) {
@@ -70,6 +94,10 @@ const userController={
     
 }
    
+
+*/
+
+
     
 module.exports= userController;
 
