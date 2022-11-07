@@ -9,6 +9,21 @@ const userController = {
         return res.render('registracion')
     },
     store: (req, res)=> {
+
+        // validacion
+
+        let errors = {};
+        if (req.body.useremail == " ") {
+            errors.mensaje = "El campo email es obligatorio";
+            res.locals.errors = errors;
+            return res.render('registracion');
+
+         } else if( req.body.password == " " ) {
+            errors.mensaje = "El campo contraseña es obligatorio";
+            res.locals.errors = errors;
+            return res.render('registracion');
+         } else {
+             // almacenar info
         let guardarUsuario = req.body
         let fotoPerfil = req.file.filename;
 
@@ -26,7 +41,10 @@ const userController = {
         .catch((error)=>{
             return console.log(error)
         })
+        }
     }
+
+
 }
 
 

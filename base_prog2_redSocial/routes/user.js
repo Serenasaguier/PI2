@@ -4,7 +4,7 @@ const router= express.Router();
 const userController=  require('../controllers/userControler');
 const registro = require('../db/index')
 
-router.get('/register', userController.registro);
+router.get('/register', userController.store);
 router.get('/login', userController.login);
 router.get('/profile', userController.miPerfil);
 router.get('/edit', userController.editarPerfil);

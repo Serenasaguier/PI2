@@ -4,7 +4,12 @@
 <%- include('./partials/head') %>
 
     <body>
-        <%- include('./partials/header') %>
+        <% if (locals.user != undefined) { %>
+            <%- include('./partials/header') %>
+
+        <% } else { %>
+            <%- include('./partials/headerLogeado') %>
+        <% } %>
 
             <main class="contenedor-form">
 
@@ -14,9 +19,17 @@
 
                         <div class="registro"> <label for="user">Nombre de usuario: </label> <input type="text"
                                 name="username" value="" placeholder="Ingrese su nombre de usuario"> </div>
+                        
+                            <!-- Validando -->
+                        <% if (locals.errors) { %>
+                         <p class="error" style="color:red"> <%= locals.errors.mensaje %> </p>
+                        <% } 
+                        <div class="registro"> <label for="user">Email: </label> <input type="email"
+                                    name="useremail" value="" placeholder="Ingrese su email" required> </div>
+                       
 
                         <div class="registro"> <label for="password">Contraseña: </label> <input type="password"
-                                name="password" value="" placeholder="Ingrese su contraseña"> </div>
+                                name="password" value="" placeholder="Ingrese su contraseña" required> </div>
                         <div class="registro"> <label for="start">Dia de nacimiento :</label>
 
                             <input type="date" id="start" name="trip-start" value="0000-00-00" min="2003-01-03"

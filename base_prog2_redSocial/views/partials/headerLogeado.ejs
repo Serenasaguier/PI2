@@ -4,7 +4,11 @@
         <div class="navbar-left">
             <h2 class="logo"><a href="/"  class="petSociety">PetSociety</a></h2>
             <img src="" alt="">
-           
+            <% if (locals.user != undefined) { %>
+             <a>Bienvenido, <%= locals.Usuario.nombreUsuario  %> </a>
+             <a href="/user/login/<%= locals.Usuario.id %>">
+             <img src="/images/posteos/ <%= locals.Usuario.fotoPerfil %> " alt="<%= locals.Usuario.nombreUsuario %>" style="width:50px;"></a>
+            <% } %>
         </div>
 
         <div class="navbar-center">
@@ -16,8 +20,7 @@
 
         <div class="navbar-right">
             <ul class="menu">
-                <li><a href="/user/register" class="navBar">Registro</a></li>
-                <li><a href="/user/login" class="navBar" >Login</a></li>
+            <!--CAMBIAR EL LINK DE LOGIN PARA LOGOUT-->    <li><a href="/user/login" class="navBar" >Logout</a></li>
                 <li><a href="/"><i class="fa-solid fa-house"></i></a></li>
                 <li><a href="/posteos/agregarPost"><i class="fa-regular fa-square-plus"></i></a></li>
                 <li><a href="/user/profile"><i class="fa-regular fa-user"></i></a></li>
