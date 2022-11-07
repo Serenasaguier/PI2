@@ -31,7 +31,7 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
-// voy a acceder a todos mis modelos con el db
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

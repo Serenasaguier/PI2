@@ -1,8 +1,8 @@
-const registro= require('../db/index');
+
 /*SEGUNDA PARTE */
 
 const db = require ('../database/models');
-const bycipt = require('bycriptjs')
+const bycipt = require('bcryptjs')
 
 const userController = {
     create: (req, res) =>{
@@ -13,18 +13,18 @@ const userController = {
         // validacion
 
         let errors = {};
-        if (req.body.useremail == " ") {
-            errors.mensaje = "El campo email es obligatorio";
+        if (req.body.useremail == " " ) {
+            errors.mensaje = "El campo email es obligatorio ";
             res.locals.errors = errors;
             return res.render('registracion');
 
-         } else if( req.body.password == " " ) {
-            errors.mensaje = "El campo contraseña es obligatorio";
+         } else if( req.body.password == " " && req.body.useremail < 3  ) {
+            errors.mensaje = "El campo contraseña es obligatorio o tiene que tener mas que 3 caracteres";
             res.locals.errors = errors;
             return res.render('registracion');
          } else {
              // almacenar info
-        let guardarUsuario = req.body
+        let guardarUsuario = req.body;
         let fotoPerfil = req.file.filename;
 
         /* para guardarlo en la base de datos */
@@ -51,7 +51,7 @@ const userController = {
 
 /* PRIMERA PARTE
 
-
+const registro= require('../db/index');
 const userController={
     registro: function (req, res) {
         res.render('registracion')
@@ -65,8 +65,6 @@ const userController={
             console.log(req.body)
             res.redirect('/miPerfil')
         }
-        
-        
     },
 
     miPerfil: function (req, res) {
@@ -85,9 +83,7 @@ const userController={
         res.render('detalleUsuario', {
                     detalle: registro.usuarios
                 })
-            },
-        
-            
+            }, 
 
     obtenerUserId: function (req, res) {
         let id = req.params.id;
@@ -102,19 +98,14 @@ const userController={
                 if (registro.posteos[i].id_usuario == id) {
                     resultadosPost.push(registro.posteos[i])
                 }
-                    
             };
                
         return res.render ('detalleUsuario',{
             detalle: resultados,
-            detallePost: resultadosPost
-                    
+            detallePost: resultadosPost                  
         });
-    },
-    
+    },   
 }
-   
-
 */
 
 

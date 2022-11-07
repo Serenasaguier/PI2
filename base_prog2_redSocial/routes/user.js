@@ -5,13 +5,15 @@ const userController=  require('../controllers/userControler');
 const registro = require('../db/index')
 
 router.get('/register', userController.store);
+
+/*
 router.get('/login', userController.login);
 router.get('/profile', userController.miPerfil);
 router.get('/edit', userController.editarPerfil);
-router.get('/detailUser', userController.detalleUsuario);
+router.get('/detailUser', userController.detalleUsuario); */
 
-//ruta param
-router.get('/detailUser/id/:id', userController.obtenerUserId)
+/*ruta param
+router.get('/detailUser/id/:id', userController.obtenerUserId)*/
 
 /* Ruta por post que procesa la info del formulario
 

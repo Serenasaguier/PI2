@@ -41,14 +41,14 @@ module.exports = function (sequelize, dataTypes) {
 
     /*crear las relaciones*/
     Post.associate = function (models) {
-        Post.belongsTo(models.Usuario, { 
-            as:'usuarioPost',
+       /* Post.belongsTo(models.Usuario, { 
+            as:'usuario',
              foreignKey: 'id_usuarios'
-        })
+        }),
         Post.hasMany(models.Comentario, {
-            as: 'Comentario',
-            foreignKey : 'id_posteos'
-        } )
+            as: 'comentario',
+            foreignKey : 'id_comentarios'
+        } ) */
     }
 
     //retornar el valor del modelo
