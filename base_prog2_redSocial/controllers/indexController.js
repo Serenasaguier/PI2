@@ -74,23 +74,3 @@ buscador : (req ,res) => {
 
 
 };*/
-
-
-
-
-/* SEGUNDA PARTE
-
-para ????
-db.models.findAll({
-    include:[
-        {association : "Usuario" },
-        {association : "Post"},
-        {association : "Comentario",
-        include:[{association:'Usuario'}]}
-    ]
-}).then (resultados => {
-    //el codigo
-}) 
-
-
-*/
