@@ -2,12 +2,23 @@
 /*SEGUNDA PARTE */
 
 const db = require ('../database/models');
-const bycipt = require('bcryptjs')
+const bycript = require('bcryptjs');
+const usuario = db.Usuario
+
+
 
 const userController = {
+   
+    /* para crear usuarios */
     create: (req, res) =>{
+        /*db.create( { 
+            mail: ,
+            contrasenia: ,
+            nombreDeUsuario:
+        } ); */
+
         return res.render('registracion')
-    },
+    }, 
     store: (req, res)=> {
 
         // validacion
@@ -18,7 +29,7 @@ const userController = {
             res.locals.errors = errors;
             return res.render('registracion');
 
-         } else if( req.body.password == " " && req.body.useremail < 3  ) {
+         } else if( req.body.contrasenia == " " && req.body.useremail < 3  ) {
             errors.mensaje = "El campo contraseña es obligatorio o tiene que tener mas que 3 caracteres";
             res.locals.errors = errors;
             return res.render('registracion');
@@ -34,7 +45,7 @@ const userController = {
             contrasenia: bycript.hashSync(guardarUsuario.contrasenia, 10),
             fotoPerfil: fotoPerfil
         }
-        user.create(user)
+        usuario.create(usuario)
         .then((result)=>{
             return res.redirect('/user/login')
         })
@@ -42,6 +53,41 @@ const userController = {
             return console.log(error)
         })
         }
+    },
+    loginUsuario: (req, res)=> {
+
+
+    /* para encriptar la contrasenia que nose si esta bien o si ni siquiera hace falta por lo que hice abajo
+    let passEncriptada = bcrypt.hashSync('monito123', 10);
+
+    db.Usuario.create({
+        name: "",
+        username: "",
+        password: passEncriptada
+    });
+    
+    let contrasenia = bcrypt.hashSync(contrasenia, 10) */
+        
+        let informacion = req.body;
+        let criterio = { 
+            where:[{email:informacion.email}]
+        }
+        usuario.findOne(criterio)
+        .then((result)=>{
+            if (result != null) {
+                let passEncriptada= bycript.compareSync(info.contrasenia, result.contrasenia);
+                if (passEncriptada) {
+                    req.session.user = result.dataValues;
+                    if (informacion.recordar != undefined) {
+                        res.cookie('id', result.dataValues.id, {maxAge: 1000 * 60 * 5})
+                    }
+                    return res.redirect('/')
+                } else {
+                    return res.send('La clave no coincide')
+                }
+            }
+        })
+        .catch(error => console.log(error))
     }
 
 

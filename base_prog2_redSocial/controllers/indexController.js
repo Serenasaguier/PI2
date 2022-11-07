@@ -33,15 +33,34 @@ const op = db.Sequelize.Op;
         let busqueda = req.query.mascota;
         
         let criterios = {
-            where : [ { nombreUsuario : {[op.like]: "% + busqueda + %"} }]
+            where : [ { nombreUsuario : {[op.like]: "%" + busqueda + "%"} }]
         }
-        post.findOne(criterios).
-            then((resultados) => {
+        Post.findOne(criterios)
+            .then((resultados) => {
                 return res.render("detalleUsuario", { detalle : resultados} ) // esto creo que esta mal
             })
                 .catch((err)=> {
                     return res.redirect("/")
                 });
+    },
+    // para que traiga los posteos de manera ASC O DESC
+    create : (req, res)=> {
+        Post.findAll({
+            order: [ 
+                [ 'imagen', 'ASC'],
+            ]
+        });
+    },
+
+    // para hacer las relaciones de los modelos, cambiar el store
+    store: (req, res) => {
+        Post.findAll({
+            include: [
+                {association: "usuario"/* , include: [ {association:"post"}, {association: "comentario"}]*/ },
+                {association: "post" /*, include: [ {association:"usuario"}, {association: "comentario"}]*/ },
+                {association: "comentario" /*, include: [ {association:"usuario"}, {association:"post"}]*/ }
+            ]
+        })
     }
 }
 

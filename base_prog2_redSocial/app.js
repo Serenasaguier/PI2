@@ -4,7 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+/* Importar session  */
+const session = require('express-session');
 
+/* importar los modelos de la DB */
+const db = require('./database/models');
+
+// importe db primera parte
 var userRouter= require('./routes/user');
 var indexRouter = require('./routes/index');
 const postRouter= require('./routes/post');
@@ -26,6 +32,45 @@ app.use('/', indexRouter);
 app.use('/posteos', postRouter);
 
 
+//Crear middleware de session AQUI
+app.use(session({secret: "petsdb",
+                resave:false,
+              saveUninitialized:true }));
+
+
+/*  middleware de locals  */
+app.use(function(req, res, next) {
+
+  if (req.session.user != undefined) {
+      res.locals.user = req.session.user;
+  }
+
+  return next();
+});
+
+/* middleware de cookies  */
+app.use(function(req, res, next) {
+  if (req.cookies.userId != undefined && req.session.user == undefined) {
+      let idUsuarioEnCookie = req.cookies.userId;
+
+      db.User.findByPk(idUsuarioEnCookie)
+      .then((user) => {
+
+        req.session.user = user.dataValues;
+        res.locals.user  = user.dataValues;
+
+        return next();
+        
+      }).catch((err) => {
+        console.log(err);
+        return next();
+      });
+  } else {
+    return next();
+  }
+});
+
+
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));
@@ -41,5 +86,7 @@ app.use(function(err, req, res, next) {
   res.status(err.status || 500);
   res.render('error');
 });
+
+
 
 module.exports = app;
