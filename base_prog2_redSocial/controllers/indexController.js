@@ -9,7 +9,7 @@ const op = db.Sequelize.Op;
      // mostrar todo el index
      index: (req, res) => {
         
-       Post.findAll()
+       /* Post.findAll()
                         .then((resultados) => {
                             return res.render('index', {mascotasPost :resultados })
                         }).catch((error)=> {
@@ -26,7 +26,14 @@ const op = db.Sequelize.Op;
         Coments.findAll()
                         .then((resultados)=>{
                             return res.render('index', {mascotasComents:resultados})
-                        })
+                        }) */
+        Post.findAll()
+            .then((resultados) => {
+                return res.render('index', {mascotasPost: resultados})
+            })
+            .catch((error)=> {
+                console.log(error);
+            })
      },
 
      //id

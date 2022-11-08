@@ -40,7 +40,7 @@ module.exports = function (sequelize, dataTypes) {
     }
 
     //crear el metodo define con los tres parametros
-    let Usuario = sequelize.define( alias, cols, config);
+    let Usuario = sequelize.define(alias, cols, config);
 
     /*crear las relaciones */
     Usuario.associate = function (models) {
