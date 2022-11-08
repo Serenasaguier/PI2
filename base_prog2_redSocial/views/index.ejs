@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
 <%- include('./partials/head') %>
 
     <body>
@@ -16,19 +15,19 @@
 
             <main>
                 <section class="center main-content" class="textoRegular">
-                    <% for( let i=0; i < mascotasUser.length; i++ ) { %>
+                    <% for( let i=0; i < mascotasPost.length; i++ ) { %>
                         <article class="post">
                             <div class="info-usuario ">
-                                <img src="<%= mascotasUser[i].fotoPerfil%>" alt="" height="50px" width="50px">
+                                <img src="<%= mascotasPost[i].usuario%>" alt="" height="50px" width="50px">
                                 <h4>
-                                    <a href="/user/detailuser/id/<%=mascotasUser[i].id%>" class="textoRegular">
+                                    <a href="/user/detailuser/id/<%=mascotasPost[i].usuario.id%>" class="textoRegular">
                                         
-                                        <%=mascotasUser[i].nombreUsuario%>
+                                        <%=mascotasPost[i].nombreUsuario%>
                                     </a>
                                 </h4>
                             </div>
                             <div class="post-body">
-                                <a href="/posteos/postdetail/id/<%=mascotasUser[i].id%>">
+                                <a href="/posteos/postdetail/id/<%=mascotasPost[i].id%>">
                                   <img src="<%=mascotasPost[i].imagen%>" alt="">
                                 </a>
                             </div>
@@ -45,13 +44,13 @@
                                 <ul>
 
 
-                                    <% for( let j=0; j < mascotasComents[i].length; j++ ) { %>
+                                    <% for( let j=0; j < mascotasPost[i].length; j++ ) { %>
                                         <li>
-                                            <a href="/user/detailuser/id/<%=mascotasComents[i].comentario1%>" class="textoRegular">
-                                                <%= mascotasComents[i].autor %> :
+                                            <a href="/user/detailuser/id/<%=mascotasPost[i].comentario.comentario1%>" class="textoRegular">
+                                                <%= mascotasPost[i].comentario.autor %> :
                                             </a>
                                             <span class="textoRegular">
-                                                <%=mascotasComents[i].comentario1 %>
+                                                <%=mascotasPost[i].comentario.comentario1 %>
                                             </span>
                                         </li>
                                         <% } %>

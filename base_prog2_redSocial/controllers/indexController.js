@@ -27,7 +27,9 @@ const op = db.Sequelize.Op;
                         .then((resultados)=>{
                             return res.render('index', {mascotasComents:resultados})
                         }) */
-        Post.findAll()
+        Post.findAll({
+            include: {all: true, nested: true}
+        })
             .then((resultados) => {
                 return res.render('index', {mascotasPost: resultados})
             })

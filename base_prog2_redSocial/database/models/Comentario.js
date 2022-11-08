@@ -43,7 +43,7 @@ module.exports = function (sequelize, dataTypes) {
 
 /*  para relacionar */
 Comentario.associate = function (models) {
-    /*
+    
     Comentario.belongsTo(models.Usuario, { 
         as:'usuario',
         foreignKey: 'id_usuarios'
@@ -52,7 +52,7 @@ Comentario.associate = function (models) {
         as:'post',
         foreignKey: 'id_posteos'
 
-    })*/
+    });
 
  }     
 

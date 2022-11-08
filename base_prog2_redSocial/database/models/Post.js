@@ -14,13 +14,10 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey : true, 
             type: dataTypes.INTEGER
         },
-        id_usuarios :{
+        id_usuarios:{
             type: dataTypes.INTEGER
         },
-        id_comentarios:{
-            type: dataTypes.INTEGER
-        },
-        imagen :{
+        imagen:{
             type: dataTypes.STRING// nose si esta bien poner varchar ahi
         },
         caption:{
@@ -32,24 +29,24 @@ module.exports = function (sequelize, dataTypes) {
 
     let config = {
         tableName : "posteos",
-        timestamps : false, 
+        timestamps : true, 
         underscored : true //para determinar si la tabla tiene en su nombre un guion bajo
     }
 
     //crear el metodo define con los tres parametros
-    let Post = sequelize.define( alias, cols, config);
+    let Post = sequelize.define(alias, cols, config);
 
     /*crear las relaciones*/
     Post.associate = function (models) {
-       /* Post.belongsTo(models.Usuario, { 
+       Post.belongsTo(models.Usuario, { 
             as:'usuario',
-             foreignKey: 'id_usuarios'
+            foreignKey: 'id_usuarios'
         }),
         Post.hasMany(models.Comentario, {
             as: 'comentario',
-            foreignKey : 'id_comentarios'
-        } ) */
-    }
+            foreignKey : 'id_posteos'
+        })
+    };
 
     //retornar el valor del modelo
     return Post;

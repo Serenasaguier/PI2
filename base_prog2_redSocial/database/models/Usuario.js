@@ -3,7 +3,7 @@
 module.exports = function (sequelize, dataTypes) {
 
     //creo un alias para que sequelize sepa con que modelo debe conectarse
-    let alias = " Usuario "; 
+    let alias = "Usuario"; 
     // el alias es el nombre con que sequelize va   identificar este modelo, si yo le puse Post, el archivo tiene que estar escrito IGUAL 
     // IMPORTANTE : el alias tiene que ser llamado desde el controlador
 
@@ -46,13 +46,13 @@ module.exports = function (sequelize, dataTypes) {
     Usuario.associate = function (models) {
        Usuario.hasMany(models.Post, { 
             as:'post', // este va a ser el alias que vamos a llamar cuando lo usemos en el controlador
-            foreignKey: 'id_posteos '
+            foreignKey: 'id_usuarios'
            }),
         Usuario.hasMany(models.Comentario,{
             as:'comentario',
-            foreignKey: 'id_comentarios'
+            foreignKey: 'id_usuarios'
         }) 
-    } 
+    };
 
     //retornar el valor del modelo
     return Usuario;
