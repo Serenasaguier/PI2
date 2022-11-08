@@ -1,22 +1,48 @@
 
 const db =  require("../database/models");
 let Post = db.Post;
+let User = db.Usuario;
+let Coments = db.Comentario;
 const op = db.Sequelize.Op;
 
  const indexController = {
      // mostrar todo el index
      index: (req, res) => {
+        
        Post.findAll()
                         .then((resultados) => {
-                            return res.render('index', {mascotas :resultados })
+                            return res.render('index', {mascotasPost :resultados })
                         }).catch((error)=> {
                             console.log(error);
+                        }),
+
+        User.findAll()
+                        .then((resultados)=>{
+                            return res.render('index', {mascotasUser : resultados})
+                        })
+                        .catch((error)=>{
+                            console.log(error)
+                        }),
+        Coments.findAll()
+                        .then((resultados)=>{
+                            return res.render('index', {mascotasComents:resultados})
                         })
      },
 
      //id
      show: (req, res)=>  {
          let id = req.params.id;
+         let relaciones = {
+            include : [
+                {
+                    all : true,
+                    nested: true
+                }
+                // {association:'posteos'},
+                // {association:'usuarios'}
+
+            ]
+        };
 
          db.findByPk(id, relaciones)
          .then((resultados)=> {
