@@ -5,8 +5,6 @@ const db = require ('../database/models');
 const bycript = require('bcryptjs');
 const usuario = db.Usuario
 
-
-
 const userController = {
    
     /* para crear usuarios */

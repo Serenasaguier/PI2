@@ -6,8 +6,8 @@ const op = db.Sequelize.Op;
  const indexController = {
      // mostrar todo el index
      index: (req, res) => {
-        Post.findAll().
-                        then((resultados) => {
+       Post.findAll()
+                        .then((resultados) => {
                             return res.render('index', {mascotas :resultados })
                         }).catch((error)=> {
                             console.log(error);
@@ -18,7 +18,7 @@ const op = db.Sequelize.Op;
      show: (req, res)=>  {
          let id = req.params.id;
 
-         Post.findByPk(id, relaciones)
+         db.findByPk(id, relaciones)
          .then((resultados)=> {
              return res.render('detallePost',{ posteo: resultados})
          })
@@ -67,29 +67,3 @@ const op = db.Sequelize.Op;
  
 
 module.exports = indexController;
-
-
- /* lo de la primera parte 
-
- const dataBase = require("../db/index");
-
- const controlador = {
-    index: function (req, res) {
-       res.render('index',  {
-            mascotasPost: dataBase.posteos
-            
-       })
-    },
-    buscador: function (req, res) {
-        res.render('resultadoBusqueda',{
-            
-        })    
-/* Creo que esto es lo que hay que hacer para el buscador
-buscador : (req ,res) => {
-    console.log(req.query.mascota)
-}
-
-    }
-
-
-};*/

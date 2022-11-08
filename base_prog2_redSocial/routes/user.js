@@ -2,9 +2,15 @@ const express= require('express');
 const router= express.Router();
 
 const userController=  require('../controllers/userControler');
-const registro = require('../db/index')
 
-router.get('/register', userController.store);
+
+router.post('/registracion', userController.store);
+
+router.get('/registracion', userController.create)
+
+router.get('/login', userController.loginUsuario)
+
+module.exports= router;
 
 /*
 router.get('/login', userController.login);
@@ -21,6 +27,6 @@ router.post('/miPerfil', userController.login)
 
 */
 
-module.exports= router;
+
 
 // userController.detalleUsuario

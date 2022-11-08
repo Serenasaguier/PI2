@@ -14,12 +14,6 @@ module.exports = function (sequelize, dataTypes) {
             primaryKey : true, 
             type: dataTypes.INTEGER
         },
-        id_comentarios:{
-            type: dataTypes.INTEGER
-        },
-        id_posteos :{
-            type: dataTypes.INTEGER
-        },
         nombreUsuario : { 
             type: dataTypes.STRING
         }, 
