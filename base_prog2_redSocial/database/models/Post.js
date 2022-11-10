@@ -22,6 +22,12 @@ module.exports = function (sequelize, dataTypes) {
         },
         caption:{
             type: dataTypes.STRING // nose si esta bien poner varchar ahi
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
         }
     }
 
@@ -30,7 +36,7 @@ module.exports = function (sequelize, dataTypes) {
     let config = {
         tableName : "posteos",
         timestamps : true, 
-        underscored : true //para determinar si la tabla tiene en su nombre un guion bajo
+        underscored : false //para determinar si la tabla tiene en su nombre un guion bajo
     }
 
     //crear el metodo define con los tres parametros

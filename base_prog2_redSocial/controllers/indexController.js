@@ -82,7 +82,7 @@ const op = db.Sequelize.Op;
     create : (req, res)=> {
         Post.findAll({
             order: [ 
-                [ 'imagen', 'ASC'],
+                [ 'imagen', 'DESC'],
             ]
         });
     },

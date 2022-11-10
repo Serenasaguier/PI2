@@ -70,7 +70,14 @@ let Post = db.Post;
             return res.redirect('/')
          })
       }
-         }
+         },
+      create : (req, res)=> {
+        Post.findAll({
+            order: [ 
+                [ 'comentario', 'DESC'],
+            ]
+        });
+    },
  } 
 
 module.exports = postController; */
