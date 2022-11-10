@@ -20,7 +20,10 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage:storage});
 
-router.post('/detalleUsuario', upload.single('archivosubido') , userController.store)
+router.post('/detailUser', upload.single('archivosubido') , userController.store)
+
+//id
+router.get('/detailPost/id/:id', postController.showOne)
 
 
 module.exports= router;

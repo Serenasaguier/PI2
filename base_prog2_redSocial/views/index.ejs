@@ -18,11 +18,11 @@
                     <% for( let i=0; i < mascotasPost.length; i++ ) { %>
                         <article class="post">
                             <div class="info-usuario ">
-                                <img src="<%= mascotasPost[i].usuario%>" alt="" height="50px" width="50px">
+                                <img src="<%= mascotasPost[i].usuario.fotoPerfil%>" alt="" height="50px" width="50px">
                                 <h4>
                                     <a href="/user/detailuser/id/<%=mascotasPost[i].usuario.id%>" class="textoRegular">
                                         
-                                        <%=mascotasPost[i].nombreUsuario%>
+                                        <%=mascotasPost[i].usuario.nombreUsuario%>
                                     </a>
                                 </h4>
                             </div>
@@ -46,11 +46,11 @@
 
                                     <% for( let j=0; j < mascotasPost[i].length; j++ ) { %>
                                         <li>
-                                            <a href="/user/detailuser/id/<%=mascotasPost[i].comentario.comentario1%>" class="textoRegular">
-                                                <%= mascotasPost[i].comentario.autor %> :
+                                            <a href="/user/detailuser/id/<%=mascotasPost[i].comentarios.comentario1%>" class="textoRegular">
+                                                <%= mascotasPost[i].comentarios.autor %> :
                                             </a>
                                             <span class="textoRegular">
-                                                <%=mascotasPost[i].comentario.comentario1 %>
+                                                <%=mascotasPost[i].comentarios.comentario1 %>
                                             </span>
                                         </li>
                                         <% } %>

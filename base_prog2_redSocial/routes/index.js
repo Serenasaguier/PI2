@@ -10,7 +10,9 @@ router.get('/', indexController.index);
 
 router.get('/', indexController.create)
 router.get('/detallePost', indexController.show)
-router.get('/busqueda', indexController.showOne) /* router.get('/busqueda/:id', indexController.showOne); */
+// cual de los dos va ???
+ // router.get('/busqueda', indexController.showOne) 
+ router.get('/busqueda/:id', indexController.showOne); 
 
 // router.post('/', upload.single(''), indexController.store)
 
