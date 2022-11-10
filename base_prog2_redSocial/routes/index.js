@@ -6,9 +6,7 @@ const indexController = require('../controllers/indexController')
 /* GET home page. */
 router.get('/', indexController.index);
 
-router.get('/', function(req, res, next) {
-    res.render('index', { title: 'Express' });
-  });
+
 
 router.get('/', indexController.create)
 router.get('/detallePost', indexController.show)
