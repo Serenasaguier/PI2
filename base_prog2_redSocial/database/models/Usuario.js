@@ -28,7 +28,13 @@ module.exports = function (sequelize, dataTypes) {
         }, 
         cumpleanios : { 
             type: dataTypes.DATE
-        } 
+        },
+        createdAt: {
+            type: dataTypes.DATE
+        },
+        updatedAt: {
+            type: dataTypes.DATE
+        }
     }
 
     //crear un obj lit con la configuracion de la tabla
