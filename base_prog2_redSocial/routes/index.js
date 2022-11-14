@@ -7,7 +7,6 @@ const indexController = require('../controllers/indexController')
 router.get('/', indexController.index);
 
 
-
 router.get('/', indexController.create)
 router.get('/detallePost', indexController.show)
 // cual de los dos va ???

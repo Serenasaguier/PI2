@@ -42,8 +42,6 @@
                             <div class="post-comentarios">
                                 <h4 class="textoRegular">Comentarios</h4>
                                 <ul>
-
-
                                     <% for( let j=0; j < mascotasPost[i].length; j++ ) { %>
                                         <li>
                                             <a href="/user/detailuser/id/<%=mascotasPost[i].comentarios.comentario1%>" class="textoRegular">
@@ -55,7 +53,7 @@
                                         </li>
                                         <% } %>
 
-                                            <a href="/posteos/postdetail/id/ <%=mascotasPost[i].id %> " class="textoRegular">Ver más...</a>
+                                            <a href="/posteos/postdetail/id/<%=mascotasPost[i].id %>" class="textoRegular">Ver más...</a>
                                 </ul>
                             </div>
                         </article>

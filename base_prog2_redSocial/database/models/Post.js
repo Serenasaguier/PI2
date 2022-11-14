@@ -47,11 +47,11 @@ module.exports = function (sequelize, dataTypes) {
        Post.belongsTo(models.Usuario, { 
             as:'usuario',
             foreignKey: 'id_usuarios'
-        }),
+        });
         Post.hasMany(models.Comentario, {
             as: 'comentario',
             foreignKey : 'id_posteos'
-        })
+        });
     };
 
     //retornar el valor del modelo

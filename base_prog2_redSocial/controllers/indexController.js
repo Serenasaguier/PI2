@@ -6,38 +6,39 @@ let Coments = db.Comentario;
 const op = db.Sequelize.Op;
 
  const indexController = {
-     // mostrar todo el index
-     index: (req, res) => {
-        
-       /* Post.findAll()
-                        .then((resultados) => {
-                            return res.render('index', {mascotasPost :resultados })
-                        }).catch((error)=> {
-                            console.log(error);
-                        }),
+     // mostrar todo el index, para hacer las relaciones de los modelos, cambiar el store
+    index: (req, res) => {
 
-        User.findAll()
-                        .then((resultados)=>{
-                            return res.render('index', {mascotasUser : resultados})
-                        })
-                        .catch((error)=>{
-                            console.log(error)
-                        }),
-        Coments.findAll()
-                        .then((resultados)=>{
-                            return res.render('index', {mascotasComents:resultados})
-                        }) */
-        Post.findAll({
-            include: {all: true, nested: true}
+        let relaciones = {
+            include : [
+                {
+                    all : true,
+                    nested: true
+                }
+            ]
+        };
+
+        Post.findAll(relaciones)
+        .then(result =>{    
+            return res.render('index', {mascotasPost: result} )
+        }).catch(error =>{
+            
+        });
+
+/* nose si poner esto aca o en el show mas abajo
+        let id = req.params.id;
+
+        Post.findByPk(id, relaciones)
+        .then((resultados)=> {
+            return res.render('detallePost',{ posteo: resultados})
         })
-            .then((resultados) => {
-                return res.render('index', {mascotasPost: resultados})
-            })
-            .catch((error)=> {
-                console.log(error);
-            })
-     },
+        .catch((error)=>{
+            return res.redirect('/')
+        }); */
+        
 
+
+    },
      //id
      show: (req, res)=>  {
          let id = req.params.id;
@@ -47,13 +48,10 @@ const op = db.Sequelize.Op;
                     all : true,
                     nested: true
                 }
-                // {association:'posteos'},
-                // {association:'usuarios'}
-
             ]
         };
 
-         db.findByPk(id, relaciones)
+         Post.findByPk(id, relaciones)
          .then((resultados)=> {
              return res.render('detallePost',{ posteo: resultados})
          })
@@ -96,18 +94,18 @@ const op = db.Sequelize.Op;
             ]
         });
     },
-
-    // para hacer las relaciones de los modelos, cambiar el store
-    store: (req, res) => {
-        Post.findAll({
-            include: [
-                {association: "usuario"/* , include: [ {association:"post"}, {association: "comentario"}]*/ },
-                {association: "post" /*, include: [ {association:"usuario"}, {association: "comentario"}]*/ },
-                {association: "comentario" /*, include: [ {association:"usuario"}, {association:"post"}]*/ }
+    comentarios: (req, res) => {
+        db.findAll({
+            order: [
+                ['comentarios', 'DESC']
             ]
         })
-    }
+    },
+
+   
 }
+
+
 
  
 
