@@ -7,36 +7,7 @@ const op = db.Sequelize.Op;
 
  const indexController = {
      // mostrar todo el index
-     index: (req, res) => {
-        
-       /* Post.findAll()
-                        .then((resultados) => {
-                            return res.render('index', {mascotasPost :resultados })
-                        }).catch((error)=> {
-                            console.log(error);
-                        }),
-
-        User.findAll()
-                        .then((resultados)=>{
-                            return res.render('index', {mascotasUser : resultados})
-                        })
-                        .catch((error)=>{
-                            console.log(error)
-                        }),
-        Coments.findAll()
-                        .then((resultados)=>{
-                            return res.render('index', {mascotasComents:resultados})
-                        }) */
-        Post.findAll({
-            include: {all: true, nested: true}
-        })
-            .then((resultados) => {
-                return res.render('index', {mascotasPost: resultados})
-            })
-            .catch((error)=> {
-                console.log(error);
-            })
-     },
+     
 
      //id
      show: (req, res)=>  {
@@ -98,16 +69,29 @@ const op = db.Sequelize.Op;
     },
 
     // para hacer las relaciones de los modelos, cambiar el store
-    store: (req, res) => {
-        Post.findAll({
-            include: [
-                {association: "usuario"/* , include: [ {association:"post"}, {association: "comentario"}]*/ },
-                {association: "post" /*, include: [ {association:"usuario"}, {association: "comentario"}]*/ },
-                {association: "comentario" /*, include: [ {association:"usuario"}, {association:"post"}]*/ }
+    asociaciones: (req, res) => {
+
+        let relaciones = {
+            include : [
+                {
+                    all : true,
+                    nested: true
+                }
             ]
-        })
+        };
+
+        Post.findAll(relaciones)
+        .then(result =>{    
+            return res.render('index', {mascotasPost: result} )
+        }).catch(error =>{
+            
+        });
+
+
     }
 }
+
+
 
  
 
