@@ -94,6 +94,13 @@ const op = db.Sequelize.Op;
             ]
         });
     },
+    comentarios: (req, res) => {
+        db.findAll({
+            order: [
+                ['comentarios', 'DESC']
+            ]
+        })
+    },
 
    
 }
