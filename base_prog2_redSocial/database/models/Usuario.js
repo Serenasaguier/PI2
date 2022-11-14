@@ -50,14 +50,14 @@ module.exports = function (sequelize, dataTypes) {
 
     /*crear las relaciones */
     Usuario.associate = function (models) {
-       Usuario.hasMany(models.Post, { 
+        Usuario.hasMany(models.Post, { 
             as:'post', // este va a ser el alias que vamos a llamar cuando lo usemos en el controlador
             foreignKey: 'id_usuarios'
-           }),
+           });
         Usuario.hasMany(models.Comentario,{
             as:'comentario',
             foreignKey: 'id_usuarios'
-        }) 
+        });
     };
 
     //retornar el valor del modelo

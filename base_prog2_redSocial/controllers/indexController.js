@@ -96,6 +96,13 @@ const op = db.Sequelize.Op;
             ]
         });
     },
+    comentarios: (req, res) => {
+        db.findAll({
+            order: [
+                ['comentarios', 'DESC']
+            ]
+        })
+    },
 
     // para hacer las relaciones de los modelos, cambiar el store
     store: (req, res) => {
@@ -106,6 +113,13 @@ const op = db.Sequelize.Op;
                 {association: "comentario" /*, include: [ {association:"usuario"}, {association:"post"}]*/ }
             ]
         })
+        // Control de acceso login
+        if(req.session.user != undefined){
+            return res.redirect('/')
+        } else {
+            return res.render('login');
+            // 
+        }
     }
 }
 

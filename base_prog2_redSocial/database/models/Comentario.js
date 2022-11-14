@@ -53,8 +53,8 @@ Comentario.associate = function (models) {
     Comentario.belongsTo(models.Usuario, { 
         as:'usuario',
         foreignKey: 'id_usuarios'
-        }),
-    Comentario.belongsTo(models.Post, { 
+        });
+     Comentario.belongsTo(models.Post, { 
         as:'post',
         foreignKey: 'id_posteos'
 
