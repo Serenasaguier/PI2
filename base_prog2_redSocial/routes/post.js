@@ -25,6 +25,10 @@ router.post('/detailUser', upload.single('archivosubido') , userController.store
 //id
 router.get('/detailPost/id/:id', postController.showOne)
 
+router.get('/agregarPost', postController.agregarPost)
+
+
+
 
 module.exports= router;
 

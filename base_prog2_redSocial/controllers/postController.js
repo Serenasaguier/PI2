@@ -70,23 +70,20 @@ let Post = db.Post;
           return res.redirect('/')
       });
 
-  }
+  },
+  agregarPost: function (req, res) {
+    res.render('agregarPost')
+ },
+ detallePost: function (req, res) {
+    res.render('detallePost', {  
+    })
+ }
  } 
 
 module.exports = postController; 
 
 /* 
  PRIMERA PARTE
- const posteos= require('../db/index')
-
-const postController={
- agregarPost: function (req, res) {
-    res.render('agregarPost')
- },
- detallePost: function (req, res) {
-    res.render('detallePost', {  
-    })
- },
 
  obtenerPostId: function (req, res) {
    let id= req.params.id;

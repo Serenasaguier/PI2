@@ -63,26 +63,36 @@ const op = db.Sequelize.Op;
 
      },
 
-     //buscador
+     // TODO buscador
      showOne : (req, res) => {
         let busqueda = req.query.mascota;
         
-        let criterios = {
-            where : [ { nombreUsuario : {[op.like]: "%" + busqueda + "%"} }]
+
+        let encontrado = db.showOne(encontrado)
+        
+         if (encontrado.length > 0) {
+             let criterios = {
+             where : [{nombreUsuario : {[op.like]: "%" + busqueda + "%"}}],
+             order : [["imagen", "DESC"]],
+             limit : 10 
+             }
+             Post.findOne(criterios)
+                     .then((resultados) => {
+            return res.render("resultadoBusqueda", { detalle : resultados} ) // esto creo que esta mal
+       })
+           .catch((err)=> {
+               return res.redirect("/")
+           });
+                    return res.send(encontrado)
+         } else {
+                    return res.send('No hay resultados para su criterio de búsqueda');
         }
-        Post.findOne(criterios)
-            .then((resultados) => {
-                return res.render("detalleUsuario", { detalle : resultados} ) // esto creo que esta mal
-            })
-                .catch((err)=> {
-                    return res.redirect("/")
-                });
     },
     // para que traiga los posteos de manera ASC O DESC
     create : (req, res)=> {
         Post.findAll({
             order: [ 
-                [ 'imagen', 'DESC'],
+                [ 'createdAt', 'DESC'],
             ]
         });
     },

@@ -111,6 +111,10 @@ const userController = {
             return res.redirect('/')
         });
 
+    },
+
+    miPerfil: function (req, res) {
+        res.render('miPerfil')
     }
 
 

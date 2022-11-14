@@ -10,11 +10,13 @@ router.get('/registracion', userController.create)
 
 router.get('/login', userController.loginUsuario)
 
+router.get('/profile', userController.miPerfil);
+
 module.exports= router;
 
 /*
 router.get('/login', userController.login);
-router.get('/profile', userController.miPerfil);
+
 router.get('/edit', userController.editarPerfil);
 router.get('/detailUser', userController.detalleUsuario); */
 
