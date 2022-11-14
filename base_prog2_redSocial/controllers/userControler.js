@@ -7,14 +7,9 @@ const Post = require('../database/models/Post');
 const usuario = db.Usuario
 
 const userController = {
-   
+    
     /* para crear usuarios */
     create: (req, res) =>{
-        /*db.create( { 
-            mail: ,
-            contrasenia: ,
-            nombreDeUsuario:
-        } ); */
 
         return res.render('registracion')
     }, 
@@ -23,28 +18,37 @@ const userController = {
         // validacion
 
         let errors = {};
-        if (req.body.useremail == " " ) {
+
+        if (req.body.useremail === "" ) {
             errors.mensaje = "El campo email es obligatorio ";
             res.locals.errors = errors;
             return res.render('registracion');
 
-         } else if( req.body.contrasenia == " " && req.body.useremail < 3  ) {
+         } else if( req.body.password === "" || req.body.password < 3  ) {
             errors.mensaje = "El campo contraseña es obligatorio o tiene que tener mas que 3 caracteres";
             res.locals.errors = errors;
             return res.render('registracion');
+            
          } else {
              // almacenar info
+        
         let guardarUsuario = req.body;
-        let fotoPerfil = req.file.filename;
+        let fotoPerfil;
+        if (!req.file) {
+            fotoPerfil= 'https://tse1.mm.bing.net/th?id=OIP.ho7hCKNowRHh7u5wu1aMWQHaF9&pid=Api&P=0'
+        } else {
+            fotoPerfil= req.file.filename
+        }
 
         /* para guardarlo en la base de datos */
         let user = {
-            nombreUsuario: guardarUsuario.nombreUsuario,
-            email: guardarUsuario.email,
-            contrasenia: bycript.hashSync(guardarUsuario.contrasenia, 10),
-            fotoPerfil: fotoPerfil
+            nombreUsuario: guardarUsuario.username,
+            email: guardarUsuario.useremail,
+            contrasenia: bycript.hashSync(guardarUsuario.password, 10),
+            fotoPerfil: fotoPerfil,
+            cumpleanios: guardarUsuario.cumpleanios
         }
-        usuario.create(usuario)
+        usuario.create(user)
         .then((result)=>{
             return res.redirect('/user/login')
         })
@@ -67,7 +71,7 @@ const userController = {
     
     let contrasenia = bcrypt.hashSync(contrasenia, 10) */
         
-        let informacion = req.body;
+       /*  let informacion = req.body;
         let criterio = { 
             where:[{email:informacion.email}]
         }
@@ -86,7 +90,8 @@ const userController = {
                 }
             }
         })
-        .catch(error => console.log(error))
+        .catch(error => console.log(error)) */
+        return res.render('login')
     },
     //id
     show: (req, res)=>  {
@@ -114,7 +119,8 @@ const userController = {
     },
 
     miPerfil: function (req, res) {
-        res.render('miPerfil')
+       return res.render('miPerfil')
+        
     }
 
 
@@ -125,10 +131,6 @@ const userController = {
 /* PRIMERA PARTE
 
 const registro= require('../db/index');
-const userController={
-    registro: function (req, res) {
-        res.render('registracion')
-    },
 
     login: function (req, res) {
         res.render('login')
