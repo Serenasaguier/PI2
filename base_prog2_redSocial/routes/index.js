@@ -4,11 +4,12 @@ const indexController = require('../controllers/indexController')
 
 
 /* GET home page. */
-router.get('/', indexController.asociaciones);
+router.get('/', indexController.index);
 
 router.get('/', indexController.create)
 
-router.get('/detallePost', indexController.show)
+
+router.get('/detailUser/:id', indexController.show)
  
 // cual de los dos va ???
  // router.get('/busqueda', indexController.showOne) 

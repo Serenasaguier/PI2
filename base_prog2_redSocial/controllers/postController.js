@@ -6,12 +6,24 @@ let Post = db.Post;
 
  const postController = {
      show: (req, res) => {
-        Post.findAll().
-                        then((resultados) => {
-                            return res.render('detallePost', {posteo :resultados })
-                        }).catch((error)=> {
-                            console.log(error);
-                        })
+
+    let id = req.params.id;
+    let relaciones = {
+        include : [
+            {
+              all : true,
+              nested: true
+                 }
+        ]
+   };
+                  
+     Post.findByPk(id, relaciones)
+      .then((resultados)=> {
+        return res.render('detallePost',{ posteo: resultados})
+            })
+        .catch((error)=>{
+        return res.redirect('/')
+            });
      },
      store: (req, res)=> {
       
@@ -48,29 +60,6 @@ let Post = db.Post;
             ]
         });
     },
-    showOne: (req, res)=>  {
-      let id = req.params.id;
-      let relaciones = {
-         include : [
-             {
-                 all : true,
-                 nested: true
-             }
-             // {association:'posteos'},
-             // {association:'usuarios'}
-
-         ]
-     };
-
-      Post.findByPk(id, relaciones)
-      .then((resultados)=> {
-          return res.render('detallePost',{ posteo: resultados})
-      })
-      .catch((error)=>{
-          return res.redirect('/')
-      });
-
-  },
   agregarPost: function (req, res) {
     res.render('agregarPost')
  },
@@ -81,27 +70,5 @@ let Post = db.Post;
  } 
 
 module.exports = postController; 
-
-/* 
- PRIMERA PARTE
-
- obtenerPostId: function (req, res) {
-   let id= req.params.id;
-   let resultados= [];
-   for (let i = 0; i < posteos.posteos.length; i++) {
-    if (posteos.posteos[i].id == id) {
-      resultados.push(posteos.posteos[i])
-    }
-   }
-   return res.render('detallepost', {
-      detalle:resultados,
-      posteos: posteos.usuarios,
-       comentarios: posteos.comentarios,
-       posteosFoto: posteos.posteos
-   })
- }
-};
-module.exports= postController; 
-*/
 
 
