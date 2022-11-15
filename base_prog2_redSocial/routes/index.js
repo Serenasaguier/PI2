@@ -8,7 +8,7 @@ router.get('/', indexController.index);
 
 
 router.get('/', indexController.create)
-router.get('/detallePost', indexController.show)
+router.get('/detallePost/:id', indexController.show)
 // cual de los dos va ???
  // router.get('/busqueda', indexController.showOne) 
  router.get('/busqueda/:id', indexController.showOne); 

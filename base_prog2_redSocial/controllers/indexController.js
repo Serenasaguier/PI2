@@ -6,8 +6,22 @@ let Coments = db.Comentario;
 const op = db.Sequelize.Op;
 
  const indexController = {
-     // mostrar todo el index, para hacer las relaciones de los modelos, cambiar el store
+     // relaciones de los modelos, nose cual de todos esta bien
     index: (req, res) => {
+       /*  Post.findAll({
+            include : [
+                {
+                    all : true,
+                    nested: true
+                }
+            ],
+            order: [
+                ['createdAt', 'DESC']
+            ]
+        })*/
+
+        /* relaciones, esta esta bien???
+
 
         let relaciones = {
             include : [
@@ -17,14 +31,27 @@ const op = db.Sequelize.Op;
                 }
             ]
         };
-
         Post.findAll(relaciones)
         .then(result =>{    
             return res.render('index', {mascotasPost: result} )
             console.log(result)
         }).catch(error =>{
             res.send(error)
-        });
+        });*/
+
+        /* relaciones, esta esta bien ?*/
+        Post.findAll({
+            include:[{association : 'usuarios'},
+                     {association:'comentarios'},
+                     {association: 'posteos'}],
+                     include: {all:true, nested:true}
+        }).then(result =>{    
+            return res.render('index', {mascotasPost: result} )
+            console.log(result)
+        }).catch(error =>{
+            res.send(error)
+        }); 
+        
 
 /* nose si poner esto aca o en el show mas abajo
         let id = req.params.id;
@@ -39,8 +66,8 @@ const op = db.Sequelize.Op;
         
 
 
-    },
-     //id
+    }, 
+     //id, relaciones (nose cual esta bien)
      show: (req, res)=>  {
          let id = req.params.id;
          let relaciones = {
@@ -51,7 +78,7 @@ const op = db.Sequelize.Op;
                 }
             ]
         };
-
+       
          Post.findByPk(id, relaciones)
          .then((resultados)=> {
              return res.render('detallePost',{ posteo: resultados})
@@ -62,13 +89,14 @@ const op = db.Sequelize.Op;
 
      },
 
+
      // TODO buscador, Buscar un posteo en base al caption y tiene que tener una opcion para que el usuario elija si qiere que aparezcan en orden ASC o DESC
      showOne : (req, res) => {
         let busqueda = req.query.mascota;
         let encontrado = db.showOne(encontrado)
         if (encontrado != undefined && null) {
             Post.findAll({
-                where: [{nombreUsuario: {[op.like]:"%" + busqueda + "%"}}],
+                where: [{caption: {[op.like]:"%" + busqueda + "%"}}],
                 order: [["imagen","createdAt", "DESC"]],
                 limit:10,
                 include: {all: true, nested: true}
