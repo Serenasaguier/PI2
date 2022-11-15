@@ -55,8 +55,9 @@ let Post = db.Post;
          },
       create : (req, res)=> {
         Post.findAll({
+           include: {all:true, nested:true},
             order: [ 
-                [ 'comentario', 'DESC'],
+                [ 'comentarios','createdAt', 'DESC'],
             ]
         });
     },

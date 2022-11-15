@@ -21,8 +21,9 @@ const op = db.Sequelize.Op;
         Post.findAll(relaciones)
         .then(result =>{    
             return res.render('index', {mascotasPost: result} )
+            console.log(result)
         }).catch(error =>{
-            
+            res.send(error)
         });
 
 /* nose si poner esto aca o en el show mas abajo
@@ -61,36 +62,33 @@ const op = db.Sequelize.Op;
 
      },
 
-     // TODO buscador
+     // TODO buscador, Buscar un posteo en base al caption y tiene que tener una opcion para que el usuario elija si qiere que aparezcan en orden ASC o DESC
      showOne : (req, res) => {
         let busqueda = req.query.mascota;
-        
-
         let encontrado = db.showOne(encontrado)
-        
-         if (encontrado.length > 0) {
-             let criterios = {
-             where : [{nombreUsuario : {[op.like]: "%" + busqueda + "%"}}],
-             order : [["imagen", "DESC"]],
-             limit : 10 
-             }
-             Post.findOne(criterios)
-                     .then((resultados) => {
-            return res.render("resultadoBusqueda", { detalle : resultados} ) // esto creo que esta mal
-       })
-           .catch((err)=> {
-               return res.redirect("/")
-           });
-                    return res.send(encontrado)
-         } else {
-                    return res.send('No hay resultados para su criterio de búsqueda');
+        if (encontrado != undefined && null) {
+            Post.findAll({
+                where: [{nombreUsuario: {[op.like]:"%" + busqueda + "%"}}],
+                order: [["imagen","createdAt", "DESC"]],
+                limit:10,
+                include: {all: true, nested: true}
+            } )
+            .then((resultados)=>{
+                res.render("resultadoBusqueda", {resultados :resultados})
+            })
+            .catch ((error)=> {
+                console.log(error)
+            })
+        } else {
+            console.log("No hay resultados para su criterio de búsqueda")
         }
+       
     },
     // para que traiga los posteos de manera ASC O DESC
     create : (req, res)=> {
         Post.findAll({
             order: [ 
-                [ 'createdAt', 'DESC'],
+                [ "imagen","createdAt", "DESC"],
             ]
         });
     },
