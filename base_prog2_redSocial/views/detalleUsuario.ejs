@@ -14,10 +14,10 @@
             <main>
                 <div class="user-detail container">
                     <section class="top main-content" class="textoRegular">
-                        <img class="profile" src="<%= detalle[0].fotoPerfil %>" alt="" height="100px" width="150px">
+                        <img class="profile" src="<%= mascotasDetalle[i].usuario.fotoPerfil %>" alt="" height="100px" width="150px">
                         <div class="info-usuario">
                             <p>
-                                <%= detalle[0].nombreUsuario %>
+                                <%= mascotasDetalle[i].nombreUsuario %>
                             </p>
                             <a class="follow" href="">seguir</a>
                             <ul class="meta">
@@ -28,10 +28,10 @@
                         </div>
                     </section>
                     <section class="bottom">
-                        <% for( let i=0; i < detallePost.length; i++ ) { %>
+                        <% for( let i=0; i < mascotasDetalle.length; i++ ) { %>
                             <article class="post">
-                                <a href="/posteos/postdetail/id/ <%=detallePost[i].id  %> ">
-                                    <img src="<%= detallePost[i].imagen %>" alt="">
+                                <a href="/posteos/detallePost/id/ <%=mascotasDetalle[i].id  %> ">
+                                    <img src="<%= mascotasDetalle[i].imagen %>" alt="">
                                 </a>
 
                             </article>
