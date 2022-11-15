@@ -11,9 +11,9 @@ const session = require('express-session');
 const db = require('./database/models');
 
 // importe db primera parte
-var userRouter= require('./routes/user');
+var userRouter = require('./routes/user');
 var indexRouter = require('./routes/index');
-const postRouter= require('./routes/post');
+const postRouter = require('./routes/post');
 
 var app = express();
 

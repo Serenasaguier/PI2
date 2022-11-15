@@ -6,6 +6,7 @@ const bycript = require('bcryptjs');
 const { post } = require('../routes/user');
 const Post = db.Post
 const usuario = db.Usuario
+const posteo = db.Post;
 
 const userController = {
     
@@ -119,6 +120,19 @@ const userController = {
             console.log(error, 'el error es')
         })
         
+       // let id = req.params.id
+
+       /*  posteo.findByPk( {
+            include:[{association : 'usuario'},
+                     {association:'comentario'},
+                     {association: 'post'}],
+                     include: {all:true, nested:true}
+        }).then(result =>{    
+            return res.render('detalleUsuario', {mascotasDetalle: result} )
+            console.log(result)
+        }).catch(error =>{
+            res.send(error)
+        }); */
 
     },
 
