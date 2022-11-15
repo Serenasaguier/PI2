@@ -69,6 +69,4 @@ let Post = db.Post;
  }
  } 
 
-module.exports = postController; 
-
-
+module.exports = postController;  
