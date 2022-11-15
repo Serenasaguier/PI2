@@ -8,15 +8,25 @@ let Post = db.Post;
      show: (req, res) => {
 
     let id = req.params.id;
-    let relaciones = {
-        include : [
-            {
-              all : true,
-              nested: true
-                 }
-        ]
-   };
-                  
+
+   Post.findByPk(id,{
+      include: [{
+         association: 'usuario'
+      }, {
+         association: 'comentarios',
+         include: [{
+            association:'usuarios'
+         }]
+      }]
+   })
+   .then((resultados)=>{
+      return res.render('detailpost', {detalle:resultados})
+   })
+   .catch((error)=>{
+      console.log(error)
+      return res.send(error);
+   })
+   /*           relaciones    
      Post.findByPk(id, relaciones)
       .then((resultados)=> {
         return res.render('detallePost',{ posteo: resultados})
@@ -24,6 +34,16 @@ let Post = db.Post;
         .catch((error)=>{
         return res.redirect('/')
             });
+
+         let relaciones = {
+        include : [
+            {
+              all : true,
+              nested: true
+                 }
+        ]
+   };
+            */
      },
      store: (req, res)=> {
       
