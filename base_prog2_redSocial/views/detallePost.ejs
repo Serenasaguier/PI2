@@ -18,14 +18,14 @@
             <section class="center main-content post" class="textoRegular" >
 
                 <div class="info-usuario">
-                    <img src="<%= detalle[0].fotoPerfil%>" alt="" height="40px" width="40px">
-                    <p><a href="/user/detailuser/id/<%=detalle[0].id_usuario%>" ><%= detalle[0].nombreUsuario %></a></p>
+                    <img src="<%= mascotasDetalle.usuario.fotoPerfil%>" alt="" height="40px" width="40px">
+                    <p><a href="/user/detalleUsuario/id/<%=mascotasDetalle.id_usuarios%>" ><%= mascotasDetalle.usuario.nombreUsuario %></a></p>
                 </div>
 
-                <img class="photo" src="<%= detalle[0].imagen %>" alt="" width="500px" height="600px">
+                <img class="photo" src="<%= mascotasDetalle.imagen %>" alt="" width="500px" height="600px">
             </section>
             
-            
+            <!---->
             <section class="right" class="textoRegular">
                 <h4  >Comentarios</h4>
                 
@@ -35,16 +35,16 @@
                         <button type="submit"  >Comentar</button>
                     </form>
                     <div>
-                    <% for( let i = 0; i < posteos.length; i++ ) { %>
+                    <% for( let i = 0; i < mascotasDetalle.length; i++ ) { %>
 
                         <article class="comment">
-                            <a class="user" href="/user/detailuser/id/<%= posteos[i].id %> ">
-                            <img src="<%= posteos[i].fotoPerfil %>" alt="" height="40px" width="40px">
+                            <a class="user" href="/user/detalleUsuario/id/<%= mascotasDetalle[i].usuario.id %> ">
+                            <img src="<%= mascotasDetalle[i].usuario.fotoPerfil %>" alt="" height="40px" width="40px">
 
                             <section class="content">
-                                <a href="/user/detailuser/id/ <%= posteos[i].id  %> "> <%= posteos[i].nombreUsuario  %> : </a>
+                                <a href="/user/detalleUsuario/id/ <%= mascotasDetalle[i].usuario.id  %> "> <%= mascotasDetalle[i].usuario.nombreUsuario %> : </a>
                                 <span class="text">
-                                    <%= comentarios[i].comentario  %>
+                                    <%= mascotasDetalle.comentarios[i].comentario1 %>
                                 </span>
                             </section>
                             </a>
