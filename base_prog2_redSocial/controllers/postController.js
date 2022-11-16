@@ -50,12 +50,40 @@ let Post = db.Post;
       
          },
       create : (req, res)=> {
-        Post.findAll({
+         let info = req.body;
+         let imgPost = req.file.filename;
+         let post = {
+            imagen: imgPost,
+            caption: info.imagen,
+            users_id: info.users_id
+         }
+
+         let filtro = {
+            where: {
+               id: req.params.id
+            }
+         };
+
+         if(req.session.user.id == post.users_id) {
+            post.create(post, filtro)
+            .then((result) => {
+               console.log(post.users_id);
+               return res.redirect('/')
+            }) .catch((error) => {
+               console.log(error);
+            });
+
+         } else {
+            console.log(post.users_id);
+            return res.redirect('/miPerfil/login')
+         }
+
+  /*      Post.findAll({
            include: {all:true, nested:true},
             order: [ 
                 [ 'comentarios','createdAt', 'DESC'],
             ]
-        });
+        }); */
     },
   agregarPost: function (req, res) {
     res.render('agregarPost')
