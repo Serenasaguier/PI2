@@ -5,7 +5,7 @@ const userController=  require('../controllers/userControler');
 router.post('/registracion', userController.store);
 router.get('/registracion', userController.create);
 
-router.get('/login', userController.loginUsuario);
+router.get('/login', userController.login);
 
 router.get('/profile', userController.miPerfil);
 
@@ -24,9 +24,9 @@ router.get('/detailUser', userController.detalleUsuario); */
 
 
 
-/* Ruta por post que procesa la info del formulario
+//Ruta por post que procesa la info del formulario
 router.post('/miPerfil', userController.login)
-*/
+
 
 //para configurar multer
 
