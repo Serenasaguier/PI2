@@ -2,13 +2,14 @@
   // SEGUNDA PARTE 
 
 const db =  require("../database/models");
-let Post = db.Post;
+
+const post = db.Post;
 
  const postController = {
      show: (req, res) => {
 
       
-      Post.findByPk({
+      post.findByPk({
          include:[{association : 'usuario'},
                   {association:'comentario'},
                   {association: 'post'}],
@@ -112,7 +113,7 @@ let Post = db.Post;
 
          } else {
             console.log(post.users_id);
-            return res.redirect('/miPerfil/login')
+            return res.redirect('/user/profile')
          }
 
   /*      Post.findAll({
