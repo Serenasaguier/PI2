@@ -3,8 +3,9 @@
 
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
+/* 
 const { post } = require('../routes/user');
-const Post = db.Post
+const Post = db.Post */
 const usuario = db.Usuario
 const posteo = db.Post;
 
@@ -120,9 +121,11 @@ const userController = {
             console.log(error, 'el error es')
         })
         
-       // let id = req.params.id
+       /* lo que hizo sere es casi igual a lo de arriba pero en vez de la info de usuario, la info de post
+       
+        let id = req.params.id
 
-       /*  posteo.findByPk( {
+         posteo.findByPk( {
             include:[{association : 'usuario'},
                      {association:'comentario'},
                      {association: 'post'}],
@@ -143,65 +146,6 @@ const userController = {
 
 
 }
-
-
-
-/* PRIMERA PARTE
-
-const registro= require('../db/index');
-
-    login: function (req, res) {
-        res.render('login')
-        /* para capturar la info con post
-        
-        (req, res) => {
-            console.log(req.body)
-            res.redirect('/miPerfil')
-        }
-    },
-
-    miPerfil: function (req, res) {
-        res.render('miPerfil', {
-            detalle : registro.usuarios,
-            detalleImagen : registro.posteos
-        })
-    },
-
-    editarPerfil: function (req, res) {
-       res.render('editarPerfil')
-    },
-
-    detalleUsuario: function (req, res) {
-        
-        res.render('detalleUsuario', {
-                    detalle: registro.usuarios
-                })
-            }, 
-
-    obtenerUserId: function (req, res) {
-        let id = req.params.id;
-        let resultados = [];
-            for (let i = 0; i < registro.usuarios.length; i++) {
-                if (registro.usuarios[i].id == id) {
-                    resultados.push(registro.usuarios[i])
-                }     
-            };
-        let resultadosPost = [];
-            for (let i = 0; i < registro.posteos.length; i++) {
-                if (registro.posteos[i].id_usuario == id) {
-                    resultadosPost.push(registro.posteos[i])
-                }
-            };
-               
-        return res.render ('detalleUsuario',{
-            detalle: resultados,
-            detallePost: resultadosPost                  
-        });
-    },   
-}
-*/
-
-
-    
+   
 module.exports= userController;
 

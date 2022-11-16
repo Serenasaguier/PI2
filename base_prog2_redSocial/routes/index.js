@@ -8,8 +8,7 @@ router.get('/', indexController.index);
 
 
 router.get('/', indexController.create)
-router.get('/detailPost/:id', indexController.show)
- router.get('/busqueda/:id', indexController.showOne); 
+ router.get('/resultadoBusqueda', indexController.searchResults); 
 
 // router.post('/', upload.single(''), indexController.store)
 

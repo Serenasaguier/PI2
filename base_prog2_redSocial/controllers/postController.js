@@ -7,8 +7,8 @@ let Post = db.Post;
  const postController = {
      show: (req, res) => {
 
-      
-      Post.findByPk({
+      let id = req.params.id;
+      Post.findByPk(id,{
          include:[{association : 'usuario'},
                   {association:'comentario'},
                   {association: 'post'}],
@@ -19,44 +19,7 @@ let Post = db.Post;
      }).catch(error =>{
          res.send(error)
      });
-/* 
-    let id = req.params.id;
 
-   Post.findByPk(id,{
-      include: [{
-         association: 'usuario'
-      }, {
-         association: 'comentarios',
-         include: [{
-            association:'usuarios'
-         }]
-      }]
-   })
-   .then((resultados)=>{
-      return res.render('detailpost', {detalle:resultados})
-   })
-   .catch((error)=>{
-      console.log(error)
-      return res.send(error);
-   })*/
-   /*           relaciones    
-     Post.findByPk(id, relaciones)
-      .then((resultados)=> {
-        return res.render('detallePost',{ posteo: resultados})
-            })
-        .catch((error)=>{
-        return res.redirect('/')
-            });
-
-         let relaciones = {
-        include : [
-            {
-              all : true,
-              nested: true
-                 }
-        ]
-   };
-            */
      },
      store: (req, res)=> {
       
