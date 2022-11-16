@@ -41,9 +41,9 @@ const op = db.Sequelize.Op;
 
         /* relaciones, esta esta bien ?*/
         Post.findAll({
-            include:[{association : 'usuarios'},
-                     {association:'comentarios'},
-                     {association: 'posteos'}],
+            include:[{association : 'usuario'},
+                     {association:'comentario'},
+                     {association: 'post'}],
                      include: {all:true, nested:true}
         }).then(result =>{    
             return res.render('index', {mascotasPost: result} )

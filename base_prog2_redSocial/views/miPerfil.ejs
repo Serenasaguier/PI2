@@ -10,14 +10,14 @@
     <% } else { %>
         <%- include('./partials/headerLogeado') %>
     <% } %>
-    <!--
+    
     <main>
         <div class="user-detail container">
         
             <section class="top main-content">
-                <img class="profile" src=" detalleImagen[2].fotoPerfil %>" alt="" height="100px" width="100px" >
+                <img class="profile" src=" " alt="" height="100px" width="100px" >
                 <div class="info-usuario">
-                    <p class="textoRegular" > detalleImagen[2].nombreUsuario %></p> 
+                    <p class="textoRegular" > </p> 
                     <a class="follow" href="/user/edit"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
                         <li class="textoRegular" > 2 post</li>
@@ -27,18 +27,18 @@
                 </div>
             </section>
             <section class="bottom">
-                 for( let i = 0; i < 2; i++ ) { %>
+                <% for( let i = 0; i < 2; i++ ) { %>
                     <article class="post">
-                        <a href="/posteos/postdetail/id/ <detalleImagen[2].id_usuario  %> ">
-                            <img src= " detalleImagen[2].imagen %>" alt="">
+                        <a href="/posteos/postdetail/id/">
+                            <img src= "" alt="">
                         </a>
                     </article>
-                < } %>
+                    <% } %>
               
             </section>
         </div>
     </main>
--->
+
     <%- include('./partials/footer') %> 
 </body>
 </html>

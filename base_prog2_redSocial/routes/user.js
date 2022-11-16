@@ -10,7 +10,7 @@ router.get('/login', userController.loginUsuario);
 router.get('/profile', userController.miPerfil);
 
 /*ruta param*/
-router.get('/detailUser/id/:id', userController.show)
+router.get('/detalleUsuario/id/:id', userController.show)
 
 module.exports= router;
 

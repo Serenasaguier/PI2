@@ -3,8 +3,10 @@
 
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
-const Post = require('../database/models/Post');
+const { post } = require('../routes/user');
+const Post = db.Post
 const usuario = db.Usuario
+const posteo = db.Post;
 
 const userController = {
     
@@ -134,13 +136,29 @@ const userController = {
            ]
        };
 
-        Post.findByPk(id, relaciones) // no funciona el findByPk
-        .then((resultados)=> {
-            return res.render('detallePost',{ posteo: resultados})
+        usuario.findByPk(id, relaciones)
+      
+            .then((resultados)=> {
+                res.render('detalleUsuario',{ detalle: resultados})
+            })
+           
+        .catch(error => {
+            console.log(error, 'el error es')
         })
-        .catch((error)=>{
-            return res.redirect('/')
-        });
+        
+       // let id = req.params.id
+
+       /*  posteo.findByPk( {
+            include:[{association : 'usuario'},
+                     {association:'comentario'},
+                     {association: 'post'}],
+                     include: {all:true, nested:true}
+        }).then(result =>{    
+            return res.render('detalleUsuario', {mascotasDetalle: result} )
+            console.log(result)
+        }).catch(error =>{
+            res.send(error)
+        }); */
 
     },
 

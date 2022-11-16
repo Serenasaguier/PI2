@@ -7,6 +7,19 @@ let Post = db.Post;
  const postController = {
      show: (req, res) => {
 
+      
+      Post.findByPk({
+         include:[{association : 'usuario'},
+                  {association:'comentario'},
+                  {association: 'post'}],
+                  include: {all:true, nested:true}
+     }).then(result =>{    
+         return res.render('detallePost', {mascotasDetalle: result} )
+         console.log(result)
+     }).catch(error =>{
+         res.send(error)
+     });
+/* 
     let id = req.params.id;
 
    Post.findByPk(id,{
@@ -25,7 +38,7 @@ let Post = db.Post;
    .catch((error)=>{
       console.log(error)
       return res.send(error);
-   })
+   })*/
    /*           relaciones    
      Post.findByPk(id, relaciones)
       .then((resultados)=> {
@@ -90,6 +103,4 @@ let Post = db.Post;
  }
  } 
 
-module.exports = postController; 
-
-
+module.exports = postController;  
