@@ -57,41 +57,67 @@ const userController = {
         })
         }
     },
-    loginUsuario: (req, res)=> {
-
-
-    /* para encriptar la contrasenia que nose si esta bien o si ni siquiera hace falta por lo que hice abajo
-    let passEncriptada = bcrypt.hashSync('monito123', 10);
-
-    db.Usuario.create({
-        name: "",
-        username: "",
-        password: passEncriptada
-    });
     
-    let contrasenia = bcrypt.hashSync(contrasenia, 10) */
-        
-       /*  let informacion = req.body;
-        let criterio = { 
-            where:[{email:informacion.email}]
-        }
-        usuario.findOne(criterio)
-        .then((result)=>{
-            if (result != null) {
-                let passEncriptada= bycript.compareSync(info.contrasenia, result.contrasenia);
-                if (passEncriptada) {
-                    req.session.user = result.dataValues;
-                    if (informacion.recordar != undefined) {
-                        res.cookie('id', result.dataValues.id, {maxAge: 1000 * 60 * 5})
-                    }
-                    return res.redirect('/')
-                } else {
-                    return res.send('La clave no coincide')
-                }
-            }
-        })
-        .catch(error => console.log(error)) */
+    //login
+    login: function(req, res){
         return res.render('login')
+    },
+    // procesar el login
+    procesarLogin: function(req, res) {
+        let info = req.body
+        let filtrar = {
+            where: [{
+                email: info.email
+            }]
+        };
+        // validar email
+        let error = {};
+
+        if(info.email == "") {
+            error.message = 'The email box is empty';
+            res.locals.error = error;
+            return res.render('login')
+        } else if(info.contrasenia.length < 3){
+            error.message = 'Passwords require more than 3 letters';
+            res.locals.error = error;
+            return res.render('login')
+        }
+
+        else{
+
+            user.findOne(filtrar)
+                .then((result) => {
+
+                    if(result != null){
+
+                        let passEncript = bcrypt.compareSync(info.contrasenia, result.contrasenia);
+
+                        if(passEncript) {
+
+                            req.session.user = result.dataValues;
+
+                            if(req.body.rememberme != undefined){
+                                res.cookie('userId', result.dataValues.id, { maxAge: 100 * 50 * 100})
+                            }
+
+                            return res.redirect('/');
+
+                        } else {
+                            error.message = 'Incorrect password';
+                            res.locals.error = error;
+                            return res.render('login');
+                        }
+
+                    } else {
+                        error.message = 'Incorrect email';
+                        res.locals.error = error;
+                        return res.render('login');
+                    }
+
+                }) .catch((error) => {
+                    console.log(error);
+                })
+        }
     },
     //id
     show: (req, res)=>  {
