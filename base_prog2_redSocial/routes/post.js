@@ -22,12 +22,12 @@ let upload = multer({storage:storage});
 
 router.post('/detailUser', upload.single('archivosubido') , userController.store)
 
+
 //id
 router.get('/detallePost/id/:id', postController.show)
-
-
 router.get('/agregarPost', postController.agregarPost)
 
+router.get('/editarPost/id/:id', postController.editarPost)
 module.exports= router;
 
 

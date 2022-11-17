@@ -69,9 +69,9 @@ const userController = {
     procesarLogin: function(req, res) {
         let info = req.body
         let filtrar = {
-            where: [{
+            where: {
                 email: info.email
-            }]
+            }
         };
         // validar email
         let error = {};
@@ -80,7 +80,7 @@ const userController = {
             error.message = 'The email box is empty';
             res.locals.error = error;
             return res.render('login')
-        } else if(info.contrasenia.length < 3){
+        } else if(info.password.length < 3){
             error.message = 'Passwords require more than 3 letters';
             res.locals.error = error;
             return res.render('login')
@@ -88,22 +88,22 @@ const userController = {
 
         else{
 
-            user.findOne(filtrar)
+            usuario.findOne(filtrar)
                 .then((result) => {
 
                     if(result != null){
 
-                        let passEncript = bcrypt.compareSync(info.contrasenia, result.contrasenia);
+                        let passEncript = bycript.compareSync(info.password, result.contrasenia);
 
                         if(passEncript) {
 
-                            req.session.user = result.dataValues;
+                            req.session.user = result;
 
-                            if(req.body.rememberme != undefined){
+                            if(req.body.rememberme){
                                 res.cookie('userId', result.dataValues.id, { maxAge: 100 * 50 * 100})
                             }
 
-                            return res.redirect('/');
+                            res.redirect('/');
 
                         } else {
                             error.message = 'Incorrect password';
@@ -122,16 +122,25 @@ const userController = {
                 })
         }
     },
+    //logout
+    logout: function (req, res) {
+       
+        if (req.cookies.userId !== undefined) {
+            res.clearCookie('userId')
+        }
+        return res.redirect('/')
+    },
     //id
     show: (req, res)=>  {
         let id = req.params.id;
         let relaciones = {
-           include : [
+           include : 
                {
                    all : true,
                    nested: true
-               }
-           ]
+               },
+               order: ['createdAt', 'DESC']
+           
        };
 
         usuario.findByPk(id, relaciones)
@@ -166,7 +175,7 @@ const userController = {
        return res.render('miPerfil')
         
     },
-    miPerfil: 
+
 
 }
    

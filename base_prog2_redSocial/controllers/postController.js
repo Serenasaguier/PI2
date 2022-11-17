@@ -15,8 +15,7 @@ const Post = db.Post;
                   {association: 'post'}], */
                   include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
      }).then(result =>{    
-         return res.render('detallePost', {mascotasDetalle: result} )
-         console.log(result)
+      return res.render('detallePost', {mascotasDetalle: result})
      }).catch(error =>{
          res.send(error)
      });
@@ -89,10 +88,22 @@ const Post = db.Post;
   agregarPost: function (req, res) {
     res.render('agregarPost')
  },
- detallePost: function (req, res) {
+
+   detallePost:  function (req, res) {
+      Post.findByPk(req.params.id)
     res.render('detallePost', {  
     })
- }
+ },
+ editarPost: (req, res)=> {
+      id= req.params.id
+      Post.findByPk(id,{
+                   include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
+      }).then(result =>{    
+       return res.render('editarPost', {datos: result})
+      }).catch(error =>{
+          res.send(error)
+      });
+  }
  } 
 
 module.exports = postController;  

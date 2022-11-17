@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head') %> 
+
+<body>
+    <% if (locals.user != undefined) { %>
+        <%- include('./partials/header') %>
+
+    <% } else { %>
+        <%- include('./partials/headerLogeado') %>
+    <% } %>
+
+    <main>
+        <section class="center main-content registrar editar">
+            <h1 class="titles" >EDITAR POST</h1><form action="" method="get">
+                <div class="registro">
+                    <p>Post actual : </p>
+                    
+                    <img class="photo" src="<%= datos.imagen %>" alt="" width="200px" height="300px">
+            <p>Caption actual  : <%= datos.caption %> </p>
+                </div>
+                <div class="registro">
+                <form  action="/user/buscador" method="post"  target="_blank" enctype="multipart/form-data">
+                    <p>
+                      Subir achivo : 
+                      
+                      <input type="file" name="archivosubido">
+                      <input type="submit" value="Enviar datos">
+                    </p>
+                  </form> 
+                </div>
+
+                 <div class="registro"> <label for="password">Nuevo pie del post : </label>  <input type="text" name="password" value="" placeholder="Ingrese el pie del post"> </div>
+                 <button type="submit" class="button"> <a href="/user/profile"> Subir post </a></button> 
+     
+             </form> </section>
+    </main>
+
+    <%- include('./partials/footer') %>  
+
+</body>
+
+</html>

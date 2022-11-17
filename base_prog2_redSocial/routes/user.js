@@ -6,8 +6,9 @@ router.post('/registracion', userController.store);
 router.get('/registracion', userController.create);
 
 router.get('/login', userController.login);
+router.post('/login', userController.procesarLogin);
 
-router.get('/profile', userController.miPerfil);
+router.get('/miPerfil', userController.miPerfil);
 
 /*ruta param*/
 router.get('/detalleUsuario/id/:id', userController.show)

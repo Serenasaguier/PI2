@@ -16,13 +16,18 @@
         <div class="post-detail container">
 
             <section class="center main-content post" class="textoRegular" >
-
+                <% if (locals.user && user.id == mascotasDetalle.id_usuarios) { %>
+                 <p>DUEÑO</p>
+                <% } %>
                 <div class="info-usuario">
                     <img src="<%= mascotasDetalle.usuario.fotoPerfil%>" alt="" height="40px" width="40px">
                     <p><a href="/user/detalleUsuario/id/<%=mascotasDetalle.id_usuarios%>" ><%= mascotasDetalle.usuario.nombreUsuario %></a></p>
+                    
                 </div>
 
                 <img class="photo" src="<%= mascotasDetalle.imagen %>" alt="" width="500px" height="600px">
+                <a href="/posteos/editarPost/id/<%= mascotasDetalle.id %> "><i class="fa-solid fa-trash"></i></a>
+                <i class="fa-solid fa-pencil"></i>
             </section>
             
             <!---->
