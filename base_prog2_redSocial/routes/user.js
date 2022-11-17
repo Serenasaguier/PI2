@@ -10,6 +10,8 @@ router.post('/login', userController.procesarLogin);
 
 router.get('/miPerfil', userController.miPerfil);
 
+// router.get('/resultadoBusquedaEmail', userController.searchResultsEmail)
+
 /*ruta param*/
 router.get('/detalleUsuario/id/:id', userController.show)
 

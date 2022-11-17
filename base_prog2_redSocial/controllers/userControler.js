@@ -3,6 +3,7 @@
 
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
+const op = db.Sequelize.Op;
 /* 
 const { post } = require('../routes/user');
 const Post = db.Post */
@@ -15,7 +16,7 @@ const userController = {
     create: (req, res) =>{
 
         return res.render('registracion')
-    }, 
+    },
     store: (req, res)=> {
 
         // validacion

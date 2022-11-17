@@ -5,10 +5,10 @@
 
 <body>
     <% if (locals.user != undefined) { %>
-        <%- include('./partials/header') %>
+        <%- include('./partials/headerLogeado') %>
 
     <% } else { %>
-        <%- include('./partials/headerLogeado') %>
+        <%- include('./partials/header') %>
     <% } %>
     
     <main>
@@ -18,7 +18,7 @@
                 <img class="profile" src=" " alt="" height="100px" width="100px" >
                 <div class="info-usuario">
                     <p class="textoRegular" > </p> 
-                    <a class="follow" href="/user/edit"><i class="fa-solid fa-user-gear"></i></a>
+                    <a class="follow" href="/user/editarPerfil"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
                         <li class="textoRegular" > 2 post</li>
                         <li class="textoRegular" > 88 seguidores</li>
@@ -29,7 +29,7 @@
             <section class="bottom">
                 <% for( let i = 0; i < 2; i++ ) { %>
                     <article class="post">
-                        <a href="/posteos/postdetail/id/">
+                        <a href="/posteos/detallePost/id/">
                             <img src= "" alt="">
                         </a>
                     </article>

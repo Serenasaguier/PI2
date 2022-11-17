@@ -5,10 +5,10 @@
 
 <body>
     <% if (locals.user != undefined) { %>
-        <%- include('./partials/header') %>
+        <%- include('./partials/headerLogeado') %>
 
     <% } else { %>
-        <%- include('./partials/headerLogeado') %>
+        <%- include('./partials/header') %>
     <% } %>
 
     <main>
@@ -43,30 +43,14 @@
                         </li>
                     </ul>
                     <p class="textoRegular post-comentarios"> <%= resultados[i].usuario.nombreUsuario %> : <%=resultados[i].caption%>  </p>
-                    <div class="post-comentarios">
-                        <h4 class="textoRegular">Comentarios</h4>
-                        <ul>
-                            <% for( let j=0; j < resultados[j].length; j++ ) { %>
-                                
-                                <li>
-                                    <a href="/user/detalleUsuario/id/<%=resultados[j].Comentario.comentario1%>" class="textoRegular">
-                                        <%= resultados[j].Comentario.autor %> :
-                                    </a>
-                                    <span class="textoRegular">
-                                        <%=resultados[j].Comentario.comentario1 %>
-                                    </span>
-                                </li>
-                                
-                                
-                                <% } %>
-
-                                <a href="/posteos/detallePost/id/<%=resultados[i].id %> " class="textoRegular">Ver más...</a>
+                
+                                <a href="/posteos/detallePost/id/<%=resultados[i].id %> " class="textoRegular post-comentarios">Ver más...</a>
                         </ul>
                     </div>
                 </article>
                 <% } %>
                 <% } else { %>
-                    <h4 class="textoRegular"> No se encontraron resultados para tu busqueda </h4>
+                    <h4 class="textoRegular "> No se encontraron resultados para tu busqueda </h4>
          
         <% } %>
         

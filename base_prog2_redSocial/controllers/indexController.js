@@ -3,6 +3,7 @@ const db =  require("../database/models");
 let Post = db.Post;
 let Coments = db.Comentario;
 const op = db.Sequelize.Op;
+let usuario = db.Usuario;
 
  const indexController = {
      // relaciones de los modelos, nose cual de todos esta bien
@@ -24,6 +25,29 @@ const op = db.Sequelize.Op;
         
 
     }, 
+     
+    searchResultsEmail : (req, res) => {
+        let busqueda = req.query.usuario;
+        console.log(busqueda)
+      
+        usuario.findAll({
+                where: [{nombreUsuario: {[op.like]:"%"+busqueda+"%"}}],
+                //order: [["nombreUsuario", "ABC"]],
+                limit:10,
+                include: {all: true, nested: true}
+            } )
+            .then((result)=>{
+                   if (result != undefined || result != null) { 
+                res.render("resultadoBusquedaEmail", {result :result})
+            }else {
+                res.render("resultadoBusquedaEmail", {result: [ ]})
+            }
+            })
+            .catch ((error)=> {
+                console.log(error)
+            })
+       
+    },
      // TODO buscador, tiene que tener una opcion para que 
      // el usuario elija si quiere que aparezcan en orden ASC o DESC
      searchResults : (req, res) => {

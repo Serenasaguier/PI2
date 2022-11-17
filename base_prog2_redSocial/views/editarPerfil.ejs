@@ -5,10 +5,10 @@
 
 <body>
     <% if (locals.user != undefined) { %>
-        <%- include('./partials/header') %>
+        <%- include('./partials/headerLogeado') %>
 
     <% } else { %>
-        <%- include('./partials/headerLogeado') %>
+        <%- include('./partials/header') %>
     <% } %> 
 
     <main>
@@ -21,7 +21,7 @@
              <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su nueva contraseña"> </div>
  
              <div class="registro"><label for="password">Repetir contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su contraseña nuevamente"> </div>
-             <button type="submit" class="button"> <a href="/user/profile"> Enviar datos editados </a></button> 
+             <button type="submit" class="button"> <a href="/user/miPerfil"> Enviar datos editados </a></button> 
  
          </form> </section>
     </main>
