@@ -48,7 +48,7 @@ const userController = {
         let user = {
             nombreUsuario: guardarUsuario.username,
             email: guardarUsuario.useremail,
-            contrasenia: bycript.hashSync(guardarUsuario.password, 10),
+            contrasenia: bycript.hashSync(guardarUsuario.password, 100),
             fotoPerfil: fotoPerfil,
             cumpleanios: guardarUsuario.cumpleanios
         }
@@ -140,7 +140,7 @@ const userController = {
                    all : true,
                    nested: true
                },
-               order: ['createdAt', 'DESC']
+               // order: ['createdAt', 'DESC']
            
        };
 
@@ -153,27 +153,21 @@ const userController = {
         .catch(error => {
             console.log(error, 'el error es')
         })
-        
-       /* lo que hizo sere es casi igual a lo de arriba pero en vez de la info de usuario, la info de post
-       
-        let id = req.params.id
-
-         posteo.findByPk( {
-            include:[{association : 'usuario'},
-                     {association:'comentario'},
-                     {association: 'post'}],
-                     include: {all:true, nested:true}
-        }).then(result =>{    
-            return res.render('detalleUsuario', {mascotasDetalle: result} )
-            console.log(result)
-        }).catch(error =>{
-            res.send(error)
-        }); */
 
     },
 
     miPerfil: function (req, res) {
-       return res.render('miPerfil')
+       
+       posteo.findAll({
+        order: [["createdAt", "DESC"]],
+        include: {all: true, nested: true}
+    } )
+    .then((result)=>{
+        res.render("miPerfil", {result: result})
+    })
+    .catch ((error)=> {
+        console.log(error)
+    })
         
     },
 

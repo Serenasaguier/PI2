@@ -27,12 +27,14 @@
                 </div>
             </section>
             <section class="bottom">
-                <% for( let i = 0; i < 2; i++ ) { %>
+                <% for( let i = 0; i < result.lenght; i++ ) { %>
                     <article class="post">
-                        <a href="/posteos/detallePost/id/">
-                            <img src= "" alt="">
+                        <a href="/posteos/detallePost/id/<%= result[i].id %>">
+                            <img src= "<%= result[i].imagen %> " alt="">
                         </a>
                     </article>
+                    <p class="textoRegular post-comentarios"> <%= result.usuario[i].nombreUsuario %> : <%=result.usuario[i].caption%>  </p>
+                                
                     <% } %>
               
             </section>
