@@ -31,29 +31,31 @@ const op = db.Sequelize.Op;
      // TODO buscador, Buscar un posteo en base al caption y tiene que tener una opcion para que el usuario elija si qiere que aparezcan en orden ASC o DESC
      searchResults : (req, res) => {
         let busqueda = req.query.mascota;
-        if (Post != undefined && null) {
+        console.log(busqueda)
+      
             Post.findAll({
-                where: [{caption: {[op.like]:"%" + busqueda + "%"}}],
-                order: [["imagen","createdAt", "DESC"]],
+                where: [{caption: {[op.like]:"%"+busqueda+"%"}}],
+                order: [["createdAt", "DESC"]],
                 limit:10,
                 include: {all: true, nested: true}
             } )
             .then((resultados)=>{
+                   if (resultados != undefined || resultados != null) { 
                 res.render("resultadoBusqueda", {resultados :resultados})
+            }else {
+                res.render("resultadoBusqueda", {resultados: [ ]})
+            }
             })
             .catch ((error)=> {
                 console.log(error)
             })
-        } else {
-            console.log("No hay resultados para su criterio de búsqueda")
-        }
        
     },
     // para que traiga los posteos de manera ASC O DESC
     create : (req, res)=> {
         Post.findAll({
             order: [ 
-                [ "imagen","createdAt", "DESC"],
+                [ "createdAt", "DESC"],
             ]
         });
     },
