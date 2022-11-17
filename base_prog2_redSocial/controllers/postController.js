@@ -10,10 +10,10 @@ const Post = db.Post;
 
       let id = req.params.id;
       Post.findByPk(id,{
-         include:[{association : 'usuario'},
+        /* include:[{association : 'usuario'},
                   {association:'comentario'},
-                  {association: 'post'}],
-                  include: {all:true, nested:true}
+                  {association: 'post'}], */
+                  include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
      }).then(result =>{    
          return res.render('detallePost', {mascotasDetalle: result} )
          console.log(result)

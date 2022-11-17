@@ -14,9 +14,10 @@ const op = db.Sequelize.Op;
                      order:[
                          ['createdAt', 'DESC']
                      ]
-        }).then(result =>{    
-            return res.render('index', {mascotasPost: result} )
+        }).then(result =>{   
             console.log(result)
+ 
+            return res.render('index', {mascotasPost: result} )
         }).catch(error =>{
             res.send(error)
         }); 
