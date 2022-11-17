@@ -7,7 +7,7 @@ router.get('/registracion', userController.create);
 
 router.get('/login', userController.login);
 
-router.get('/profile', userController.miPerfil);
+router.get('/miPerfil', userController.miPerfil);
 
 /*ruta param*/
 router.get('/detalleUsuario/id/:id', userController.show)

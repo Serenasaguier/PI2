@@ -5,10 +5,10 @@
 
 <body>
     <% if (locals.user != undefined) { %>
-        <%- include('./partials/header') %>
+        <%- include('./partials/headerLogeado') %>
 
     <% } else { %>
-        <%- include('./partials/headerLogeado') %>
+        <%- include('./partials/header') %>
     <% } %>
     
     <main>
