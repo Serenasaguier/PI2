@@ -28,11 +28,13 @@
             <!---->
             <section class="right" class="textoRegular">
                 <h4  >Comentarios</h4>
+                <p class="textoRegular post-comentarios"> <%= mascotasDetalle.caption %> </p>
                 
                 <section class="comments"  >
                     <form action="" class="comment-form">
                         <input type="text" class="input" placeholder="Agregar comentario">
                         <button type="submit"  >Comentar</button>
+
                     </form>
                     <div>
                     <% for( let i = 0; i < mascotasDetalle.length; i++ ) { %>
@@ -43,6 +45,7 @@
 
                             <section class="content">
                                 <a href="/user/detalleUsuario/id/ <%= mascotasDetalle[i].usuario.id  %> "> <%= mascotasDetalle[i].usuario.nombreUsuario %> : </a>
+                                
                                 <span class="text">
                                     <%= mascotasDetalle.comentarios[i].comentario1 %>
                                 </span>

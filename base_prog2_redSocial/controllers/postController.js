@@ -3,7 +3,7 @@
 
 const db =  require("../database/models");
 
-const post = db.Post;
+const Post = db.Post;
 
  const postController = {
      show: (req, res) => {
