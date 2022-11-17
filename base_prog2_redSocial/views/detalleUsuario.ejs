@@ -33,7 +33,8 @@
                                 <a href="/posteos/detallePost/id/<%=detalle.post[i].id %>">
                                     <img src="<%= detalle.post[i].imagen %>" alt="">
                                 </a>
-                                <p><%= detalle.post[i].caption %> </p>
+                                <p class="textoRegular post-comentarios"> <%= detalle.nombreUsuario %> : <%=detalle.post[i].caption%>  </p>
+                                
 
                             </article>
                             <% } %>

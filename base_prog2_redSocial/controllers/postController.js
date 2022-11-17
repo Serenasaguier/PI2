@@ -2,17 +2,18 @@
   // SEGUNDA PARTE 
 
 const db =  require("../database/models");
-let Post = db.Post;
+
+const Post = db.Post;
 
  const postController = {
      show: (req, res) => {
 
       let id = req.params.id;
       Post.findByPk(id,{
-         include:[{association : 'usuario'},
+        /* include:[{association : 'usuario'},
                   {association:'comentario'},
-                  {association: 'post'}],
-                  include: {all:true, nested:true}
+                  {association: 'post'}], */
+                  include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
      }).then(result =>{    
          return res.render('detallePost', {mascotasDetalle: result} )
          console.log(result)
@@ -75,7 +76,7 @@ let Post = db.Post;
 
          } else {
             console.log(post.users_id);
-            return res.redirect('/miPerfil/login')
+            return res.redirect('/user/profile')
          }
 
   /*      Post.findAll({

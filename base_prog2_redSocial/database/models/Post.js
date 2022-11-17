@@ -1,6 +1,6 @@
 
 //exporto la funcion
-module.exports = function (sequelize, dataTypes) {
+module.exports = (sequelize, dataTypes) => {
 
     //creo un alias para que sequelize sepa con que modelo debe conectarse
     let alias = "Post"; //nosotros vamos a tener 3 alias : post, comentarios, usuarios
