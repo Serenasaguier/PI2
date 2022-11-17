@@ -42,27 +42,31 @@
                             <i class="fa-regular fa-comment"></i>
                         </li>
                     </ul>
+                    <p class="textoRegular"> <%=resultados[i].caption%>  </p>
                     <div class="post-comentarios">
                         <h4 class="textoRegular">Comentarios</h4>
                         <ul>
-                            <% for( let j=0; j < resultados[i].length; j++ ) { %>
+                            <% for( let j=0; j < resultados[j].length; j++ ) { %>
+                                
                                 <li>
-                                    <a href="/user/detalleUsuario/id/<%=resultados[i].comentarios.comentario1%>" class="textoRegular">
-                                        <%= resultados[i].comentarios.autor %> :
+                                    <a href="/user/detalleUsuario/id/<%=resultados[j].Comentario.comentario1%>" class="textoRegular">
+                                        <%= resultados[j].Comentario.autor %> :
                                     </a>
                                     <span class="textoRegular">
-                                        <%=resultados[i].comentarios.comentario1 %>
+                                        <%=resultados[j].Comentario.comentario1 %>
                                     </span>
                                 </li>
+                                
+                                
                                 <% } %>
 
-                                    <a href="/posteos/detallePost/id/ <%=resultados[i].id %> " class="textoRegular">Ver más...</a>
+                                <a href="/posteos/detallePost/id/<%=resultados[i].id %> " class="textoRegular">Ver más...</a>
                         </ul>
                     </div>
                 </article>
                 <% } %>
                 <% } else { %>
-                    <h4 class="textoRegular">No se encontraron resultados para tu busqueda</h4>
+                    <h4 class="textoRegular"> No se encontraron resultados para tu busqueda </h4>
          
         <% } %>
         
