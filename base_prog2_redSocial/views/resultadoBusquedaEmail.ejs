@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <%- include('./partials/head') %>  
+
+<body>
+    <% if (locals.user != undefined) { %>
+        <%- include('./partials/headerLogeado') %>
+
+    <% } else { %>
+        <%- include('./partials/header') %>
+    <% } %>
+
+    <main>
+
+        <main>
+            <section class="center main-content" class="textoRegular">
+
+        <h1 class="titles" >Resultados de búsqueda.</h1>
+        <% if (result.length != 0 ) { %>
+            <% for( let i=0; i < result.length; i++ ) { %>
+                <article class="post">
+                    <div class="info-usuario ">
+                        <img src="<%= result[i].fotoPerfil%>" alt="" height="50px" width="50px">
+                        <h4>
+                            <a href="/user/detalleUsuario/id/<%=result[i].id%>" class="textoRegular">
+                                
+                                <%=result[i].nombreUsuario%>
+                            </a>
+                        </h4>
+                    </div>
+                    <% } %> 
+                <% } else { %>
+                    <h4 class="textoRegular"> No se encontraron resultados para tu busqueda </h4>
+         
+        <% } %>
+        
+        </section>
+        </main>
+
+        
+    </main>
+    <%- include('./partials/footer') %> 
+
+</body>
+
+</html>

@@ -2,7 +2,7 @@
 Funcionalidades Electivas Proyecto
 ........
 ## Funcionalidad 🚀
-* Primera Funcion
+* Buscador de usuarios
 * Segunda Funcion
 * Tercera Funcion
 
