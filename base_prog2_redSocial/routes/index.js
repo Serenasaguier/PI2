@@ -7,7 +7,7 @@ const indexController = require('../controllers/indexController')
 router.get('/', indexController.index);
 
 
-router.get('/', indexController.create)
+//router.get('/', indexController.create)
  router.get('/resultadoBusqueda', indexController.searchResults); 
 
 // router.post('/', upload.single(''), indexController.store)

@@ -10,18 +10,19 @@ const op = db.Sequelize.Op;
     index: (req, res) => {
 
         /* relaciones */
-        let id = req.params.id;
+     //   let id = req.params.id;
         Post.findAll({
-            include:[{association : 'usuario'},
+          /*  include:[{association : 'usuario'},
                      {association:'comentario'},
-                     {association: 'post'}],
-                     include: {all:true, nested:true},
+                     {association: 'post'}],*/
+                     include: {all:true, nested:true}, //cuando ponemos all no tenemos la necesidad de agregar una por una
                      order:[
                          ['createdAt', 'DESC']
                      ]
-        }).then(result =>{    
-            return res.render('index', {mascotasPost: result} )
+        }).then(result =>{   
             console.log(result)
+ 
+            return res.render('index', {mascotasPost: result} )
         }).catch(error =>{
             res.send(error)
         }); 

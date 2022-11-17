@@ -9,7 +9,7 @@ const post = db.Post;
      show: (req, res) => {
 
       let id = req.params.id;
-      Post.findByPk(id,{
+      post.findByPk(id,{
          include:[{association : 'usuario'},
                   {association:'comentario'},
                   {association: 'post'}],
