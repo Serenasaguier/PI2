@@ -27,9 +27,8 @@
             
             <!---->
             <section class="right" class="textoRegular">
-                <h4  >Comentarios</h4>
-                <p class="textoRegular post-comentarios"> <%= mascotasDetalle.caption %> </p>
-                
+                <h4  >Comentarios</h4><p class="textoRegular post-comentarios"> <%=mascotasDetalle.usuario.nombreUsuario%> : <%=mascotasDetalle.caption%>  </p>
+ 
                 <section class="comments"  >
                     <form action="" class="comment-form">
                         <input type="text" class="input" placeholder="Agregar comentario">

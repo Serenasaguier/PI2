@@ -1,7 +1,6 @@
 
 const db =  require("../database/models");
 let Post = db.Post;
-let User = db.Usuario;
 let Coments = db.Comentario;
 const op = db.Sequelize.Op;
 
@@ -10,11 +9,7 @@ const op = db.Sequelize.Op;
     index: (req, res) => {
 
         /* relaciones */
-        let id = req.params.id;
         Post.findAll({
-            include:[{association : 'usuario'},
-                     {association:'comentario'},
-                     {association: 'post'}],
                      include: {all:true, nested:true},
                      order:[
                          ['createdAt', 'DESC']
@@ -28,7 +23,8 @@ const op = db.Sequelize.Op;
         
 
     }, 
-     // TODO buscador, Buscar un posteo en base al caption y tiene que tener una opcion para que el usuario elija si qiere que aparezcan en orden ASC o DESC
+     // TODO buscador, tiene que tener una opcion para que 
+     // el usuario elija si quiere que aparezcan en orden ASC o DESC
      searchResults : (req, res) => {
         let busqueda = req.query.mascota;
         console.log(busqueda)
@@ -51,16 +47,8 @@ const op = db.Sequelize.Op;
             })
        
     },
-    // para que traiga los posteos de manera ASC O DESC
-    create : (req, res)=> {
-        Post.findAll({
-            order: [ 
-                [ "createdAt", "DESC"],
-            ]
-        });
-    },
     comentarios: (req, res) => {
-        db.findAll({
+        Coments.findAll({
             order: [
                 ['comentarios', 'DESC']
             ]

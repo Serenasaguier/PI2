@@ -131,9 +131,6 @@ const userController = {
                    all : true,
                    nested: true
                }
-               // {association:'posteos'},
-               // {association:'usuarios'}
-
            ]
        };
 
