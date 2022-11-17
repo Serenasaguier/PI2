@@ -168,8 +168,8 @@ const userController = {
     miPerfil: function (req, res) {
        return res.render('miPerfil')
         
-    }
-
+    },
+    miPerfil: 
 
 }
    
