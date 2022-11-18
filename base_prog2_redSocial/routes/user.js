@@ -12,7 +12,8 @@ router.post('/login', userController.procesarLogin);
 router.get('/miPerfil', userController.miPerfil);
 
 // para guardar la foto de perfil con multer
-router.post('/detalleUsuario', upload.single('fotoPerfil') , postController)
+// me tira error el router
+// router.post('/detalleUsuario', upload.single('fotoPerfil') , userControler.store)
 
 const multer = require('multer');
 const path = require('path');
