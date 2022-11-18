@@ -4,9 +4,6 @@
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
 const op = db.Sequelize.Op;
-/* 
-const { post } = require('../routes/user');
-const Post = db.Post */
 const usuario = db.Usuario
 const posteo = db.Post;
 

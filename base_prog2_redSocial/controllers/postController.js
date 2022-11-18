@@ -10,9 +10,6 @@ const Post = db.Post;
 
       let id = req.params.id;
       Post.findByPk(id,{
-        /* include:[{association : 'usuario'},
-                  {association:'comentario'},
-                  {association: 'post'}], */
                   include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
      }).then(result =>{    
       return res.render('detallePost', {mascotasDetalle: result})
@@ -77,16 +74,10 @@ const Post = db.Post;
             console.log(post.users_id);
             return res.redirect('/user/profile')
          }
-
-  /*      Post.findAll({
-           include: {all:true, nested:true},
-            order: [ 
-                [ 'comentarios','createdAt', 'DESC'],
-            ]
-        }); */
     },
   agregarPost: function (req, res) {
     res.render('agregarPost')
+    // debemos almacenar el posteo subido y guardarlo en la base de datos
  },
 
    detallePost:  function (req, res) {

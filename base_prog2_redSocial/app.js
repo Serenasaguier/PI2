@@ -38,7 +38,7 @@ app.use(session({secret: "petsdb",
               saveUninitialized:true }));
 
 
-/*  middleware de locals  */
+/*  middleware de locals, para el header */
 app.use(function(req, res, next) {
 
   if (req.session.user != undefined) {

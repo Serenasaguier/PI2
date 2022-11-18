@@ -4,10 +4,9 @@ const router= express.Router();
 const postController= require('../controllers/postController');
 
 
-//para configurar multer
+//para configurar multer para posteos
 const multer = require('multer');
 const path = require('path');
-const userController = require('../controllers/userControler');
 
 let storage = multer.diskStorage({
     destination : (req, file, cb) => {
@@ -20,7 +19,7 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage:storage});
 
-router.post('/detailUser', upload.single('archivosubido') , userController.store)
+router.post('/detalleUsuario', upload.single('archivosubido') , userController.store)
 
 
 //id
