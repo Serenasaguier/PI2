@@ -21,7 +21,7 @@ const userController = {
         let errors = {};
 
         if (req.body.useremail === "" ) {
-            errors.mensaje = "El campo email es obligatorio ";
+            errors.mensaje = "El campo email es obligatorio";
             res.locals.errors = errors;
             return res.render('registracion');
 
@@ -45,7 +45,7 @@ const userController = {
         let user = {
             nombreUsuario: guardarUsuario.username,
             email: guardarUsuario.useremail,
-            contrasenia: bycript.hashSync(guardarUsuario.password, 100),
+            contrasenia: bycript.hashSync(guardarUsuario.password, 10),
             fotoPerfil: fotoPerfil,
             cumpleanios: guardarUsuario.cumpleanios
         }
