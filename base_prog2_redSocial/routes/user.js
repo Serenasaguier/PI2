@@ -34,9 +34,9 @@ let upload = multer({storage:storage});
 // router.get('/resultadoBusquedaEmail', userController.searchResultsEmail)
 
 /*ruta param*/
-router.get('/detalleUsuario/id/:id', userController.show)
+router.get('/detalleUsuario/id/:id', userControler.show)
 
-module.exports= router;
+
 
 
 /*
@@ -46,4 +46,5 @@ router.get('/edit', userController.editarPerfil);
 router.get('/detailUser', userController.detalleUsuario); */
 
 //Ruta por post que procesa la info del formulario
-router.post('/miPerfil', userController.login)
+router.post('/miPerfil', userControler.login)
+module.exports= router;

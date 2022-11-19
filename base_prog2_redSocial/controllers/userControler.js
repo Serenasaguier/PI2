@@ -95,7 +95,7 @@ const userController = {
 
                         if(passEncript) {
 
-                            req.session.user = result;
+                            req.session.user= result;
 
                             if(req.body.rememberme){
                                 res.cookie('userId', result.dataValues.id, { maxAge: 100 * 50 * 100})
