@@ -100,11 +100,11 @@ const userController = {
 
                             req.session.user= result;
 
-                            if(req.body.rememberme){
-                                res.cookie('userId', result.dataValues.id, { maxAge: 100 * 50 * 100})
+                            if(req.body.rememberme != undefined){
+                                res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 100})
                             }
 
-                            res.redirect('/');
+                            return res.redirect('/');
 
                         } else {
                             error.message = 'Incorrect password';
@@ -112,11 +112,11 @@ const userController = {
                             return res.render('login');
                         }
 
-                    } else {
+                    } /*else {
                         error.message = 'Incorrect email';
                         res.locals.error = error;
                         return res.render('login');
-                    }
+                    }*/
 
                 }) .catch((error) => {
                     console.log(error);
