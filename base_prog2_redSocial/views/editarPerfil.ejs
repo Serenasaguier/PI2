@@ -14,13 +14,29 @@
     <main>
         <section class="center main-content registrar editar">
         <h1 class="titles" >Editar mi perfil</h1><form action="" method="post">
+            
+            <p class="registro">Foto de perfil actual: </p>
+            <img class="photoperfil" src="<%= result.imagen %>" alt="" width="200px" height="300px"> </label> 
+
+          <form  action="" method="post"  target="_blank" enctype="multipart/form-data">
+                    <p>
+                      Nueva foto de perfil: 
+                      
+                      <input type="file" name="archivosubido">
+                      
+                    </p>
+                  </form> 
+            
+
+            <p class="registro">Nombre actual: <%= result.nombreUsuario %> </p>
             <div class="registro"> <label for="name"> Nuevo nombre: </label> <input type="text" name="user" value=""> </div>
+
+            <p class="registro">Email actual: <%= result.email %> </p>
+            <div class="registro"> <label for="user">Nuevo nombre de Email: </label>  <input type="email" name="username" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
+            
+             <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="password" name="password" value="" placeholder="Ingrese su nueva contraseña"> </div>
  
-            <div class="registro"> <label for="user">Nuevo nombre de usuario: </label>  <input type="text" name="username" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
- 
-             <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su nueva contraseña"> </div>
- 
-             <div class="registro"><label for="password">Repetir contraseña: </label>  <input type="text" name="password" value="" placeholder="Ingrese su contraseña nuevamente"> </div>
+             <div class="registro"><label for="password">Repetir contraseña: </label>  <input type="password" name="password" value="" placeholder="Ingrese su contraseña nuevamente"> </div>
              <button type="submit" class="button"> <a href="/user/miPerfil"> Enviar datos editados </a></button> 
  
          </form> </section>

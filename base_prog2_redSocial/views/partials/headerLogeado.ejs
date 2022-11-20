@@ -5,9 +5,9 @@
             <h2 class="logo"><a href="/"  class="petSociety">PetSociety</a></h2>
             <img src="" alt="">
             <% if (locals.user != undefined) { %>
-             <a>Bienvenido, <%= locals.Usuario.nombreUsuario  %> </a>
-             <a href="/user/login/<%= locals.Usuario.id %>">
-             <img src="/images/posteos/ <%= locals.Usuario.fotoPerfil %> " alt="<%= locals.Usuario.nombreUsuario %>" style="width:50px;"></a>
+             <a>Bienvenido, <%= locals.user.nombreUsuario  %> </a>
+             <a href="/user/login/<%= locals.user.id %>">
+             <img src="/images/posteos/ <%= locals.user.fotoPerfil %> " alt="<%= locals.user.nombreUsuario %>" style="width:50px;"></a>
             <% } %>
         </div>
 

@@ -15,35 +15,36 @@
 
                 <section class="center main-content registrar">
                     <h1 class="titles">Registrate</h1>
-                    
-                    <form action="" method="post">
-
-                        <div class="registro"> <label for="user">Nombre de usuario: </label> <input type="text"
-                                name="username" value="" placeholder="Ingrese su nombre de usuario"> </div>
-                        
-                            <!-- Validando -->
+                
+                    <form method="POST">
+                        <!-- agregar enctype="multipart/form-data" para multer -->
+                
+                        <div class="registro"> <label for="user">Nombre de usuario: </label> <input type="text" name="username"
+                                placeholder="Ingrese su nombre de usuario"> </div>
+                
+                        <!-- Validando -->
                         <% if (locals.errors) { %>
-                         <p class="error" style="color:red"> <%= locals.errors.mensaje %> </p>
-                        <% } %>
-                        <div class="registro"> <label for="user">Email: </label> <input type="email"
-                                    name="useremail" value="" placeholder="Ingrese su email" > </div>
-                       
-
-                        <div class="registro"> <label for="password">Contraseña: </label> <input type="password"
-                                name="password" placeholder="Ingrese su contraseña"> </div>
-
-                        <div class="registro"> <label for="start">Dia de nacimiento :</label>
-
-                            <input type="date" id="start" name="cumpleanios" value="0000-00-00" >
-                        </div>
-
-                        <div class="registro">
-                            <form action="/" enctype="multipart/form-data">
-                            <input id="fotoPerfil" class="input" type="file" name="fotoPerfil"/>
-                        </form>
-                          </div>
-                        <button type="submit" class="button"> Enviar </button>
-
+                            <p class="error" style="color:red">
+                                <%= locals.errors.mensaje %>
+                            </p>
+                            <% } %>
+                                <div class="registro"> <label for="user">Email: </label> <input type="email" name="useremail"
+                                        placeholder="Ingrese su email"> </div>
+                
+                
+                                <div class="registro"> <label for="password">Contraseña: </label> <input type="password" name="password"
+                                        id="password" placeholder="Ingrese su contraseña"> </div>
+                
+                                <div class="registro"> <label for="start">Dia de nacimiento :</label>
+                
+                                    <input type="date" id="start" name="cumpleanios" value="0000-00-00">
+                                </div>
+                
+                                <div class="registro">
+                                    <input id="fotoPerfil" class="input" type="file" name="fotoPerfil" />
+                                </div>
+                                <button type="submit" class="button"> Enviar </button>
+                
                     </form>
                 </section>
             </main>

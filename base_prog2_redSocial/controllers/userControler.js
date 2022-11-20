@@ -3,6 +3,7 @@
 
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
+/* const { UPDATE } = require('sequelize/types/query-types'); */
 const op = db.Sequelize.Op;
 const usuario = db.Usuario
 const posteo = db.Post;
@@ -40,21 +41,23 @@ const userController = {
         } else {
             fotoPerfil= req.file.filename
         }
-
         /* para guardarlo en la base de datos */
+        guardarUsuario.password = bycript.hashSync(guardarUsuario.password.toString(), 10)
         let user = {
             nombreUsuario: guardarUsuario.username,
             email: guardarUsuario.useremail,
-            contrasenia: bycript.hashSync(guardarUsuario.password, 10),
+            contrasenia: guardarUsuario.password,
             fotoPerfil: fotoPerfil,
             cumpleanios: guardarUsuario.cumpleanios
         }
         usuario.create(user)
         .then((result)=>{
-            return res.redirect('/user/login')
+            console.log(req.body)
+            res.redirect('/user/login')
         })
         .catch((error)=>{
-            return console.log(error)
+            console.log(req.body)
+            console.log(error)
         })
         }
     },
@@ -88,7 +91,7 @@ const userController = {
 
             usuario.findOne(filtrar)
                 .then((result) => {
-
+                    console.log(result)
                     if(result != null){
 
                         let passEncript = bycript.compareSync(info.password, result.contrasenia);
@@ -168,8 +171,34 @@ const userController = {
         
     },
 
+    editarPerfil: (req, res)=> {
 
+        let info= req.body;
+        let filtro= {where: [{id: req.body.id}]}
+      /*   let datos= {
+            email: 
+            contasenia: 
+            fotoPerfil:
+            nombreUsuario: 
+        }, */
+        usuario.update(info,filtro)
+        .then((result)=>{
+           // return res.redirect('/miPerfil')
+            return res.render('editarPerfil',{result: result})
+        })
+        .catch((errror)=>{
+            return res.redirect('/')
+        } )
+    
+    id= req.params.id
+    usuario.findByPk(id,{
+                 include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
+    }).then(result =>{    
+     return res.render('editarPerfil', {result: result})
+    }).catch(error =>{
+        res.send(error)
+    });
+}
 }
    
 module.exports= userController;
-

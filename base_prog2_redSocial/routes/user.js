@@ -3,8 +3,9 @@ const postController = require('../controllers/postController');
 const router= express.Router();
 const userController=  require('../controllers/userControler');
 
-router.post('/registracion', userController.store);
+
 router.get('/registracion', userController.create);
+router.post('/registracion', userController.store);
 
 router.get('/login', userController.login);
 router.post('/login', userController.procesarLogin);
@@ -34,7 +35,7 @@ let upload = multer({storage:storage});
 // router.get('/resultadoBusquedaEmail', userController.searchResultsEmail)
 
 /*ruta param*/
-router.get('/detalleUsuario/id/:id', userControler.show)
+router.get('/detalleUsuario/id/:id', userController.show)
 
 
 
@@ -46,5 +47,7 @@ router.get('/edit', userController.editarPerfil);
 router.get('/detailUser', userController.detalleUsuario); */
 
 //Ruta por post que procesa la info del formulario
-router.post('/miPerfil', userControler.login)
+router.post('/miPerfil', userController.login)
+
+router.get('/editarPerfil', userController.editarPerfil);
 module.exports= router;

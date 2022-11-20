@@ -27,15 +27,13 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/user', userRouter);
-app.use('/', indexRouter);
-app.use('/posteos', postRouter);
+
 
 
 //Crear middleware de session AQUI
 app.use(session({secret: "petsdb",
                 resave:false,
-              saveUninitialized:true }));
+                saveUninitialized: true }));
 
 
 /*  middleware de locals, para el header */
@@ -45,7 +43,7 @@ app.use(function(req, res, next) {
       res.locals.user = req.session.user;
   }
 
-  return next();
+  next();
 });
 
 /* middleware de cookies  */
@@ -70,6 +68,9 @@ app.use(function(req, res, next) {
   }
 });
 
+app.use('/user', userRouter);
+app.use('/', indexRouter);
+app.use('/posteos', postRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
