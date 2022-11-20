@@ -126,10 +126,9 @@ const userController = {
     //logout
     logout: function (req, res) {
        
-        if (req.cookies.userId !== undefined) {
-            res.clearCookie('userId')
-        }
-        return res.redirect('/')
+       req.session.user= null ;
+       res.clearCookie('userId');
+       res.redirect('/user/login')
     },
     //id
     show: (req, res)=>  {

@@ -35,11 +35,11 @@ let upload = multer({storage:storage});
 // router.get('/resultadoBusquedaEmail', userController.searchResultsEmail)
 
 /*ruta param*/
-router.get('/detalleUsuario/id/:id', userController.show)
+router.get('/detalleUsuario/id/:id', userController.show);
 
 
 
-
+router.get('/logout', userControler.logout);
 /*
 router.get('/login', userController.login);
 
