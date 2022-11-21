@@ -175,12 +175,19 @@ const userController = {
 
     miPerfil: function (req, res) {
        
-       posteo.findAll({
+       /* posteo.findAll({
         order: [["createdAt", "DESC"]],
         include: {all: true, nested: true}
     } )
     .then((result)=>{
         res.render("miPerfil", {result: result})
+    })
+    .catch ((error)=> {
+        console.log(error)
+    }) */
+    usuario.findByPk(req.session.user.id, {include: {all: true, nested: true}})
+    .then((result)=> {
+        return res.render('miPerfil', {result: result})
     })
     .catch ((error)=> {
         console.log(error)
