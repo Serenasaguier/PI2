@@ -21,45 +21,63 @@ const userController = {
 
         let errors = {};
 
-        if (req.body.useremail === "" ) {
+        if (req.body.useremail === "") {
             errors.mensaje = "El campo email es obligatorio";
             res.locals.errors = errors;
             return res.render('registracion');
 
-         } else if( req.body.password === "" || req.body.password < 3  ) {
+        } else if (req.body.password === "" || req.body.password < 3) {
             errors.mensaje = "El campo contraseña es obligatorio o tiene que tener mas que 3 caracteres";
             res.locals.errors = errors;
             return res.render('registracion');
-            
-         } else {
-             // almacenar info
-        
-        let guardarUsuario = req.body;
-        let fotoPerfil;
-        if (!req.file) {
-            fotoPerfil= 'https://tse1.mm.bing.net/th?id=OIP.ho7hCKNowRHh7u5wu1aMWQHaF9&pid=Api&P=0'
+
         } else {
-            fotoPerfil= req.file.filename
+            // almacenar info
+            let guardarUsuario = req.body;
+            let fotoPerfil;
+            let errors = {};
+            if (!req.file) {
+                fotoPerfil = 'https://tse1.mm.bing.net/th?id=OIP.ho7hCKNowRHh7u5wu1aMWQHaF9&pid=Api&P=0'
+            } else {
+                fotoPerfil = req.file.filename
+            }
+            /* para guardarlo en la base de datos */
+            guardarUsuario.password = bycript.hashSync(guardarUsuario.password.toString(), 10)
+            let user = {
+                nombreUsuario: guardarUsuario.username,
+                email: guardarUsuario.useremail,
+                contrasenia: guardarUsuario.password,
+                fotoPerfil: fotoPerfil,
+                cumpleanios: guardarUsuario.cumpleanios
+            }
+            //Chequear que el email no exista en la base.
+            usuario.findOne({
+                where: {
+                    email: req.body.useremail
+                }
+            })
+                .then(function (usuario) {
+                    if (usuario) {
+                        errors.mensaje = "El email ya existe. Por favor, elija otro.";
+                        res.locals.errors = errors;
+                         res.render('registracion');
+                    } else {
+                        usuario.create(user)
+                            .then((result) => {
+                                console.log(req.body)
+                                res.redirect('/user/login')
+                            })
+                            .catch((error) => {
+                                console.log(req.body)
+                                console.log(error)
+                            })
+                    }
+                })
+                .catch(error => console.log(error))
+            return res.render('registracion');
         }
-        /* para guardarlo en la base de datos */
-        guardarUsuario.password = bycript.hashSync(guardarUsuario.password.toString(), 10)
-        let user = {
-            nombreUsuario: guardarUsuario.username,
-            email: guardarUsuario.useremail,
-            contrasenia: guardarUsuario.password,
-            fotoPerfil: fotoPerfil,
-            cumpleanios: guardarUsuario.cumpleanios
-        }
-        usuario.create(user)
-        .then((result)=>{
-            console.log(req.body)
-            res.redirect('/user/login')
-        })
-        .catch((error)=>{
-            console.log(req.body)
-            console.log(error)
-        })
-        }
+       
+        
     },
     
     //login
