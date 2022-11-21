@@ -55,6 +55,7 @@ const userController = {
                     email: req.body.useremail
                 }
             })
+            
                 .then(function (otroUsuario) {
                     if (otroUsuario) {
                         errors.mensaje = "El email ya existe. Por favor, elija otro.";
