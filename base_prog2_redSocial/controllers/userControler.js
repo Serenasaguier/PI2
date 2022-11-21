@@ -3,9 +3,7 @@
 
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
-const op = db.Sequelize.Op;
 const usuario = db.Usuario
-const posteo = db.Post;
 
 const userController = {
     
@@ -61,7 +59,7 @@ const userController = {
                         res.locals.errors = errors;
                          res.render('registracion');
                     } else {
-                        usuario.create(user)
+                       /*  usuario.create(user)
                             .then((result) => {
                                 console.log(req.body)
                                 res.redirect('/user/login')
@@ -69,7 +67,7 @@ const userController = {
                             .catch((error) => {
                                 console.log(req.body)
                                 console.log(error)
-                            })
+                            })*/
                     }
                 })
                 .catch(error => console.log(error))
@@ -194,28 +192,42 @@ const userController = {
         
     },
 
+    updatePerfil:(req, res) =>{
+         return res.render('editarPerfil',{
+             edit : req.session.user
+         })
+    },
+
     editarPerfil: (req, res)=> {
 
-        let info= req.body;
-        let filtro= {where: [{id: req.body.id}]}
-      /*   let datos= {
-            email: 
-            contasenia: 
-            fotoPerfil:
-            nombreUsuario: 
-        }, */
-        usuario.update(info,filtro)
-        .then((result)=>{
-           // return res.redirect('/miPerfil')
-            return res.render('editarPerfil',{result: result})
-        })
-        .catch((errror)=>{
-            return res.redirect('/')
-        } )
+        let rb = req.body;
+        
+        let user = {
+            email: rb.useremail,
+            nombreUsuario: rb.username,
+            contrasenia: bycript.hashSync(rb.contrasenia, 10),
+            fotoPerfil: req.file.filename,
+        }
+        usuario.update(user, {
+                where: {
+                    id: req.session.user.id
+                    // o {where: [{id: req.body.id}]}
+                }
+            })
+            .then(function (data) {
+                if (req.file) {
+                    req.session.user.fotoPerfil = req.file.filename
+                }
+                res.redirect('/')
+            })
+            .catch(function (error) {
+                console.log(error)
+                res.send(error)
+            })
     
     id= req.params.id
     usuario.findByPk(id,{
-                 include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba
+                 include: {all:true, nested:true} 
     }).then(result =>{    
      return res.render('editarPerfil', {result: result})
     }).catch(error =>{
