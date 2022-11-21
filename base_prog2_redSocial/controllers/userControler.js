@@ -55,25 +55,25 @@ const userController = {
                     email: req.body.useremail
                 }
             })
-                .then(function (usuario) {
-                    if (usuario) {
+                .then(function (otroUsuario) {
+                    if (otroUsuario) {
                         errors.mensaje = "El email ya existe. Por favor, elija otro.";
                         res.locals.errors = errors;
                          res.render('registracion');
                     } else {
                         usuario.create(user)
                             .then((result) => {
-                                console.log(req.body)
-                                res.redirect('/user/login')
+                               
+                                return res.redirect('/user/login')
                             })
                             .catch((error) => {
-                                console.log(req.body)
+                                
                                 console.log(error)
                             })
                     }
                 })
                 .catch(error => console.log(error))
-            return res.render('registracion');
+            ;
         }
        
         
