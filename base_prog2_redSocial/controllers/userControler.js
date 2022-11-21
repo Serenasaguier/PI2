@@ -3,7 +3,6 @@
 
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
-/* const { UPDATE } = require('sequelize/types/query-types'); */
 const op = db.Sequelize.Op;
 const usuario = db.Usuario
 const posteo = db.Post;
@@ -130,11 +129,11 @@ const userController = {
                             return res.render('login');
                         }
 
-                    } /*else {
+                    } else {
                         error.message = 'Incorrect email';
                         res.locals.error = error;
                         return res.render('login');
-                    }*/
+                    }
 
                 }) .catch((error) => {
                     console.log(error);
