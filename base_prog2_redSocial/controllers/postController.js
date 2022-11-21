@@ -1,6 +1,7 @@
 
   // SEGUNDA PARTE 
 
+const { QueryError } = require("sequelize");
 const db =  require("../database/models");
 
 const Post = db.Post;
@@ -94,7 +95,26 @@ const Post = db.Post;
       }).catch(error =>{
           res.send(error)
       });
-  }
+  },
+  comments: (req, res) => {
+   if (req.session.user == undefined) {
+       res.redirect('/user/login')
+   } else{
+
+   let info = req.body;
+   let comentario = {
+       comentario: info.comentario,
+       post_id: req.params.id,
+       autor: req.session.user.id,
+   }
+   comment.create(comentario)
+   .then((result) => {
+       return res.redirect('/detallePost/id/' + req.params.id)
+   }).catch((error) => {
+       console.log(error);
+   });
+}
+}
  } 
 
 module.exports = postController;  

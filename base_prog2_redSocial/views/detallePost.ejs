@@ -37,32 +37,30 @@
                 <h4  >Comentarios</h4><p class="textoRegular post-comentarios"> <%=mascotasDetalle.usuario.nombreUsuario%> : <%=mascotasDetalle.caption%>  </p>
  
                 <section class="comments"  >
-                    <form action="" class="comment-form">
-                        <input type="text" class="input" placeholder="Agregar comentario">
-                        <button type="submit"  >Comentar</button>
-
-                    </form>
-                    <div>
+                    
                     <% for( let i = 0; i < mascotasDetalle.length; i++ ) { %>
 
                         <article class="comment">
-                            <a class="user" href="/user/detalleUsuario/id/<%= mascotasDetalle[i].usuario.id %> ">
-                            <img src="<%= mascotasDetalle[i].usuario.fotoPerfil %>" alt="" height="40px" width="40px">
 
-                            <section class="content">
-                                <a href="/user/detalleUsuario/id/ <%= mascotasDetalle[i].usuario.id  %> "> <%= mascotasDetalle[i].usuario.nombreUsuario %> : </a>
+                            <a class="user" href="/user/detalleUsuario/id/<%= mascotasDetalle.comentarios[i].usuario.id %> "> <img src="<%= mascotasDetalle.comentarios[i].usuario.fotoPerfil %>" alt="" height="40px" width="40px">
+                            <div class="content">
+                                <a href="/user/detalleUsuario/id/ <%= mascotasDetalle.comentarios[i].usuario.id  %> "> <%= mascotasDetalle.comentarios[i].usuario.nombreUsuario %> : </a>
                                 
                                 <span class="text">
                                     <%= mascotasDetalle.comentarios[i].comentario1 %>
                                 </span>
-                            </section>
+                            </div>
                             </a>
                          </article>
                 
                         <% } %>
                        
-                    </div>
                 </section>
+                <form action="/detallePost/id/<%= mascotasDetalle.id%>" method="POST" class="comment-form">
+                    <input type="text" class="input" placeholder="Agregar comentario" name="comentario">
+                    <button type="submit"> Comentar </button>
+
+                </form>
             </section>
         </div>
     </main>

@@ -23,10 +23,18 @@ router.post('/detalleUsuario', upload.single('archivosubido') , postController.a
 
 
 //id
+//mostrar posts
 router.get('/detallePost/id/:id', postController.show)
+
+// agregar post
 router.get('/agregarPost', postController.agregarPost)
 
+// editar post
 router.get('/editarPost/id/:id', postController.editarPost)
+
+//comentario
+router.post('/detallePost/id/:id', postController.comments)
+
 module.exports= router;
 
 
