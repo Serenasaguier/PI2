@@ -18,17 +18,7 @@ const Post = db.Post;
          res.send(error)
      });
 
-     },
-     store: (req, res)=> {
-      
-      // para editar posteos o perfiles
-      db.update(
-         {// nombre del campo a modificar : valor editado
-         },
-         {//where: id del registro a editar
-         } )
-      },
-        
+     }, 
       // para eliminar posteos
        destroy:(req,res)=>{
          let id = req.body.id;

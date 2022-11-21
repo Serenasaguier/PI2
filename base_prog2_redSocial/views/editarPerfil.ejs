@@ -22,21 +22,20 @@
                     <p class="registro">
                       Nueva foto de perfil: 
                       
-                      <input type="file" name="archivosubido">
+                      <input type="file" name="fotoPerfil">
                       
                     </p>
                   </form> 
             
 
             <p class="registro">Nombre actual: <%= result.nombreUsuario %> </p>
-            <div class="registro"> <label for="name"> Nuevo nombre: </label> <input type="text" name="user" value=""> </div>
+            <div class="registro"> <label for="name"> Nuevo nombre: </label> <input type="text" name="username" value=""> </div>
 
             <p class="registro">Email actual: <%= result.email %> </p>
-            <div class="registro"> <label for="user">Nuevo nombre de Email: </label>  <input type="email" name="username" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
+            <div class="registro"> <label for="user">Nuevo nombre de Email: </label>  <input type="email" name="useremail" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
             
-             <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="password" name="password" value="" placeholder="Ingrese su nueva contraseña"> </div>
+             <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="password" name="contrasenia" value="" placeholder="Ingrese su nueva contraseña"> </div>
  
-             <div class="registro"><label for="password">Repetir contraseña: </label>  <input type="password" name="password" value="" placeholder="Ingrese su contraseña nuevamente"> </div>
              <button type="submit" class="button"> <a href="/user/miPerfil"> Enviar datos editados </a></button> 
  
          </form> </section>
