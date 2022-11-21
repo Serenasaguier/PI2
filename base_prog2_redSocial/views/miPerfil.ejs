@@ -15,28 +15,28 @@
         <div class="user-detail container">
         
             <section class="top main-content">
-                <img class="profile" src=" " alt="" height="100px" width="100px" >
+                <img class="profile" src="<%= result.fotoPerfil %>" alt="" height="100px" width="100px" >
                 <div class="info-usuario">
-                    <p class="textoRegular" > </p> 
+                    <p class="textoRegular" > <%= result.nombreUsuario %> </p> 
                     <a class="follow" href="/user/editarPerfil"><i class="fa-solid fa-user-gear"></i></a>
                     <ul class="meta">
-                        <li class="textoRegular" > 2 post</li>
+                        <li class="textoRegular" > <%= result.post.length %> </li>
                         <li class="textoRegular" > 88 seguidores</li>
                         <li class="textoRegular" > 102 seguidos</li>
                     </ul>
                 </div>
             </section>
-            <section class="bottom">
-                <% for( let i = 0; i < result.lenght; i++ ) { %>
+            <section class="bottom"> 
+                <% for( let i=0; i < result.post.length; i++ ) { %>
                     <article class="post">
-                        <a href="/posteos/detallePost/id/<%= result[i].id %>">
-                            <img src= "<%= result[i].imagen %> " alt="">
+                        <a href="/posteos/detallePost/id/<%=result.post[i].id %>">
+                            <img src="<%= result.post[i].imagen %>" alt="">
                         </a>
+                        <p class="textoRegular post-comentarios"> <%= result.nombreUsuario %> : <%=result.post[i].caption%>  </p>
+                        
+
                     </article>
-                    <p class="textoRegular post-comentarios"> <%= result.usuario[i].nombreUsuario %> : <%=result.usuario[i].caption%>  </p>
-                                
                     <% } %>
-              
             </section>
         </div>
     </main>

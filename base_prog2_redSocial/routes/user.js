@@ -47,7 +47,6 @@ router.get('/edit', userController.editarPerfil);
 router.get('/detailUser', userController.detalleUsuario); */
 
 //Ruta por post que procesa la info del formulario
-router.post('/miPerfil', userController.login)
 
 router.get('/editarPerfil', userController.editarPerfil);
 module.exports= router;

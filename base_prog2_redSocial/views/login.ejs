@@ -20,7 +20,7 @@
              <label for="user"> Email: </label> <input type="email" name="email" id="email" class="inputLogin">
             </div>
             <% if (locals.error) {%> 
-                <p class="error" style="color:red"> <%= locals.error.message %> </p>
+                <p class="error registro" style="color:red"> <%= locals.error.message %> </p>
                 <% } %>    
            <div class="registro">
              <label for="user"> Contraseña: </label> <input type="password" name="password" id="password" >
@@ -28,7 +28,7 @@
          
            <div class="input-container ic1">
             <input id="recordarme" class="recordarme" type="checkbox" name="rememberme" />
-            <label class="recordarmeLabel" for="Recordarme">recordarme</label>
+            <label class="recordarmeLabel registro" for="Recordarme">recordarme</label>
         </div>
             <button type="submit" class="button"> Login</button> 
         </form>
