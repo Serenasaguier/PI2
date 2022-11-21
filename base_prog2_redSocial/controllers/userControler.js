@@ -18,13 +18,16 @@ const userController = {
 
         let errors = {};
 
-        if (req.body.useremail === "") {
-            errors.mensaje = "El campo email es obligatorio";
+        if (req.body.password === "" || req.body.password < 3) {
+            errors.mensaje = "El campo contraseña es obligatorio o tiene que tener mas que 3 caracteres";
             res.locals.errors = errors;
             return res.render('registracion');
-
-        } else if (req.body.password === "" || req.body.password < 3) {
-            errors.mensaje = "El campo contraseña es obligatorio o tiene que tener mas que 3 caracteres";
+        } else if (req.body.username === ""){
+            errors.mensaje = "El campo nombre de usuario es obligatorio";
+            res.locals.errors = errors;
+            return res.render('registracion');
+        } else if (req.body.useremail === "") {
+            errors.mensaje = "El campo email es obligatorio";
             res.locals.errors = errors;
             return res.render('registracion');
 
@@ -59,7 +62,7 @@ const userController = {
                         res.locals.errors = errors;
                          res.render('registracion');
                     } else {
-                       /*  usuario.create(user)
+                         usuario.create(user)
                             .then((result) => {
                                
                                 return res.redirect('/user/login')
@@ -67,7 +70,7 @@ const userController = {
                             .catch((error) => {
                                 
                                 console.log(error)
-                            })*/
+                            })
                     }
                 })
                 .catch(error => console.log(error))
@@ -172,16 +175,6 @@ const userController = {
 
     miPerfil: function (req, res) {
        
-       /* posteo.findAll({
-        order: [["createdAt", "DESC"]],
-        include: {all: true, nested: true}
-    } )
-    .then((result)=>{
-        res.render("miPerfil", {result: result})
-    })
-    .catch ((error)=> {
-        console.log(error)
-    }) */
     usuario.findByPk(req.session.user.id, {include: {all: true, nested: true}})
     .then((result)=> {
         return res.render('miPerfil', {result: result})
@@ -192,11 +185,11 @@ const userController = {
         
     },
 
-    updatePerfil:(req, res) =>{
+     /*updatePerfil:(req, res) =>{
          return res.render('editarPerfil',{
              edit : req.session.user
          })
-    },
+    },*/
 
     editarPerfil: (req, res)=> {
 
@@ -205,8 +198,8 @@ const userController = {
         let user = {
             email: rb.useremail,
             nombreUsuario: rb.username,
-            contrasenia: bycript.hashSync(rb.contrasenia, 10),
-            fotoPerfil: req.file.filename,
+           // contrasenia: bycript.hashSync(rb.contrasenia, 10),
+           // fotoPerfil: req.file.filename
         }
         usuario.update(user, {
                 where: {
@@ -217,22 +210,24 @@ const userController = {
             .then(function (data) {
                 if (req.file) {
                     req.session.user.fotoPerfil = req.file.filename
+
+                res.redirect('/user/editarPerfil')
                 }
-                res.redirect('/')
             })
             .catch(function (error) {
                 console.log(error)
                 res.send(error)
             })
     
-    id= req.params.id
-    usuario.findByPk(id,{
-                 include: {all:true, nested:true} 
-    }).then(result =>{    
-     return res.render('editarPerfil', {result: result})
-    }).catch(error =>{
-        res.send(error)
-    });
+            id= req.session.user.id
+
+            usuario.findByPk(id,{
+                        include: {all:true, nested:true} 
+            }).then(result =>{    
+            return res.render('editarPerfil', {result: result})
+            }).catch(error =>{
+                res.send(error)
+            });
 }
 }
    
