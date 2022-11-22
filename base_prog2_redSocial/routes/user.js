@@ -4,23 +4,22 @@ const router= express.Router();
 const userController=  require('../controllers/userControler');
 
 
-// para guardar la foto de perfil con multer
-// me tira error el upload
-
-//let upload = multer({storage:storage});
+/* para guardar la foto de perfil con multer*/
 const multer = require('multer');
 const path = require('path');
 
-//router.post('/editarPerfil', upload.single('fotoPerfil') , userController.editarPerfil)
-
 let storage = multer.diskStorage({
     destination : (req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/images'));
+        cb(null, path.join(__dirname, '../public/images/posteos'));
     },
     filename: (req, file, cb)=> {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
      }
 });
+
+let upload = multer({storage:storage});
+
+router.post('/editarPerfil', upload.single('fotoPerfil') , userController.editarPerfil)
 
 router.get('/registracion', userController.create);
 router.post('/registracion', userController.store);

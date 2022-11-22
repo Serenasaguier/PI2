@@ -43,30 +43,13 @@
                         <% if (locals.user == undefined) { %>
                           <% res.redirect("/user/login") %> 
                         <% } else { %> 
-                <!-- Una opcion-->
+            
                             <form action="/user/detallePost" method="post">
-                                <p class="registro"> <%= mascotasDetalle.comentario[i].autor %> </p>
-                                <input type="text" name="comentario" placeholder="Agregar comentario" value="<%= mascotasDetalle.comentario[i].comentario1 %> ">
+                                <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>">
+                                <p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
+                                <input type="text" name="comentario" placeholder="Agregar comentario" value="<%= mascotasDetalle.comentario[i].comentario1 %> "></a>
                                 <button type="submit"> Comentar</button>
                             </form>
-
-                <!-- Otra opcion-->
-                <p class="user"> 
-                     <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>"> 
-                        <p class="textoRegular post-comentarios"><%=mascotasDetalle.usuario[i].nombreUsuario%> : <%=mascotasDetalle.comentarios[i].comentario1 %> </p> </a> 
-
-
-                            <!-- Otra opcion-->
-                            <article class="comment">
-                                <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>">
-                                <p class="textoRegular post-comentarios"> <%=mascotasDetalle.usuario[i].nombreUsuario%> : <%=mascotasDetalle.comentario[i].comentario1%> </p> </a>
-                                    
-                                    <span class="text">
-                                        <%= mascotasDetalle.comentarios[i].comentario1 %>
-                                    </span>
-                                </div>
-                                </a>
-                             </article>
                             <% } %> 
                         <% } %>
                        
