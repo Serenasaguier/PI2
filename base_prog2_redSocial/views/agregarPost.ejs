@@ -20,6 +20,10 @@
                       
                       <input type="file" name="archivosubido" placeholder="Agregar imagen">
                      <p>Subir caption : </p> 
+                     <% if (locals.error) { %>
+                      
+                <p class="error registro" style="color:red"> <%= locals.error.errores %> </p>
+                     <% } %>
                      <input type="text" class="registro" name="caption">
                       <input type="submit" value="Enviar datos">
                     

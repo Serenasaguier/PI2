@@ -71,14 +71,15 @@ const Post = db.Post;
     let error = {
        errores: ""
     }
-    if(req.body.caption == ''){
+    if(req.body.caption === '' ){
        error.errores = 'Debes asignarle un caption al post'
-    } else if (req.file == undefined){
+       res.locals.error = error;
+    } else if (req.file === undefined){
        error.errores = error.errores + 'Agregar imagen'
     }
 
     let datos = {
-       caption: req.body.archivosubido,
+       caption: req.body.caption,
        imagen: req.file.filename,
     }
 
@@ -113,7 +114,8 @@ const Post = db.Post;
 
    let info = req.body;
    let comentario = {
-       comentario: info.comentario,    
+       comentario: info.comentario,
+       autor : info.autor,    
    }
    comentar.create(comentario)
    .then((result) => {

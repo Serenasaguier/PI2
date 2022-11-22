@@ -46,7 +46,7 @@
             
                             <form action="/user/detallePost" method="post">
                                 <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>">
-                                <p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
+                                <input type="text" name="autor"><p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
                                 <input type="text" name="comentario" placeholder="Agregar comentario" value="<%= mascotasDetalle.comentario[i].comentario1 %> "></a>
                                 <button type="submit"> Comentar</button>
                             </form>
