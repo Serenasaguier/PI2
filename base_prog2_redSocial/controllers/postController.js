@@ -3,7 +3,7 @@
 
 const { QueryError } = require("sequelize");
 const db =  require("../database/models");
-
+const { post } = require("../routes/user");
 const Post = db.Post;
 
  const postController = {
@@ -20,23 +20,18 @@ const Post = db.Post;
 
      }, 
       // para eliminar posteos
-       destroy:(req,res)=>{
-         let id = req.body.id;
-         let filtro = {
-            where:[{
-                  id:id
-            }]
-         }
-         db.destroy(filtro)
-         .then((result)=>{
-            return res.redirect('/')
-         })
-         .catch((err)=>{
-            console.log(err);
-            return res.redirect('/')
-         })
+       delete:(req,res)=>{
+         
       
+         Post.destroy({ where: { id: req.params.id } })
+         .then(function() {
+             res.redirect('/user/miPerfil')
+         })
+         .catch(function(error) {
+             res.send(error);
+         })
          },
+
       create : (req, res)=> {
          let info = req.body;
          let imgPost = req.file.filename;

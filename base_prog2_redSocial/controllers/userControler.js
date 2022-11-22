@@ -60,7 +60,7 @@ const userController = {
                         res.locals.errors = errors;
                          res.render('registracion');
                     } else {
-                       /*  usuario.create(user)
+                         usuario.create(user)
                             .then((result) => {
                                
                                 return res.redirect('/user/login')
@@ -68,7 +68,7 @@ const userController = {
                             .catch((error) => {
                                 
                                 console.log(error)
-                            })*/
+                            })
                     }
                 })
                 .catch(error => console.log(error))

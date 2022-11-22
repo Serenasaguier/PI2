@@ -33,7 +33,11 @@ router.get('/agregarPost', postController.agregarPost)
 router.get('/editarPost/id/:id', postController.editarPost)
 
 //comentario
-router.post('/detallePost/id/:id', postController.comments)
+router.post('/detallePost/id/:id', postController.comments);
+
+//borrar post
+router.post('/detallepost/id/:id/delete', postController.delete);
+
 
 module.exports= router;
 

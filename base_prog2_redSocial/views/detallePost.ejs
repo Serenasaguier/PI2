@@ -26,7 +26,11 @@
                 <img class="photo" src="<%= mascotasDetalle.imagen %>" alt="" width="500px" height="600px">
 
                 <% if (locals.user && user.id == mascotasDetalle.id_usuarios) { %>
-                    <i class="fa-solid fa-trash"></i></a>
+                    
+                    <form class="form" action="/posteos/detallePost/id/<%= mascotasDetalle.id %>/delete" method="POST">
+                        <button type="submit" class="buy-now-button"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                
                     <a href="/posteos/editarPost/id/<%= mascotasDetalle.id %>"><i class="fa-solid fa-pencil"></i></a>
                    <% } %>
                 
