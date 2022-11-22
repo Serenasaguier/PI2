@@ -43,27 +43,24 @@
                 <section class="comments"  >
                     
                     <% for( let i = 0; i < mascotasDetalle.length; i++ ) { %>
-
-                        <article class="comment">
-
-                            <a class="user" href="/user/detalleUsuario/id/<%= mascotasDetalle.comentarios[i].usuario.id %> "> <img src="<%= mascotasDetalle.comentarios[i].usuario.fotoPerfil %>" alt="" height="40px" width="40px">
-                            <div class="content">
-                                <a href="/user/detalleUsuario/id/ <%= mascotasDetalle.comentarios[i].usuario.id  %> "> <%= mascotasDetalle.comentarios[i].usuario.nombreUsuario %> : </a>
-                                
-                                <span class="text">
-                                    <%= mascotasDetalle.comentarios[i].comentario1 %>
-                                </span>
-                            </div>
-                            </a>
-                         </article>
-                
+                    
+                        <% if (locals.user == undefined) { %>
+                          <% res.redirect("/user/login") %> 
+                        <% } else { %> 
+            
+                            <form action="/user/detallePost" method="post">
+                                <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>">
+                                <p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
+                                <input type="text" name="comentario" placeholder="Agregar comentario" value="<%= mascotasDetalle.comentario[i].comentario1 %> "></a>
+                                <button type="submit"> Comentar</button>
+                            </form>
+                            <% } %> 
                         <% } %>
                        
                 </section>
-                <form action="/detallePost/id/<%= mascotasDetalle.id%>" method="POST" class="comment-form">
+                <form action="" method="POST" class="comment-form">
                     <input type="text" class="input" placeholder="Agregar comentario" name="comentario">
-                    <button type="submit"> Comentar </button>
-
+                    <button type="submit"> Comentar </button> 
                 </form>
             </section>
         </div>

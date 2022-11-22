@@ -3,7 +3,7 @@
 
 const { QueryError } = require("sequelize");
 const db =  require("../database/models");
-const { post } = require("../routes/user");
+const comentar = db.Comentario;
 const Post = db.Post;
 
  const postController = {
@@ -63,6 +63,26 @@ const Post = db.Post;
     },
   agregarPost: function (req, res) {
     res.render('agregarPost')
+    let error = {
+       errores: ""
+    }
+    if(req.body.caption == ''){
+       error.errores = 'Debes asignarle un caption al post'
+    } else if (req.file == undefined){
+       error.errores = error.errores + 'Agregar imagen'
+    }
+
+    let datos = {
+       caption: req.body.archivosubido,
+       imagen: req.file.filename,
+    }
+
+    Post.create(datos)
+    .then((result)=>{
+       return res.redirect('/')
+    })
+    .catch(error => console.log(error))
+
     // debemos almacenar el posteo subido y guardarlo en la base de datos
  },
 
@@ -82,22 +102,21 @@ const Post = db.Post;
       });
   },
   comments: (req, res) => {
-   if (req.session.user == undefined) {
-       res.redirect('/user/login')
-   } else{
+   if(req.session.user == undefined){
+      res.redirect('/user/login')
+    }else{
 
    let info = req.body;
    let comentario = {
-       comentario: info.comentario,
-       post_id: req.params.id,
-       autor: req.session.user.id,
+       comentario: info.comentario,    
    }
-   comment.create(comentario)
+   comentar.create(comentario)
    .then((result) => {
-       return res.redirect('/detallePost/id/' + req.params.id)
+       return res.redirect('/user/detallePost')
    }).catch((error) => {
        console.log(error);
    });
+   
 }
 }
  } 
