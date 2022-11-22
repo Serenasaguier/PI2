@@ -175,7 +175,10 @@ const userController = {
 
     miPerfil: function (req, res) {
        
-    usuario.findByPk(req.session.user.id, {include: {all: true, nested: true}})
+    usuario.findByPk(req.session.user.id, 
+        {include: {all: true, nested: true},
+        // order : [ "createdAt", "ASC"]
+    })
     .then((result)=> {
         return res.render('miPerfil', {result: result})
     })
