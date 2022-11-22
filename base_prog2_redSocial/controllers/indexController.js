@@ -49,7 +49,6 @@ let usuario = db.Usuario;
        
     },
      // TODO buscador, tiene que tener una opcion para que 
-     // el usuario elija si quiere que aparezcan en orden ASC o DESC
      searchResults : (req, res) => {
         let busqueda = req.query.mascota;
         console.log(busqueda)

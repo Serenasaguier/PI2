@@ -26,7 +26,11 @@
                 <img class="photo" src="<%= mascotasDetalle.imagen %>" alt="" width="500px" height="600px">
 
                 <% if (locals.user && user.id == mascotasDetalle.id_usuarios) { %>
-                    <i class="fa-solid fa-trash"></i></a>
+                    
+                    <form class="form" action="/posteos/detallePost/id/<%= mascotasDetalle.id %>/delete" method="POST">
+                        <button type="submit" class="buy-now-button"><i class="fa-solid fa-trash"></i></button>
+                    </form>
+                
                     <a href="/posteos/editarPost/id/<%= mascotasDetalle.id %>"><i class="fa-solid fa-pencil"></i></a>
                    <% } %>
                 
@@ -46,15 +50,16 @@
             
                             <form action="/user/detallePost" method="post">
                                 <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>">
-                                <input type="text" name="autor"><p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
+                                <p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
                                 <input type="text" name="comentario" placeholder="Agregar comentario" value="<%= mascotasDetalle.comentario[i].comentario1 %> "></a>
-                                <button type="submit"> Comentar</button>
                             </form>
                             <% } %> 
                         <% } %>
                        
                 </section>
-                <form action="" method="POST" class="comment-form">
+    
+
+              <form action="" method="POST" class="comment-form">
                     <input type="text" class="input" placeholder="Agregar comentario" name="comentario">
                     <button type="submit"> Comentar </button> 
                 </form>

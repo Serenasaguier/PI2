@@ -20,23 +20,18 @@ const Post = db.Post;
 
      }, 
       // para eliminar posteos
-       destroy:(req,res)=>{
-         let id = req.body.id;
-         let filtro = {
-            where:[{
-                  id:id
-            }]
-         }
-         db.destroy(filtro)
-         .then((result)=>{
-            return res.redirect('/')
-         })
-         .catch((err)=>{
-            console.log(err);
-            return res.redirect('/')
-         })
+       delete:(req,res)=>{
+         
       
+         Post.destroy({ where: { id: req.params.id } })
+         .then(function() {
+             res.redirect('/user/miPerfil')
+         })
+         .catch(function(error) {
+             res.send(error);
+         })
          },
+
       create : (req, res)=> {
          let info = req.body;
          let imgPost = req.file.filename;
@@ -115,7 +110,7 @@ const Post = db.Post;
    let info = req.body;
    let comentario = {
        comentario: info.comentario,
-       autor : info.autor,    
+       id_usuarios: req.session.user.id,   
    }
    comentar.create(comentario)
    .then((result) => {

@@ -47,7 +47,7 @@ const userController = {
                 nombreUsuario: guardarUsuario.username,
                 email: guardarUsuario.useremail,
                 contrasenia: guardarUsuario.password,
-                fotoPerfil: req.file.filename,
+                // fotoPerfil: req.file.filename,
                 cumpleanios: guardarUsuario.cumpleanios
             }
             //Chequear que el email no exista en la base.
@@ -56,6 +56,7 @@ const userController = {
                     email: req.body.useremail
                 }
             })
+            
                 .then(function (otroUsuario) {
                     if (otroUsuario) {
                         errors.mensaje = "El email ya existe. Por favor, elija otro.";
@@ -125,13 +126,13 @@ const userController = {
                             return res.redirect('/');
 
                         } else {
-                            error.message = 'Incorrect password';
+                            error.message = 'Contrasenia incorrecta';
                             res.locals.error = error;
                             return res.render('login');
                         }
 
                     } else {
-                        error.message = 'Incorrect email';
+                        error.message = 'El mail no existe o es incorrecto';
                         res.locals.error = error;
                         return res.render('login');
                     }

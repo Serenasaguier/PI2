@@ -2,10 +2,7 @@
 //exporto la funcion
 module.exports = (sequelize, dataTypes) => {
 
-    //creo un alias para que sequelize sepa con que modelo debe conectarse
-    let alias = "Post"; //nosotros vamos a tener 3 alias : post, comentarios, usuarios
-    // el alias es el nombre con que sequelize va   identificar este modelo, si yo le puse Post, el archivo tiene que estar escrito IGUAL 
-    // IMPORTANTE : el alias tiene que ser llamado desde el controlador
+    let alias = "Post"; 
 
     //creo la variable con la estructura de la tabla ( en este caso de usuario)
     let cols = {
@@ -36,7 +33,7 @@ module.exports = (sequelize, dataTypes) => {
     let config = {
         tableName : "posteos",
         timestamps : true, 
-        underscored : false //para determinar si la tabla tiene en su nombre un guion bajo
+        underscored : false 
     }
 
     //crear el metodo define con los tres parametros
