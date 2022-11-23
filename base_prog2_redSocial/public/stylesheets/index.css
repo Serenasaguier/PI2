@@ -1,7 +1,18 @@
-/* Generics*/
 
 
-/* INDEX TRAIDO DEL PROYECTO BASE */
+/* Iphone 12 pro responsive */
+@media (max-width: 400px) {
+    
+
+form.search{
+    height: 50px;
+    width: 150px;
+}
+
+section.coments{
+    width: 50%;
+    height: 10px;
+}
 
 .center{
     margin-top: 50px;
@@ -9,6 +20,12 @@
 
 .top{
     border: 20px solid rgba(136, 0, 0, 0.584);
+    
+}
+
+section.top{
+    width: 300px;
+    height: 200px;
 }
 
 .button{
@@ -37,7 +54,6 @@
     width: 500px;
 }
 
-/* Tipografia para todos los titulos  */
 
 .titles {
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
@@ -45,7 +61,6 @@
     color: #000;
 }
 
-/* Tipografia para la barra de navegacion y el footer*/
 
 .navBar{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
@@ -54,14 +69,12 @@
 
 
 
-/* Tipografia para el resto del texto regular*/
 
 .textoRegular {
     font-family:'Times New Roman', Times, serif;
     color: black;
 }
 
-/*titulo*/
 .petSociety{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: black;
@@ -90,13 +103,14 @@ body {
     padding: 0;
     color:#777
 }
-/* navigation */
+
 header {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     background-color: rgba(169, 0, 17, 0.811);
+    height: 200px;
 }
 .main-nav {
     display: flex;
@@ -107,6 +121,7 @@ header {
 
     padding: 10px 10px;
     border-bottom: 1px solid #ddd;
+    height: 200px;
 }
 
 .logo{
@@ -146,7 +161,6 @@ header {
     font-size: 25px;
 }
 
-/* Main */
 main {
     background-color: #fafafa;
     display: flex;
@@ -159,9 +173,10 @@ main {
 
 .main-content {
     max-width: 470px;
+    margin-top: 120px;
+    width: 190px;
 }
 
-/* post */
 .post{
     background-color: #fff;
     border: 20px solid rgba(136, 0, 0, 0.584);
@@ -215,15 +230,13 @@ main {
     margin: 0 0 10px 0;
 }
 
-/* Footer  */
+ 
 
 .main-footer,
 .social,
 .team {
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
     align-items: center;
     
 }
@@ -245,7 +258,7 @@ main {
     color: black;
 }
 
-/* Post detail */
+
 .post-detail {
     display: flex;
     flex-direction: row;
@@ -314,7 +327,7 @@ main {
     cursor: pointer;
     background-color: forestgreen;
 }
-/* User detail */
+
 
 .user-detail{
     display: flex;
@@ -388,4 +401,401 @@ main {
 .photoperfil{
     border-radius: 50%;
     margin-left: 8%;
+    width: 50px;
+    height: 50px;
+}
+
+
+
+}
+
+
+/* Desktop */
+@media(min-width: 1024px){
+    .center{
+        margin-top: 50px;
+    }
+    
+    .top{
+        border: 20px solid rgba(136, 0, 0, 0.584);
+    }
+    
+    .button{
+        margin-left: 15px;
+    }
+    
+    .login {
+        background-color: rgba(169, 0, 17, 0.811);
+        height: 250px;
+        border-radius: 20px;
+    }
+    
+    .inputLogin{
+        width: 100px;
+        margin-top: 10px;
+    }
+    
+    .registrar{
+        background-color: rgba(169, 0, 17, 0.811);
+        height: 50%;
+        width: 50%;
+        border-radius: 20px;
+    }
+    
+    .editar{
+        width: 500px;
+    }
+    
+    /* Tipografia para todos los titulos  */
+    
+    .titles {
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif ;
+        margin-left: 20px;
+        color: #000;
+    }
+    
+    /* Tipografia para la barra de navegacion y el footer*/
+    
+    .navBar{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+        color: black;
+    }
+    
+    
+    
+    /* Tipografia para el resto del texto regular*/
+    
+    .textoRegular {
+        font-family:'Times New Roman', Times, serif;
+        color: black;
+    }
+    
+  
+    .petSociety{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color: black;
+        
+    }
+    
+    *{
+        box-sizing: border-box;
+    }
+    ul, ol {
+        padding: 0;
+        margin: 0;
+    }
+    li{
+        list-style-type: none;
+    }
+    a {
+        text-decoration: none;
+        color: #222
+    }
+    html {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+    body {
+        margin: 0;
+        padding: 0;
+        color:#777
+    }
+    /* navigation */
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(169, 0, 17, 0.811);
+    }
+    .main-nav {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    
+        padding: 10px 10px;
+        border-bottom: 1px solid #ddd;
+    }
+    
+    .logo{
+        font-size: 18px;
+    }
+    .search {
+        background-color: #EBEDF0;
+        padding: 10px;
+        border-radius: 10px;
+        width: 300px;
+    }
+    .search input {
+        border: none;
+        background-color: transparent;
+        height: 26px;
+        color: #888;
+        width: 90%;
+        outline-width: 0;
+    }
+    .search i {
+        color: #888;
+    }
+    .menu{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+       
+        border-radius: 5%;
+        padding: 0,5%;
+    }
+    .menu li {
+        margin: 0 8px;
+    }
+    .menu i {
+        font-size: 25px;
+    }
+    
+    /* Main */
+    main {
+        background-color: #fafafa;
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: center;
+        padding: 100px 0;
+        min-height: 600px;
+    }
+    
+    .main-content {
+        max-width: 470px;
+    }
+    
+    /* post */
+    .post{
+        background-color: #fff;
+        border: 20px solid rgba(136, 0, 0, 0.584);
+        border-radius: 50px;
+        color: #777;
+        margin-bottom: 20px;
+    }
+    
+    .post-body img {
+        width: 100%;
+    }
+    .info-usuario,
+    .post-reacciones,
+    .post-comentarios {
+        padding: 10px 15px;
+    }
+    .info-usuario {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content:flex-start;
+        align-items: center;
+    
+        
+    }
+    .info-usuario img {
+        margin-right: 10px;
+        border-radius: 90%;
+        padding: 1px;
+        border: 2px solid chocolate;
+    }
+    .post-reacciones {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+    .post-reacciones li{
+        margin-right: 10px;
+        font-size: 25px;
+    }
+    
+    .post-comentarios li {
+        margin-bottom: 10px;
+    }
+    .post-comentarios li a {
+        margin-right: 10px;
+        color: #000;
+    }
+    .post-comentarios h4 {
+        margin: 0 0 10px 0;
+    }
+    
+    /* Footer  */
+    
+    .main-footer,
+    .social,
+    .team {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    
+    .main-footer {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: rgba(169, 0, 17, 0.811);
+        border-top: 1px solid #ddd;
+        padding: 20px 10px;
+    }
+    .social li {
+        margin-right: 20px;
+    }
+    .team li {
+        margin-left: 20px;
+        color: black;
+    }
+    
+    /* Post detail */
+    .post-detail {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 770px;
+    }
+    .post-detail .main-content {
+        max-width: 64%;
+    }
+    .post-detail .photo {
+        width: 100%;
+    }
+    .post-detail .right {
+        width: 34%;
+        margin-top: 100px;
+    }
+    .comments div {
+        margin-top: 20px;
+        padding-top: 10px;
+        border-top: 1px solid #ddd;
+    }
+    .comment {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+    .comment img {
+        margin-right: 10px;
+        border-radius: 90%;
+        padding: 1px;
+        border: 2px solid chocolate;
+    }
+    .comment .text {
+        font-size: 12px;
+        color: #777;
+    }
+    .comment .content {
+        line-height: 1;
+    }
+    .comment-form{
+        background: #fff;
+        padding: 15px 5px 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-radius: 5px;
+    }
+    .comment-form input {
+        margin-bottom: 10px;
+        height: 25px;
+        border: none;
+        outline-width: 0;
+        color:#777
+    }
+    .comment-form button {
+        padding: 5px 0;
+        background-color:mediumseagreen;
+        border: 1px solid mediumaquamarine;
+        border-radius: 5px;
+        color: #fff;
+    }
+    .comment-form button:hover {
+        cursor: pointer;
+        background-color: forestgreen;
+    }
+    /* User detail */
+    
+    .user-detail{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .user-detail .info-usuario{
+        justify-content: space-between;
+    }
+    .user-detail .bottom{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 0 40px;
+        width: 70%;
+        
+    }
+    .user-detail .post{
+        width: 200px;
+        border-radius: 20px ;
+    }
+    .user-detail .post img{
+        width: 100%;
+    }
+    .user-detail .top {
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        align-items: center;
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+        max-width: 500px;
+        color: #000;
+        border-radius: 20px ;
+    }
+    .follow {
+        padding: 3px 20px 7px;
+        background-color: mediumseagreen;
+        border: 1px solid mediumaquamarine;
+        border-radius: 5px;
+        color: #fff;
+        margin-left: 20px;
+    }
+    .follow:hover{
+        cursor: pointer;
+        background-color: forestgreen;
+    }
+    .profile {
+        border-radius: 90%;
+        border: 2px solid chocolate;
+    }
+    
+    .user-detail .meta {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    .registro{
+        color: black;
+        margin: 5%;
+    }
+    .fa-trash{
+        margin-left: 3%;
+        padding: 3%;
+    }
+    .photoperfil{
+        border-radius: 50%;
+        margin-left: 8%;
+    }
 }
