@@ -96,7 +96,8 @@ const userController = {
         // validar email
         let error = {};
 
-        if(info.email == "") {
+        
+         if(info.email == "") {
             error.message = 'The email box is empty';
             res.locals.error = error;
             return res.render('login')
@@ -104,9 +105,9 @@ const userController = {
             error.message = 'Passwords require more than 3 letters';
             res.locals.error = error;
             return res.render('login')
-        }
+        } 
 
-        else{
+        else{ 
 
             usuario.findOne(filtrar)
                 .then((result) => {
@@ -140,7 +141,7 @@ const userController = {
                 }) .catch((error) => {
                     console.log(error);
                 })
-        }
+       }
     },
     //logout
     logout: function (req, res) {
