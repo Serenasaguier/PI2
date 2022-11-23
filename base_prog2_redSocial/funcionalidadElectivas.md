@@ -3,8 +3,8 @@ Funcionalidades Electivas Proyecto
 ........
 ## Funcionalidad 🚀
 * Buscador de usuarios
-* Segunda Funcion
-* Tercera Funcion
+* Validaciones interactivas
+* Editar datos del usuario
 
 ## Colaboradores ✒️
 
