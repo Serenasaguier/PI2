@@ -37,7 +37,7 @@ module.exports = (sequelize, dataTypes) => {
     }
 
     //crear el metodo define con los tres parametros
-    let Post = sequelize.define(alias, cols, config);
+    const Post = sequelize.define(alias, cols, config);
 
     /*crear las relaciones*/
     Post.associate = function (models) {

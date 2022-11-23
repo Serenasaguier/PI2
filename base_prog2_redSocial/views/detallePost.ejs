@@ -41,28 +41,35 @@
                 <h4  >Comentarios</h4><p class="textoRegular post-comentarios"> <%=mascotasDetalle.usuario.nombreUsuario%> : <%=mascotasDetalle.caption%>  </p>
  
                 <section class="comments"  >
+                    <% if (locals.user && locals.user.id == mascotasDetalle.usuario.id) { %> 
+                        <article>
+                    <% for( let i = 0; i < comentado.length; i++ ) { %>
                     
-                    <% for( let i = 0; i < mascotasDetalle.length; i++ ) { %>
-                    
-                        <% if (locals.user == undefined) { %>
-                          <% res.redirect("/user/login") %> 
-                        <% } else { %> 
-            
-                            <form action="/user/detallePost" method="post">
-                                <a href="/user/detalleUsuario/id/<%=mascotasDetalle.usuario[i].id%>">
-                                <p class="registro textoRegular post-comentarios">  <%= mascotasDetalle.comentario[i].autor %> : </p>
-                                <input type="text" name="comentario" placeholder="Agregar comentario" value="<%= mascotasDetalle.comentario[i].comentario1 %> "></a>
-                            </form>
+                        <a href="/user/id/:<%=comentado.usuario[i].id%>"> <img src= "/public/images/<%=comentado.usuario[i].fotoPerfil%>" alt="img perfil"> </a>
+                        <div>
+                            <p>
+                            <strong> <a href="/user/id/:<%=comentado.usuario[i].id%>"> <%=comentado.usuario[i].nombreUsuario%> </a> </strong> :
+                                <%= comentado.usuario[i].comentario1 %> 
+                            </p>
+                            <p>
+                                <strong> <a href="/user/id/:<%=comentado.usuario[i].id%>"> <%=comentado.usuario[i].nombreUsuario%> </a> </strong> :
+                                    <%= comentado.usuario[i].comentario2 %> 
+                                </p>
+    
+                        </div>                          
                             <% } %> 
+                        </article>
                         <% } %>
                        
                 </section>
-    
+               <% // if (locals.user && locals.user.id == mascotasDetalle.comentario.autor.id) { // %> 
 
-              <form action="" method="POST" class="comment-form">
+              <form action="/posteos/detallePost/id" method="POST" class="comment-form">
                     <input type="text" class="input" placeholder="Agregar comentario" name="comentario">
                     <button type="submit"> Comentar </button> 
                 </form>
+                <% //} %> 
+
             </section>
         </div>
     </main>

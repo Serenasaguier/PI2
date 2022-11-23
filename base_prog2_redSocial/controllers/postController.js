@@ -3,7 +3,8 @@
 
 const { QueryError } = require("sequelize");
 const db =  require("../database/models");
-const comentar = db.Comentario;
+const Usuario = require("../database/models/Usuario");
+const Comment = db.Comentario;
 const Post = db.Post;
 
  const postController = {
@@ -32,60 +33,41 @@ const Post = db.Post;
          })
          },
 
-      create : (req, res)=> {
-         let info = req.body;
-         let imgPost = req.file.filename;
-         let post = {
-            imagen: imgPost,
-            caption: info.imagen,
-            users_id: info.users_id
-         }
+   create: (req,res) => {
+      return res.render('agregarPost')
+   } ,
+   store: (req, res) => {
 
-         let filtro = {
-            where: {
-               id: req.params.id
-            }
-         };
+      if(req.session.user == undefined){
+         res.redirect('/user/login')
+      }
 
-         if(req.session.user.id == post.users_id) {
-            post.create(post, filtro)
+      let posteo = {
+         users_id: req.session.user.id,
+         foto: req.file.filename,
+         caption: req.body.caption
+      };
+      let errors = {};
+         if (data.foto == "") {
+            errors.message = 'A photo is required';
+            res.locals.errors = errors;
+            return res.render('agregarPost')
+
+            
+        } else if (data.caption == "") {
+            errors.message = 'A caption is needed';
+            res.locals.errors = errors;
+            return res.render('agregarPost')
+
+
+        }  else{ Post.create(posteo)
             .then((result) => {
-               console.log(post.users_id);
-               return res.redirect('/')
-            }) .catch((error) => {
-               console.log(error);
-            });
+                return res.redirect('/')
+            }).catch((err) => {
+                return res.send('Hay un error' + err)
+            });}
 
-         } else {
-            console.log(post.users_id);
-            return res.redirect('/user/profile')
-         }
-    },
-  agregarPost: function (req, res) {
-    res.render('agregarPost')
-    let error = {
-       errores: ""
-    }
-    if(req.body.caption === '' ){
-       error.errores = 'Debes asignarle un caption al post'
-       res.locals.error = error;
-    } else if (req.file === undefined){
-       error.errores = error.errores + 'Agregar imagen'
-    }
-
-    let datos = {
-       caption: req.body.caption,
-       imagen: req.file.filename,
-    }
-
-    Post.create(datos)
-    .then((result)=>{
-       return res.redirect('/')
-    })
-    .catch(error => console.log(error))
-
-    // debemos almacenar el posteo subido y guardarlo en la base de datos
- },
+   },
 
    detallePost:  function (req, res) {
       Post.findByPk(req.params.id)
@@ -102,25 +84,47 @@ const Post = db.Post;
           res.send(error)
       });
   },
-  comments: (req, res) => {
+  createComment: (req, res) => {
+   return res.render('/user/detallePost')
+  },
+  storeComment: (req, res) => {
    if(req.session.user == undefined){
       res.redirect('/user/login')
     }else{
 
-   let info = req.body;
-   let comentario = {
-       comentario: info.comentario,
-       id_usuarios: req.session.user.id,   
-   }
-   comentar.create(comentario)
+      let comentario = {
+       comentario: req.body.comentario,
+       id_usuarios: req.session.user.id,  
+       autor: req.body.comentario.autor 
+   };
+
+   Comment.create(comentario)
    .then((result) => {
        return res.redirect('/user/detallePost')
    }).catch((error) => {
        console.log(error);
    });
    
-}
-}
+   };
+   },
+   showComment: (req, res) => {
+      let usuarioDelPost = req.params.id
+      Comment.findAll({
+         include: [
+            {all: true, nested: true}
+         ],
+         where: [
+            {id_usuarios: usuarioDelPost}
+         ],
+         order: [
+            ['createdAt', 'DESC']
+         ]
+      }).then(result =>{    
+         return res.render('detallePost', {comentado: result})
+        }).catch(error =>{
+            res.send(error)
+        });
+   }
  } 
 
 module.exports = postController;  

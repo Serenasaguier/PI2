@@ -117,10 +117,11 @@ const userController = {
 
                         if(passEncript) {
 
-                            req.session.user= result;
+                            req.session.user= result.dataValues;
 
-                            if(req.body.rememberme != undefined){
-                                res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 100})
+                            if(req.body.recordarme != undefined){
+                                res.cookie('usuarioRecordado', result.dataValues.id, { maxAge: 1000 * 60 * 100});
+                                console.log(req.cookies.usuarioRecordado)
                             }
 
                             return res.redirect('/');
@@ -146,7 +147,7 @@ const userController = {
     logout: function (req, res) {
        
        req.session.user= null ;
-       res.clearCookie('userId');
+       res.clearCookie('usuarioRecordado');
        res.redirect('/user/login')
     },
     //id

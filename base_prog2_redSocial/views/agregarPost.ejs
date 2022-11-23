@@ -12,23 +12,20 @@
     <% } %>
 
     <main>
+       
         <section class="center main-content registrar editar">
-            <h1 class="titles" >Nuevo post</h1><form action="" method="get">
-                <div class="registro">
-                <form  action="/" method="post"  target="_blank" enctype="multipart/form-data">
-                    <p> Subir achivo : </p>
-                      
-                      <input type="file" name="archivosubido" placeholder="Agregar imagen">
-                     <p>Subir caption : </p> 
+            <h1 class="titles" >Nuevo post</h1>
+            <form action='/miPerfil/create' method="post" target="_blank" enctype="multipart/form-data">
+                    <label> Subir achivo : </label> <input type="file" name="foto" value="" placeholder="Agregar imagen">
+                     <p>Subir caption : </p> <input type="text" class="registro" name="caption" value="" >
+
                      <% if (locals.error) { %>
                       
                 <p class="error registro" style="color:red"> <%= locals.error.errores %> </p>
                      <% } %>
-                     <input type="text" class="registro" name="caption">
                       <input type="submit" value="Enviar datos">
                     
                   </form> 
-                </div>
      
              </form> </section>
     </main>

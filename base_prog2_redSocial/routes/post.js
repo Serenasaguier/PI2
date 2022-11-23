@@ -1,5 +1,5 @@
 const express= require('express');
-const router= express.Router();
+const router = express.Router();
 
 const postController= require('../controllers/postController');
 
@@ -19,21 +19,24 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage:storage});
 
-router.post('/agregarPost', upload.single('archivosubido') , postController.agregarPost)
 
 
 //id
 //mostrar posts
 router.get('/detallePost/id/:id', postController.show)
 
-// agregar post
-router.get('/agregarPost', postController.agregarPost)
+// crear post
+router.get('/create', postController.create);
+router.post('/store', upload.single('foto'), postController.store)
 
 // editar post
 router.get('/editarPost/id/:id', postController.editarPost)
 
 //comentario
-router.post('/detallePost/id/:id', postController.comments);
+router.get('/detallePost/createComment', postController.createComment)
+router.post('/detallePost/storeComment', postController.storeComment);
+// mostrar comentarios
+router.get('/detallePost/showComment', postController.showComment);
 
 //borrar post
 router.post('/detallepost/id/:id/delete', postController.delete);
