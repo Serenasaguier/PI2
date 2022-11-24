@@ -35,14 +35,9 @@ const userController = {
 
         } else {
             // almacenar info
-            let guardarUsuario = req.body;
-           /*  let fotoPerfil; */
-            let errors = {};
-            if (!req.file) {
-                fotoPerfil = 'https://tse1.mm.bing.net/th?id=OIP.ho7hCKNowRHh7u5wu1aMWQHaF9&pid=Api&P=0'
-           /*  } else {
-                fotoPerfil = req.file.filename */
-            }
+            let guardarUsuario = req.body; 
+            let errors= {};
+            
 
             /* para guardarlo en la base de datos */
 
@@ -52,7 +47,6 @@ const userController = {
                 nombreUsuario: guardarUsuario.username,
                 email: guardarUsuario.useremail,
                 contrasenia: guardarUsuario.password,
-                /* fotoPerfil: req.file.filename, */
                 cumpleanios: guardarUsuario.cumpleanios
             }
 
@@ -181,9 +175,9 @@ const userController = {
 
     miPerfil: function (req, res) {
        
-    usuario.findByPk(req.session.user.id, 
-        {include: {all: true, nested: true},
-        // order : [ "createdAt", "ASC"]
+    usuario.findByPk(req.session.user.id, {
+        include: {all: true, nested: true},
+        order : [[ "createdAt", "ASC"]]
     })
     .then((result)=> {
         return res.render('miPerfil', {result: result})
@@ -193,12 +187,6 @@ const userController = {
     })
         
     },
-
-     /*updatePerfil:(req, res) =>{
-         return res.render('editarPerfil',{
-             edit : req.session.user
-         })
-    },*/
     renderEPerfil: (req, res)=> {
         console.log(req.body.username)
         id= req.session.user.id

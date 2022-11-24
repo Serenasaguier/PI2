@@ -30,7 +30,6 @@ router.post('/login', userController.procesarLogin);
 
 router.get('/miPerfil', userController.miPerfil);
 
-/ruta param/
 router.get('/detalleUsuario/id/:id', userController.show);
  router.get('/editarPerfil', userController.editarPerfil)
 

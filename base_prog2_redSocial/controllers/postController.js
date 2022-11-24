@@ -45,7 +45,7 @@ const Post = db.Post;
 
       let posteo = {
          id_usuarios: req.body.id, 
-         imagen: req.file.filename,
+        // imagen: req.file.filename,
          caption: req.body.caption,
       };
       let errors = {};

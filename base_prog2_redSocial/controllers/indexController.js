@@ -32,7 +32,6 @@ let usuario = db.Usuario;
       
         usuario.findAll({
                 where: [{nombreUsuario: {[op.like]:"%"+busqueda+"%"}}],
-                //order: [["nombreUsuario", "ABC"]],
                 limit:10,
                 include: {all: true, nested: true}
             } )

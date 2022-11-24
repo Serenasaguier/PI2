@@ -15,11 +15,11 @@
        
         <section class="center main-content registrar editar">
             <h1 class="titles" >Nuevo post</h1>
-            <form  method="post" enctype="multipart/form-data">
+            <form  method="POST" enctype="multipart/form-data">
                     <label class="registro"> Subir achivo : </label> <input type="file" name="foto" value="" placeholder="Agregar imagen">
                      <p class="registro">Subir caption : </p> <input type="text" class="registro" name="caption" value="" >
 
-                     <% if (locals.error) { %>
+                     <% if (locals.errors) { %>
                       
                 <p class="error registro" style="color:red"> <%= locals.errors.message %> </p>
                      <% } %>
