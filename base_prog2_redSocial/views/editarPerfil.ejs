@@ -13,12 +13,13 @@
 
     <main>
         <section class="center main-content registrar editar">
-        <h1 class="titles" >Editar mi perfil</h1><form action="" method="post">
-            
+        <h1 class="titles" >Editar mi perfil</h1>
+        <form  method="POST">
+            <!--
             <p class="registro">Foto de perfil actual: </p>
-            <img class="photoperfil" src="<%=result.fotoPerfil%>" alt="" width="250px" height="200px"> </label> 
+            <img class="photoperfil" src="%=result.fotoPerfil%>" alt="" width="250px" height="200px"> </label> 
 
-          <form  action="/" method="post"  target="_blank" enctype="multipart/form-data">
+          <form  action="" method="post"  target="_blank" enctype="multipart/form-data">
                     <p class="registro">
                       Nueva foto de perfil: 
                       
@@ -26,17 +27,17 @@
                       
                     </p>
                   </form> 
-            
+            -->
 
             <p class="registro">Nombre actual: <%=result.nombreUsuario%> </p>
-            <div class="registro"> <label for="name"> Nuevo nombre: </label> <input type="text" name="username" value=""> </div>
+            <div class="registro"> <label for="username"> Nuevo nombre: </label> <input type="text" name="username" id="username" > </div>
 
             <p class="registro">Email actual: <%= result.email %> </p>
-            <div class="registro"> <label for="user">Nuevo nombre de Email: </label>  <input type="email" name="useremail" value="" placeholder="Ingrese su nuevo nombre de usuario"> </div>
+            <div class="registro"> <label for="useremail">Nuevo nombre de Email: </label>  <input type="email" name="useremail" id="useremail" placeholder="Ingrese su nuevo nombre de usuario"> </div>
             
-             <div class="registro"> <label for="password">Nueva contraseña: </label>  <input type="password" name="contrasenia" value="" placeholder="Ingrese su nueva contraseña"> </div>
+             <div class="registro"> <label for="contrasenia">Nueva contraseña: </label>  <input type="password" name="contrasenia" id="contrasenia" placeholder="Ingrese su nueva contraseña"> </div>
  
-             <button type="submit" class="button"> <a href="/user/miPerfil"> Enviar datos editados </a></button> 
+             <button type="submit" class="button">  Enviar datos editados </button> 
  
          </form> </section>
     </main>

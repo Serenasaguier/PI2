@@ -1,5 +1,5 @@
 const express= require('express');
-const router = express.Router();
+const router= express.Router();
 
 const postController= require('../controllers/postController');
 
@@ -20,26 +20,29 @@ let storage = multer.diskStorage({
 let upload = multer({storage:storage});
 
 
-
 //id
 //mostrar posts
 router.get('/detallePost/id/:id', postController.show)
 
 // crear post
-router.get('/create', postController.create);
-router.post('/store', upload.single('foto'), postController.store)
+router.get('/agregarPost', postController.create);
+router.post('/agregarPost', upload.single('foto'), postController.store)
 
 // editar post
-router.get('/editarPost/id/:id', postController.editarPost)
+router.get('/editarPost/id/:id', postController.procesarEPost);
+router.post('/editarPost/id/:id', postController.editarPost)
 
 //comentario
-router.get('/detallePost/createComment', postController.createComment)
-router.post('/detallePost/storeComment', postController.storeComment);
-// mostrar comentarios
-router.get('/detallePost/showComment', postController.showComment);
+router.post('/detallePost/id/:id', postController.comments);
 
 //borrar post
 router.post('/detallepost/id/:id/delete', postController.delete);
+
+
+/* 
+router.get('/detallePost/id/:id', postController.createComment)
+router.post('/detallePost/id/:id', postController.storeComment);
+router.get('/detallePost', postController.showComment); */
 
 
 module.exports= router;

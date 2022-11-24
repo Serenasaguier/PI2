@@ -15,8 +15,7 @@
 
                 <section class="center main-content registrar">
                     <h1 class="titles">Registrate</h1>
-                
-                    <form method="POST" id="registracionForm">
+                    <form method="POST">
                         <!-- agregar enctype="multipart/form-data" para multer -->
                 
                         <div class="registro"> <label for="user">Nombre de usuario: </label> <input type="text" name="username"
@@ -28,30 +27,29 @@
                                 <%= locals.errors.mensaje %>
                             </p>
                             <% } %>
-                            <p class="error registro" id="errorMsj" style="color:red"></p>
-                                <div class="registro"> <label for="user">Email: </label> <input type="email" name="useremail" placeholder="Ingrese su email" class="registerEmail" id="registerForm"> </div>
-                                <div class="registro"> <label for="password">Contraseña: </label> <input type="password" name="password" id="password" placeholder="Ingrese su contraseña"> </div>
+                                <div class="registro"> <label for="user">Email: </label> <input type="email" name="useremail"
+                                        placeholder="Ingrese su email"> </div>
+                
+                
+                                <div class="registro"> <label for="password">Contraseña: </label> <input type="password" name="password"
+                                        id="password" placeholder="Ingrese su contraseña"> </div>
                 
                                 <div class="registro"> <label for="start">Dia de nacimiento :</label>
                 
                                     <input type="date" id="start" name="cumpleanios" value="0000-00-00">
                                 </div>
-
-                         <!--   <form  action="/" method="post"  target="_blank" enctype="multipart/form-data">
-                                  <input type="file" name="fotoPerfil" placeholder="Agregar imagen">
-                              </form> -->
+                
                                 
                                 <button type="submit" class="button"> Enviar </button>
-                
+                                
                     </form>
                 </section>
             </main>
 
             <%- include('./partials/footer') %>
 
+
             <script type="text/javascript" src="/javascripts/registracion.js"></script>
-
-
     </body>
 
 </html>

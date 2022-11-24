@@ -10,16 +10,17 @@ const path = require('path');
 
 let storage = multer.diskStorage({
     destination : (req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/images/fotoPerfil'));
+        cb(null, path.join(__dirname, '../public/images/posteos'));
     },
     filename: (req, file, cb)=> {
         cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
      }
 });
 
-let upload = multer({storage:storage});
+//let upload = multer({storage:storage});
 
-router.post('/editarPerfil', upload.single('fotoPerfil') , userController.editarPerfil)
+router.get('/editarPerfil',userController.renderEPerfil )
+router.post('/editarPerfil', userController.editarPerfil)
 
 router.get('/registracion', userController.create);
 router.post('/registracion', userController.store);
@@ -29,7 +30,7 @@ router.post('/login', userController.procesarLogin);
 
 router.get('/miPerfil', userController.miPerfil);
 
-/*ruta param*/
+/ruta param/
 router.get('/detalleUsuario/id/:id', userController.show);
  router.get('/editarPerfil', userController.editarPerfil)
 

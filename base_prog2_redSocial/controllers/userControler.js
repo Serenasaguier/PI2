@@ -1,8 +1,10 @@
 
 /*SEGUNDA PARTE */
 
+
 const db = require ('../database/models');
 const bycript = require('bcryptjs');
+const { render } = require('ejs');
 const usuario = db.Usuario
 
 const userController = {
@@ -34,22 +36,26 @@ const userController = {
         } else {
             // almacenar info
             let guardarUsuario = req.body;
-            let fotoPerfil;
+           /*  let fotoPerfil; */
             let errors = {};
             if (!req.file) {
                 fotoPerfil = 'https://tse1.mm.bing.net/th?id=OIP.ho7hCKNowRHh7u5wu1aMWQHaF9&pid=Api&P=0'
-            } else {
-                fotoPerfil = req.file.filename
+           /*  } else {
+                fotoPerfil = req.file.filename */
             }
+
             /* para guardarlo en la base de datos */
-            guardarUsuario.password = bycript.hashSync(guardarUsuario.password.toString(), 10)
+
+            guardarUsuario.password = bycript.hashSync(guardarUsuario.password, 10)
+
             let user = {
                 nombreUsuario: guardarUsuario.username,
                 email: guardarUsuario.useremail,
                 contrasenia: guardarUsuario.password,
-                // fotoPerfil: req.file.filename,
+                /* fotoPerfil: req.file.filename, */
                 cumpleanios: guardarUsuario.cumpleanios
             }
+
             //Chequear que el email no exista en la base.
             usuario.findOne({
                 where: {
@@ -57,8 +63,8 @@ const userController = {
                 }
             })
             
-                .then(function (otroUsuario) {
-                    if (otroUsuario) {
+                .then( (check) =>{
+                    if (check) {
                         errors.mensaje = "El email ya existe. Por favor, elija otro.";
                         res.locals.errors = errors;
                          res.render('registracion');
@@ -96,8 +102,7 @@ const userController = {
         // validar email
         let error = {};
 
-        
-         if(info.email == "") {
+        if(info.email == "") {
             error.message = 'The email box is empty';
             res.locals.error = error;
             return res.render('login')
@@ -105,10 +110,9 @@ const userController = {
             error.message = 'Passwords require more than 3 letters';
             res.locals.error = error;
             return res.render('login')
-        } 
+        }
 
-        else{ 
-
+        else{
             usuario.findOne(filtrar)
                 .then((result) => {
                     console.log(result)
@@ -118,23 +122,22 @@ const userController = {
 
                         if(passEncript) {
 
-                            req.session.user= result.dataValues;
+                            req.session.user= result;
 
-                            if(req.body.recordarme != undefined){
-                                res.cookie('usuarioRecordado', result.dataValues.id, { maxAge: 1000 * 60 * 100});
-                                console.log(req.cookies.usuarioRecordado)
+                            if(req.body.rememberme != undefined){
+                                res.cookie('userId', result.dataValues.id, { maxAge: 1000 * 60 * 100})
                             }
 
                             return res.redirect('/');
 
                         } else {
-                            error.message = 'Contrasenia incorrecta';
+                            error.message = 'Incorrect password';
                             res.locals.error = error;
                             return res.render('login');
                         }
 
                     } else {
-                        error.message = 'El mail no existe o es incorrecto';
+                        error.message = 'Incorrect email';
                         res.locals.error = error;
                         return res.render('login');
                     }
@@ -142,13 +145,13 @@ const userController = {
                 }) .catch((error) => {
                     console.log(error);
                 })
-       }
+        }
     },
     //logout
     logout: function (req, res) {
        
        req.session.user= null ;
-       res.clearCookie('usuarioRecordado');
+       res.clearCookie('userId');
        res.redirect('/user/login')
     },
     //id
@@ -196,36 +199,9 @@ const userController = {
              edit : req.session.user
          })
     },*/
-
-    editarPerfil: (req, res)=> {
-
-        let rb = req.body;
-        
-        let user = {
-            email: rb.useremail,
-            nombreUsuario: rb.username,
-           // contrasenia: bycript.hashSync(rb.contrasenia, 10),
-           // fotoPerfil: req.file.filename
-        }
-        usuario.update(user, {
-                where: {
-                    id: req.session.user.id
-                    // o {where: [{id: req.body.id}]}
-                }
-            })
-            .then(function (data) {
-                if (req.file) {
-                    req.session.user.fotoPerfil = req.file.filename
-
-                res.redirect('/user/editarPerfil')
-                }
-            })
-            .catch(function (error) {
-                console.log(error)
-                res.send(error)
-            })
-    
-            id= req.session.user.id
+    renderEPerfil: (req, res)=> {
+        console.log(req.body.username)
+        id= req.session.user.id
 
             usuario.findByPk(id,{
                         include: {all:true, nested:true} 
@@ -234,7 +210,38 @@ const userController = {
             }).catch(error =>{
                 res.send(error)
             });
-}
+      
+    },
+
+    editarPerfil: (req, res)=> {
+        console.log(req.body);
+        let rb = req.body;
+        let user = {
+            email: rb.useremail,
+            nombreUsuario: rb.username,
+            contrasenia: bycript.hashSync(rb.contrasenia, 10),
+            //fotoPerfil: req.file.filename
+        }
+        usuario.update(user, {
+                where: {
+                    id: req.session.user.id
+                    
+                }
+            })
+            .then(function (data) {
+                 
+                    /* req.session.user.fotoPerfil = req.file.filename */
+
+                res.redirect('/user/miPerfil')
+                
+            })
+            .catch(function (error) {
+                console.log(error)
+                res.send(error)
+            })
+    
+            
+},
 }
    
 module.exports= userController;

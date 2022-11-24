@@ -14,21 +14,20 @@
     <main>
         <section class="center main-content login">
         <h1 class="titles" >Login</h1>
-        <form  method="post" id="loginForm">
+        <form  method="post">
           
            <div class="registro">
-             <label for="user"> Email: </label> <input type="email" name="email" id="email">
+             <label for="user"> Email: </label> <input type="email" name="email" id="email" class="inputLogin">
             </div>
             <% if (locals.error) {%> 
                 <p class="error registro" style="color:red"> <%= locals.error.message %> </p>
                 <% } %>    
-                <p class="error registro" id="errorMsj" style="color:red"></p>
            <div class="registro">
-             <label for="user"> Contraseña: </label> <input type="password" name="password" id="password">
+             <label for="user"> Contraseña: </label> <input type="password" name="password" id="password" >
             </div>
          
            <div class="input-container ic1">
-            <input id="recordarme" class="recordarme" type="checkbox" name="recordarme" value="RemindMe">
+            <input id="recordarme" class="recordarme" type="checkbox" name="rememberme" />
             <label class="recordarmeLabel registro" for="Recordarme">recordarme</label>
         </div>
             <button type="submit" class="button"> Login</button> 
@@ -38,7 +37,6 @@
 
     <%- include('./partials/footer') %> 
     <script type="text/javascript" src="/javascripts/login.js"></script>
-
 </body>
 
 </html>
