@@ -18,17 +18,13 @@
                     <% for( let i=0; i < mascotasPost.length; i++ ) { %>
                         <article class="post">
                             <div class="info-usuario ">
-                                <img src="<%= mascotasPost[i].usuario.fotoPerfil%>" alt="" height="50px" width="50px">
+                                <img src="/images/fotoPerfil.jpeg" alt="" height="50px" width="50px">
                                 <h4>
-                                    <a href="/user/detalleUsuario/id/<%=mascotasPost[i].usuario.id%>" class="textoRegular">
-                                        
-                                        <%=mascotasPost[i].usuario.nombreUsuario%>
-                                    </a>
                                 </h4>
                             </div>
                             <div class="post-body">
                                 <a href="/posteos/detallePost/id/<%=mascotasPost[i].id%>">
-                                  <img src="<%=mascotasPost[i].imagen%>" alt="">
+                                  <img src="/images/posteos/<%=mascotasPost[i].imagen%>" alt="">
                                 </a>
                             </div>
                             <ul class="post-reacciones">
@@ -41,13 +37,13 @@
                             </ul>
                             
 
-                    <p class="textoRegular post-comentarios"> <%=mascotasPost[i].usuario.nombreUsuario%> : <%=mascotasPost[i].caption%>  </p>
+                    <p class="textoRegular post-comentarios">  : <%=mascotasPost[i].caption%>  </p>
                             <div class="post-comentarios">
                                 <h4 class="textoRegular">Comentarios</h4>
                                 <ul>
                                     <% for( let j=0; j < mascotasPost[i].length; j++ ) { %>
                                         <li>
-                                            <a href="/user/detalleUsuario/id/<%=mascotasPost[i].usuario.id%>" class="textoRegular">
+                                            <a href="/user/detalleUsuario/id/<%=mascotasPost[i].id%>" class="textoRegular">
                                                 <%= mascotasPost[i].comentarios.autor %> :
                                             </a>
                                             <span class="textoRegular">

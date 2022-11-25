@@ -12,16 +12,17 @@ let usuario = db.Usuario;
         /* relaciones */
         Post.findAll({
                      include: {all:true, nested:true},
-                     order:[
-                         ['createdAt', 'DESC']
-                     ]
+                     order:[['createdAt', 'DESC']]
+                    
         }).then(result =>{   
             console.log(result)
  
             return res.render('index', {mascotasPost: result} )
         }).catch(error =>{
             res.send(error)
-        }); 
+        });  
+
+
         
 
     }, 

@@ -18,12 +18,12 @@
             <section class="center main-content post" class="textoRegular" >
                
                 <div class="info-usuario">
-                    <img src="<%= mascotasDetalle.usuario.fotoPerfil%>" alt="" height="40px" width="40px">
+                    <img src="/images/fotoPerfil.jpeg" alt="" height="40px" width="40px">
                     <p><a href="/user/detalleUsuario/id/<%=mascotasDetalle.id_usuarios%>" ><%= mascotasDetalle.usuario.nombreUsuario %></a></p>
                     
                 </div>
 
-                <img class="photo" src="<%= mascotasDetalle.imagen %>" alt="" width="500px" height="600px">
+                <img class="photo" src="/images/posteos/<%= mascotasDetalle.imagen %>" alt="" width="500px" height="600px">
 
                 <% if (locals.user && user.id == mascotasDetalle.id_usuarios) { %>
                     

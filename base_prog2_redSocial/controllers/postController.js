@@ -44,8 +44,8 @@ const Post = db.Post;
       }
 
       let posteo = {
-         id_usuarios: req.body.id, 
-        // imagen: req.file.filename,
+         id_usuarios: req.session.user.id, 
+        imagen: req.file.filename,
          caption: req.body.caption,
       };
       let errors = {};
@@ -102,8 +102,8 @@ const Post = db.Post;
     let rb = req.body;
  
     let edit = {
-       //archivosubido: req.file.filename,
        caption: rb.piefoto,
+       imagen: req.file.filename,
     }
        Post.update(edit, {
           where: {id: id}

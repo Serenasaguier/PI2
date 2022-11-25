@@ -47,7 +47,7 @@ const userController = {
                 nombreUsuario: guardarUsuario.username,
                 email: guardarUsuario.useremail,
                 contrasenia: guardarUsuario.password,
-                cumpleanios: guardarUsuario.cumpleanios
+                cumpleanios: guardarUsuario.cumpleanios,
             }
 
             //Chequear que el email no exista en la base.

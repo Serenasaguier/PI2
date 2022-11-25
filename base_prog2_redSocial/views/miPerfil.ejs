@@ -30,7 +30,7 @@
                 <% for( let i=0; i < result.post.length; i++ ) { %>
                     <article class="post">
                         <a href="/posteos/detallePost/id/<%=result.post[i].id %>">
-                            <img src="<%= result.post[i].imagen %>" alt="">
+                            <img src="/images/posteos/<%= result.post[i].imagen %>" alt="">
                         </a>
                         <p class="textoRegular post-comentarios"> <%= result.nombreUsuario %> : <%=result.post[i].caption%>  </p>
                         

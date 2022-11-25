@@ -14,7 +14,7 @@
             <main>
                 <div class="user-detail container">
                     <section class="top main-content" class="textoRegular">
-                        <img class="profile" src="<%= detalle.fotoPerfil %>" alt="" height="100px" width="150px">
+                        <img class="profile" src="/images/fotoPerfil.jpeg" alt="" height="100px" width="150px">
                         <div class="info-usuario">
                             <p>
                                 <%= detalle.nombreUsuario %>
@@ -31,7 +31,7 @@
                         <% for( let i=0; i < detalle.post.length; i++ ) { %>
                             <article class="post">
                                 <a href="/posteos/detallePost/id/<%=detalle.post[i].id %>">
-                                    <img src="<%= detalle.post[i].imagen %>" alt="">
+                                    <img src="/images/posteos/<%= detalle.post[i].imagen %>" alt="">
                                 </a>
                                 <p class="textoRegular post-comentarios"> <%= detalle.nombreUsuario %> : <%=detalle.post[i].caption%>  </p>
                                 

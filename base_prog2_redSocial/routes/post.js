@@ -19,14 +19,14 @@ let storage = multer.diskStorage({
 
 let upload = multer({storage:storage});
 
+// crear post
+router.get('/agregarPost', postController.create);
+router.post('/agregarPost', upload.single('foto'), postController.store)
+
 
 //id
 //mostrar posts
 router.get('/detallePost/id/:id', postController.show)
-
-// crear post
-router.get('/agregarPost', postController.create);
-router.post('/agregarPost', upload.single('foto'), postController.store)
 
 // editar post
 router.get('/editarPost/id/:id', postController.procesarEPost);

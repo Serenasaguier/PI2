@@ -4,20 +4,6 @@ const router= express.Router();
 const userController=  require('../controllers/userControler');
 
 
-/* para guardar la foto de perfil con multer*/
-const multer = require('multer');
-const path = require('path');
-
-let storage = multer.diskStorage({
-    destination : (req, file, cb) => {
-        cb(null, path.join(__dirname, '../public/images/posteos'));
-    },
-    filename: (req, file, cb)=> {
-        cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
-     }
-});
-
-//let upload = multer({storage:storage});
 
 router.get('/editarPerfil',userController.renderEPerfil )
 router.post('/editarPerfil', userController.editarPerfil)

@@ -21,17 +21,14 @@
             <% for( let i=0; i < resultados.length; i++ ) { %>
                 <article class="post">
                     <div class="info-usuario ">
-                        <img src="<%= resultados[i].usuario.fotoPerfil%>" alt="" height="50px" width="50px">
+                        <img src="/images/fotoPerfil.jpeg" alt="" height="50px" width="50px">
                         <h4>
-                            <a href="/user/detalleUsuario/id/<%=resultados[i].usuario.id%>" class="textoRegular">
-                                
-                                <%=resultados[i].usuario.nombreUsuario%>
-                            </a>
+                            
                         </h4>
                     </div>
                     <div class="post-body">
                         <a href="/posteos/detallePost/id/<%=resultados[i].id%>">
-                          <img src="<%=resultados[i].imagen%>" alt="">
+                          <img src="/images/posteos/<%=resultados[i].imagen%>" alt="">
                         </a>
                     </div>
                     <ul class="post-reacciones">
@@ -42,7 +39,7 @@
                             <i class="fa-regular fa-comment"></i>
                         </li>
                     </ul>
-                    <p class="textoRegular post-comentarios"> <%= resultados[i].usuario.nombreUsuario %> : <%=resultados[i].caption%>  </p>
+                    <p class="textoRegular post-comentarios">  : <%=resultados[i].caption%>  </p>
                 
                                 <a href="/posteos/detallePost/id/<%=resultados[i].id %> " class="textoRegular post-comentarios">Ver más...</a>
                         </ul>
