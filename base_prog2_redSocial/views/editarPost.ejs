@@ -6,7 +6,6 @@
 <body>
     <% if (locals.user != undefined) { %>
         <%- include('./partials/header') %>
-
     <% } else { %>
         <%- include('./partials/headerLogeado') %>
     <% } %>
@@ -14,15 +13,12 @@
     <main>
         <section class="center main-content registrar editar">
             <h1 class="titles" >EDITAR POST</h1>
-            <form action="" method="POST" enctype="multipart/form-data" >
+            <form action="" method="POST" >
                 <div class="registro">
 
                     <p>Post actual : </p>
                     
                     <img class="photo" src="/images/posteos/<%= datos.imagen %>" alt="" width="200px" height="300px">
-
-                    <p>Nuevo post: </p>
-                    <input type="file" name="foto" placeholder="nueva foto">
                 <p>Caption actual  : <%= datos.caption %> </p>
                 </div>
                  <div class="registro">

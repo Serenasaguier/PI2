@@ -86,31 +86,30 @@ const Post = db.Post;
       });
   },
   
- procesarEPost:(req, res)=> {
+  procesarEPost:(req, res)=> {
     let id = req.params.id
     Post.findByPk(id,{
        include: {all:true, nested:true} // si ponemos include all no es necesario agregar uno por uno arriba    
    })
    .then(result =>{    
     return res.render('editarPost', {datos: result})
- 
+
    }) .catch((error)=>{console.log(error)})
- 
+
   },
   editarPost: (req, res)=> {
     let id = req.params.id
     let rb = req.body;
- 
+
     let edit = {
        caption: rb.piefoto,
-       imagen: req.file.filename,
     }
        Post.update(edit, {
           where: {id: id}
        }).then((data)=>{
           res.redirect('/user/miPerfil')
        }).catch((error)=>{
-          
+
           return res.send(error)
        })
    },
